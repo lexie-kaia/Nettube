@@ -8,9 +8,8 @@
   - [Configuring ESLint](https://eslint.org/docs/user-guide/configuring/)
 - 김정환 블로그 - [프론트엔드 개발환경의 이해](https://jeonghwan-kim.github.io/series/2019/12/09/frontend-dev-env-npm.html)
 - kakao Tech - [ESLint 조금 더 잘 활용하기](https://tech.kakao.com/2019/12/05/make-better-use-of-eslint/)
-  <br>
 
----
+<br>
 
 ## Babel, Eslint, Prettier
 

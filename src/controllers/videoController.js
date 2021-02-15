@@ -1,11 +1,11 @@
-export const getHome = (req, res) => res.send('home');
+export const getHome = (req, res) => res.render('pages/home');
 
-export const getSearch = (req, res) => res.send('search');
+export const getSearch = (req, res) => res.render('pages/home');
 
-export const getNew = (req, res) => res.send('new');
+export const getUpload = (req, res) => res.render('pages/uploadVideo');
 
-export const getVideoDetail = (req, res) => res.send('video detail');
+export const getVideoDetail = (req, res) => res.render('pages/videoDetail');
 
-export const getEditVideo = (req, res) => res.send('edit video');
+export const getEditVideo = (req, res) => res.render('pages/editVideo');
 
-export const getDeleteVideo = (req, res) => res.send('delete video');
+export const getDeleteVideo = (req, res) => res.render('pages/home');

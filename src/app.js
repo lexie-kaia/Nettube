@@ -7,6 +7,7 @@ import { join as pathJoin } from 'path';
 import { routes } from './routes';
 import { homeRouter } from './routers/homeRouter';
 import { accountsRouter } from './routers/accountsRouter';
+import { videosRouter } from './routers/videosRouter';
 
 dotenv.config();
 
@@ -25,10 +26,11 @@ app.use(express.urlencoded({ extended: false }));
 // router
 app.use(routes.home, homeRouter);
 app.use(routes.accounts, accountsRouter);
+app.use(routes.videos, videosRouter);
 
 // error handler
 app.use((req, res, next) => {
-  res.send('NOT FOUND');
+  res.render('pages/error');
 });
 
 export default app;

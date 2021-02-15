@@ -13,8 +13,8 @@ const CHANGEPASSWORD = '/password';
 
 // videos router
 const VIDEOS = '/videos';
+const UPLOADVIDEO = '/upload';
 const VIDEODETAIL = '/:videoId';
-const UPLOADVIDEO = '/:videoId/new';
 const EDITVIDEO = '/:videoId/edit';
 const DELETEVIDEO = '/:videoId/delete';
 

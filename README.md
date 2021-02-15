@@ -38,6 +38,7 @@ This project focuses on learning the overall basic environment of web developmen
   - [Node.js learn](https://nodejs.dev/learn)
   - [Configure Babel](https://babeljs.io/docs/en/configuration) | [Prettier - Integrating with Linters](https://prettier.io/docs/en/integrating-with-linters.html) | [Configuring ESLint](https://eslint.org/docs/user-guide/configuring/)
   - [Express.js Guide, API reference](https://expressjs.com/)
+  - [pug](https://pugjs.org/api/getting-started.html)
   - [Mongoose docs](https://mongoosejs.com/docs/guide.html)
   - ...
 - etc
@@ -62,7 +63,7 @@ This project focuses on learning the overall basic environment of web developmen
 - [x] **node, npm, yarn**
   1. `$ yarn init`
   2. creating 'package.json'
-  - notes : [npmAndYarn.md]()
+  - notes : [npmAndYarn.md](https://github.com/lexie-kaia/Nettube/blob/main/notes/npmAndYarn.md)
 - [x] **babel**
   1. installing Babel  
      `$ yarn add --dev @babel/{core,node,preset-env}`
@@ -74,7 +75,7 @@ This project focuses on learning the overall basic environment of web developmen
      `$ yarn add --dev eslint eslint-config-prettier eslint-plugin-prettier prettier`
   2. configuring '.eslint.js'
   3. Installing VSCode extensions
-  - notes: [babelEslintPrettier.md]()
+  - notes: [babelEslintPrettier.md](https://github.com/lexie-kaia/Nettube/blob/main/notes/babelEslintPrettier.md)
 - [x] **nodemon**
   1. installing `$ yarn add --dev nodemon`
   2.  configuring 'package.json'  
@@ -104,8 +105,41 @@ This project focuses on learning the overall basic environment of web developmen
   - (cors)
   - (static)
   - [ ] `multer`
-- [ ] **API**
-  - [X] routes.js
+- [ ] **API** 
+  | Router | HTTP verb | URL | Payload | Description |
+  |:---|:---|:---|:---|:---|
+  | homeRouter | GET | / || home |
+  ||GET|/search|req.query /?search=|search|
+  ||GET|/signup||signup|
+  ||POST|/signup|req.body {user}|signup<br/>(redirect home)|
+  ||GET|/login ||login|
+  ||POST|/login|req.body {user(id,pw)}|login<br/>(redirect home)|
+  ||GET|/logout|req.user|logout<br/>(redirect home)|
+  ||GET|/auth/github||github login|
+  ||GET|/auth/github/callback||github login|
+  ||GET|/auth/facebook||facebook login|
+  ||GET|/auth/facebook/callback||facebook login|
+  |accountsRouter|(index)|/accounts| | (index url) |
+  ||GET|/accounts/me| req.user | display personal account |
+  ||GET|/accounts/profile|req.user|edit profile|
+  ||POST|/accounts/profile|req.user<br/>req.body {user}|edit profile<br/>(redirect    account)|
+  ||GET|/accounts/password|req.user|change password|
+  ||POST|/accounts/password|req.user<br/>req.body {user(pw)}|change password<br/>   (redirect account)|
+  |videosRouter|(index)|/videos||(index url)|
+  ||GET|/videos/upload|req.user|upload new video|
+  ||POST|/videos/upload|req.user<br/>req.body {video}|upload new video<br/>(redirect     video detail)|
+  ||GET|/videos/:videoId|req.params \<videoId\>|display video detail|
+  ||GET|/videos/:videoId/edit|req.user<br/>req.params \<videoId\>|edit video detail|
+  ||POST|/videos/:videoId/edit|req.user<br/>req.params \<videoId\><br/>req.body     {video}|edit video detail<br/>(redirect video detail)|
+  ||POST|/videos/:videoId/delete|req.user<br/>req.params \<videoId\>|delete video<br/>(redirect home)|
+  |apiRouter|(index)|/api||(index url)|
+  ||GET|/api/:videoId/views|req.params \<videoId\>|ajax update video views|
+  ||GET|/api/:videoId/comments|req.params \<videoId\>|ajax update comments|
+  - notes: [~~REST API~~]()
+- [ ] **MVC pattern**
+  - notes: [mvc.md]()
+- [X] **Contoller draft**
+  - [X] `routes.js`
   - [X] Router middleware setup
   - [X] `/router`
     - [X] `homeRouter.js`
@@ -114,45 +148,31 @@ This project focuses on learning the overall basic environment of web developmen
   - [X] `/controller`
     - [X] `userController.js`
     - [X] `videoController.js`
-  - api design <br/>   
-      | Router | HTTP verb | URL | Payload | Description |
-      |:---|:---|:---|:---|:---|
-      | homeRouter | GET | / || home |
-      ||GET|/search|req.query /?search=|search|
-      ||GET|/signup||signup|
-      ||POST|/signup|req.body {user}|signup<br/>(redirect home)|
-      ||GET|/login ||login|
-      ||POST|/login|req.body {user(id,pw)}|login<br/>(redirect home)|
-      ||GET|/logout|req.user|logout<br/>(redirect home)|
-      ||GET|/auth/github||github login|
-      ||GET|/auth/github/callback||github login|
-      ||GET|/auth/facebook||facebook login|
-      ||GET|/auth/facebook/callback||facebook login|
-      |accountsRouter|(index)|/accounts| | (index url) |
-      ||GET|/accounts/me| req.user | display personal account |
-      ||GET|/accounts/profile|req.user|edit profile|
-      ||POST|/accounts/profile|req.user<br/>req.body {user}|edit profile<br/>(redirect    account)|
-      ||GET|/accounts/password|req.user|change password|
-      ||POST|/accounts/password|req.user<br/>req.body {user(pw)}|change password<br/>   (redirect account)|
-      |videosRouter|(index)|/videos||(index url)|
-      ||GET|/videos/new|req.user|upload new video|
-      ||POST|/videos/new|req.user<br/>req.body {video}|upload new video<br/>(redirect     video detail)|
-      ||GET|/videos/:videoId|req.params \<videoId\>|display video detail|
-      ||GET|/videos/:videoId/edit|req.user<br/>req.params \<videoId\>|edit video detail|
-      ||POST|/videos/:videoId/edit|req.user<br/>req.params \<videoId\><br/>req.body     {video}|edit video detail<br/>(redirect video detail)|
-      ||POST|/videos/:videoId/delete|req.user<br/>req.params \<videoId\>|delete video<br/>(redirect home)|
-      |apiRouter|(index)|/api||(index url)|
-      ||GET|/api/:videoId/view|req.params \<videoId\>|ajax update video views|
-      ||GET|/api/:videoId/comment|req.params \<videoId\>|ajax update comments|
-  - notes: [~~REST API~~]()
-- [ ] **view engine setup**
+- [X] **View engine setup**
   - [X] installing pug
   - [X] set view engine, views directory
+  - notes: [pug.md](https://github.com/lexie-kaia/Nettube/blob/main/notes/pug.md)
+- [ ] **View draft**
+  - [ ] : draft [ ] : html(contents) [ ] : css(styling)
   - [X] /views
-    - [ ] /layouts
-      - [ ] layout.pug
-    - [ ] /partials
-      - [ ] header.pug
-      - [ ] footer.pug
-    - [ ] /
+    - [X] /layouts
+      - [X] [ ] layout.pug
+    - [X] /partials
+      - [X] [ ] header.pug
+      - [X] [ ] footer.pug
+    - [ ] /minxins
+      - [ ]
+    - pages
+      - [X] [ ] home(home, search)
+      - [X] [ ] signup
+      - [X] [ ] login
+      - [X] [ ] myAccount
+      - [X] [ ] editProfile
+      - [X] [ ] changePassword
+      - [X] [ ] videoDetail
+      - [X] [ ] uploadVideo
+      - [X] [ ] editVideo
+      - [X] [ ] error
+
 - [ ] **error handler**
+  - [ ] `error.js`

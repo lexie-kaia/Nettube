@@ -8,8 +8,6 @@
 
 <br>
 
----
-
 ## Install the packages
 
 - a global install
