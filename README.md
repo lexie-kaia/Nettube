@@ -9,8 +9,9 @@ This project focuses on learning the overall basic environment of web developmen
 **Key Features**
 
 - Setting up _Node.js_ development environment with _Babel_, _ESLint_, _Prettier_
-- Creating a web server with _Express.js_ and implementing MVC pattern and REST APIs
+- Creating a web server with _Express.js_ and implementing MVC pattern
 - Manipulating _MongoDB Atlas_ with _Mongoose_
+- implementing social authentication with _Passport.js_
 - Using AJAX with _fetch APIs_ and _Axios_
 - Creating front-end pages with _Pug_ & _Sass_ and buldling assets with _Gulp_
 - Deploying with _AWS lightsail_ and _S3_ service
@@ -39,45 +40,97 @@ This project focuses on learning the overall basic environment of web developmen
   - [Express.js Guide, API reference](https://expressjs.com/)
   - [Mongoose docs](https://mongoosejs.com/docs/guide.html)
   - ...
-- blog
+- etc
   - 김정환블로그 [프론트엔드 개발환경의 이해](https://jeonghwan-kim.github.io/series/2019/12/09/frontend-dev-env-npm.html)
+  - [REST API Tutorial](https://restfulapi.net/)
 
 <br/>
 <br/>
 
 # Learning and Development Notes
 
-## Table of contents
+**Table of contents**
 
 1. Learning and development Notes
-2. ...
+2. Creating a web server with Expressjs
 3. ...
 
 <br/>
 
 ## 1. Setting up a Node.js development environment
 
----
-
-- [x] node, npm, yarn
+- [x] **node, npm, yarn**
   1. `$ yarn init`
   2. creating 'package.json'
-  - cheat sheet : [npmAndYarn.md]()
-- [x] babel
+  - notes : [npmAndYarn.md]()
+- [x] **babel**
   1. installing Babel  
      `$ yarn add --dev @babel/{core,node,preset-env}`
   2. configuring `babel.config.js` with plugins/preset
   3. update `package.json`  
      `script: {"start": "babel-node src/index.js"}`
-- [x] eslint, prettier
+- [x] **eslint, prettier**
   1. Instatlling packages  
      `$ yarn add --dev eslint eslint-config-prettier eslint-plugin-prettier prettier`
   2. configuring '.eslint.js'
   3. Installing VSCode extensions
-  - cheat sheet: [babelEslintPrettier.md]()
-- [x] nodemon
+  - notes: [babelEslintPrettier.md]()
+- [x] **nodemon**
   - `$ yarn add --dev nodemon`
   - configuring 'package.json'
   - `script: {"start": "nodemon --exec babel-node src/index.js"}`
-- [ ] dotenv
-- [ ] gulp
+- [ ] **dotenv**
+  - `$ yarn add dotenv`
+  1. creating '.env'
+  2. `import dotenv`, `dotenv.config()`
+  3. `process.env.<env_variable>`
+- [ ] **gulp**
+
+## 2. Creating a web server with Expressjs
+
+- [x] **starting the server listening for connection! 'hello world!'**
+  - `app.listen()`
+- [ ] **middlewares setup**
+  - `app.use()`
+  - custom middlewares -> `next()`
+  - [X]`helmet()` : helps secure apps by setting various HTTP headers
+  - [X]`express.json()` : parses incoming requests with JSON payloads
+  - [X]`express.urlencoded({extends: false})`  
+    parses incoming requests(Content-Type: application/x-www-form-urlencodedurl) with urlencoded payloads(url로 encoded된(query(key=value)로 변환된) 폼데이터 파싱하는 미들웨어)  
+    extends : true(default), allowing for a JSON-like experience with URL-encoded
+  - (cookie-parser)
+  - [x]`morgan` : HTTP request logger
+  - (cors)
+  - (static)
+  - [ ]`multer`
+  - [ ] Router
+- [x] **API**
+
+  | Router | HTTP verb | URL | Payload | Description |
+  |:---|:---|:---|:---|:---|
+  | homeRouter | GET | / || home |
+  ||GET|/search|req.query /?search=|search|
+  ||GET|/signup||signup|
+  ||POST|/signup|req.body {user}|signup<br/>(redirect home)|
+  ||GET|/login ||login|
+  ||POST|/login|req.body {user(id,pw)}|login<br/>(redirect home)|
+  ||GET|/logout|req.user|logout<br/>(redirect home)|
+  ||GET|/auth/github||github login|
+  ||GET|/auth/github/callback||github login|
+  ||GET|/auth/facebook||facebook login|
+  ||GET|/auth/facebook/callback||facebook login|
+  |accountsRouter|GET|/accounts| req.user | display personal account |
+  ||GET|/accounts/profile|req.user|edit profile|
+  ||POST|/accounts/profile|req.user<br/>req.body {user}|edit profile<br/>(redirect account)|
+  ||GET|/accounts/password|req.user|change password|
+  ||POST|/accounts/password|req.user<br/>req.body {user(pw)}|change password<br/>(redirect account)|
+  |videosRouter|(index)|/videos||(index url)|
+  ||GET|/videos/new|req.user|upload new video|
+  ||POST|/videos/new|req.user<br/>req.body {video}|upload new video<br/>(redirect video detail)|
+  ||GET|/videos/:videoId|req.params \<videoId\>|display video detail|
+  ||GET|/videos/:videoId/edit|req.user<br/>req.params \<videoId\>|edit video detail|
+  ||POST|/videos/:videoId/edit|req.user<br/>req.params \<videoId\><br/>req.body {video}|edit video detail<br/>(redirect video detail)|
+  ||POST|/videos/:videoId/delete|req.user<br/>req.params \<videoId\>|delete video<br/>(redirect home)|
+  - notes: [~~REST API~~]()
+- [ ] view engine setup
+- [ ] error handler

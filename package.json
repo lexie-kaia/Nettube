@@ -9,7 +9,12 @@
   "scripts": {
     "start": "nodemon --exec babel-node src/index.js"
   },
-  "dependencies": {},
+  "dependencies": {
+    "express": "^4.17.1",
+    "helmet": "^4.4.1",
+    "morgan": "^1.10.0",
+    "pug": "^3.0.0"
+  },
   "devDependencies": {
     "@babel/core": "^7.12.16",
     "@babel/node": "^7.12.16",
