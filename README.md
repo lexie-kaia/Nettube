@@ -76,61 +76,83 @@ This project focuses on learning the overall basic environment of web developmen
   3. Installing VSCode extensions
   - notes: [babelEslintPrettier.md]()
 - [x] **nodemon**
-  - `$ yarn add --dev nodemon`
-  - configuring 'package.json'
-  - `script: {"start": "nodemon --exec babel-node src/index.js"}`
-- [ ] **dotenv**
-  - `$ yarn add dotenv`
-  1. creating '.env'
-  2. `import dotenv`, `dotenv.config()`
-  3. `process.env.<env_variable>`
+  1. installing `$ yarn add --dev nodemon`
+  2.  configuring 'package.json'  
+    `script: {"start": "nodemon --exec babel-node src/index.js"}`
+- [X] **dotenv**
+  1. installing `$ yarn add dotenv`
+  2. creating '.env'
+  3. `import dotenv`, `dotenv.config()`
+  4. `process.env.<env_variable>`
 - [ ] **gulp**
 
 ## 2. Creating a web server with Expressjs
 
 - [x] **starting the server listening for connection! 'hello world!'**
   - `app.listen()`
+  - `app.get()`
 - [ ] **middlewares setup**
   - `app.use()`
   - custom middlewares -> `next()`
-  - [X]`helmet()` : helps secure apps by setting various HTTP headers
-  - [X]`express.json()` : parses incoming requests with JSON payloads
-  - [X]`express.urlencoded({extends: false})`  
+  - [X] `helmet()` : helps secure apps by setting various HTTP headers
+  - [X] `express.json()` : parses incoming requests with JSON payloads
+  - [X] `express.urlencoded({extends: false})`  
     parses incoming requests(Content-Type: application/x-www-form-urlencodedurl) with urlencoded payloads(url로 encoded된(query(key=value)로 변환된) 폼데이터 파싱하는 미들웨어)  
     extends : true(default), allowing for a JSON-like experience with URL-encoded
   - (cookie-parser)
-  - [x]`morgan` : HTTP request logger
+  - [x] `morgan` : HTTP request logger
   - (cors)
   - (static)
-  - [ ]`multer`
-  - [ ] Router
-- [x] **API**
-
-  | Router | HTTP verb | URL | Payload | Description |
-  |:---|:---|:---|:---|:---|
-  | homeRouter | GET | / || home |
-  ||GET|/search|req.query /?search=|search|
-  ||GET|/signup||signup|
-  ||POST|/signup|req.body {user}|signup<br/>(redirect home)|
-  ||GET|/login ||login|
-  ||POST|/login|req.body {user(id,pw)}|login<br/>(redirect home)|
-  ||GET|/logout|req.user|logout<br/>(redirect home)|
-  ||GET|/auth/github||github login|
-  ||GET|/auth/github/callback||github login|
-  ||GET|/auth/facebook||facebook login|
-  ||GET|/auth/facebook/callback||facebook login|
-  |accountsRouter|GET|/accounts| req.user | display personal account |
-  ||GET|/accounts/profile|req.user|edit profile|
-  ||POST|/accounts/profile|req.user<br/>req.body {user}|edit profile<br/>(redirect account)|
-  ||GET|/accounts/password|req.user|change password|
-  ||POST|/accounts/password|req.user<br/>req.body {user(pw)}|change password<br/>(redirect account)|
-  |videosRouter|(index)|/videos||(index url)|
-  ||GET|/videos/new|req.user|upload new video|
-  ||POST|/videos/new|req.user<br/>req.body {video}|upload new video<br/>(redirect video detail)|
-  ||GET|/videos/:videoId|req.params \<videoId\>|display video detail|
-  ||GET|/videos/:videoId/edit|req.user<br/>req.params \<videoId\>|edit video detail|
-  ||POST|/videos/:videoId/edit|req.user<br/>req.params \<videoId\><br/>req.body {video}|edit video detail<br/>(redirect video detail)|
-  ||POST|/videos/:videoId/delete|req.user<br/>req.params \<videoId\>|delete video<br/>(redirect home)|
+  - [ ] `multer`
+- [ ] **API**
+  - [X] routes.js
+  - [X] Router middleware setup
+  - [X] `/router`
+    - [X] `homeRouter.js`
+    - [X] `accountsRouter.js`
+    - [X] `videosRouter.js`
+  - [X] `/controller`
+    - [X] `userController.js`
+    - [X] `videoController.js`
+  - api design <br/>   
+      | Router | HTTP verb | URL | Payload | Description |
+      |:---|:---|:---|:---|:---|
+      | homeRouter | GET | / || home |
+      ||GET|/search|req.query /?search=|search|
+      ||GET|/signup||signup|
+      ||POST|/signup|req.body {user}|signup<br/>(redirect home)|
+      ||GET|/login ||login|
+      ||POST|/login|req.body {user(id,pw)}|login<br/>(redirect home)|
+      ||GET|/logout|req.user|logout<br/>(redirect home)|
+      ||GET|/auth/github||github login|
+      ||GET|/auth/github/callback||github login|
+      ||GET|/auth/facebook||facebook login|
+      ||GET|/auth/facebook/callback||facebook login|
+      |accountsRouter|(index)|/accounts| | (index url) |
+      ||GET|/accounts/me| req.user | display personal account |
+      ||GET|/accounts/profile|req.user|edit profile|
+      ||POST|/accounts/profile|req.user<br/>req.body {user}|edit profile<br/>(redirect    account)|
+      ||GET|/accounts/password|req.user|change password|
+      ||POST|/accounts/password|req.user<br/>req.body {user(pw)}|change password<br/>   (redirect account)|
+      |videosRouter|(index)|/videos||(index url)|
+      ||GET|/videos/new|req.user|upload new video|
+      ||POST|/videos/new|req.user<br/>req.body {video}|upload new video<br/>(redirect     video detail)|
+      ||GET|/videos/:videoId|req.params \<videoId\>|display video detail|
+      ||GET|/videos/:videoId/edit|req.user<br/>req.params \<videoId\>|edit video detail|
+      ||POST|/videos/:videoId/edit|req.user<br/>req.params \<videoId\><br/>req.body     {video}|edit video detail<br/>(redirect video detail)|
+      ||POST|/videos/:videoId/delete|req.user<br/>req.params \<videoId\>|delete video<br/>(redirect home)|
+      |apiRouter|(index)|/api||(index url)|
+      ||GET|/api/:videoId/view|req.params \<videoId\>|ajax update video views|
+      ||GET|/api/:videoId/comment|req.params \<videoId\>|ajax update comments|
   - notes: [~~REST API~~]()
-- [ ] view engine setup
-- [ ] error handler
+- [ ] **view engine setup**
+  - [X] installing pug
+  - [X] set view engine, views directory
+  - [X] /views
+    - [ ] /layouts
+      - [ ] layout.pug
+    - [ ] /partials
+      - [ ] header.pug
+      - [ ] footer.pug
+    - [ ] /
+- [ ] **error handler**
