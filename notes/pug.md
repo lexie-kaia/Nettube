@@ -7,7 +7,7 @@
 
 <br>
 
-## template engine
+## Template engine
 
 >A template engine enables you to use static template files in your application. At runtime, the template engine replaces variables in a template file with actual values, and transforms the template into an HTML file sent to the client. This approach makes it easier to design an HTML page.
 
@@ -105,3 +105,23 @@ body
       file: videoitem.file
     })
 ```
+
+<br>
+
+## Defining 'local variables'
+
+1. `res.locals.<locals>` -> middleware -> global 'local variables'
+```js
+app.use((req, res, next) => {
+  res.locals.siteName = 'name'
+})
+```
+
+2. `.render('view'[, locals])` -> router -> local 'local variables'
+```js
+app.get('/', (req, res) => {
+  res.render('home', { pageTitle: 'title'})
+})
+
+```
+

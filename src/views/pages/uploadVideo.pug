@@ -1,4 +1,38 @@
 extends ../layouts/layout
 
 block content
-  h1 upload video
+  .upload_video
+    form(action="", method="")
+      .upload_header
+        .upload_column
+          h1 Upload Video
+        .upload_column
+          button(type="submit") Save
+      .upload_section
+        .file_section    
+          .upload_section
+            .upload_header
+              h2 Select Files
+            .upload_container
+              label(for="videoFile") Video file
+              input(type="file", id="videoFile", name="videoFile", accept="video/*",  required)
+          .record_section
+            .record_header
+              h2 Record Video
+              p No video? Create your own video here.
+            .record_row
+              button(type="button") Start Recording
+            .record_player
+              video
+          
+        .detail_section
+          .detail_header
+            h2 Video Details
+          .detail_contents
+            .detail_container
+              label(for="title") Title
+              input(type="text", id="title", name="title", placeholder="Add a title that describes your video", required)
+            .detail_container
+              label(for="description") Description
+              textarea(id="description", name="description", placeholder="Tell viewers about your video")
+            

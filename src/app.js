@@ -8,6 +8,7 @@ import { routes } from './routes';
 import { homeRouter } from './routers/homeRouter';
 import { accountsRouter } from './routers/accountsRouter';
 import { videosRouter } from './routers/videosRouter';
+import { localMiddleware } from './middlewares';
 
 dotenv.config();
 
@@ -23,6 +24,8 @@ app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+app.use(localMiddleware);
+
 // router
 app.use(routes.home, homeRouter);
 app.use(routes.accounts, accountsRouter);
@@ -30,7 +33,7 @@ app.use(routes.videos, videosRouter);
 
 // error handler
 app.use((req, res, next) => {
-  res.render('pages/error');
+  res.render('pages/error', { pageTitle: 'Error' });
 });
 
 export default app;

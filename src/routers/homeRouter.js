@@ -2,7 +2,7 @@ import { Router } from 'express';
 
 import { routes } from '../routes';
 import { getHome, getSearch } from '../controllers/videoController';
-import { getLogin, getLogout, getSignup } from '../controllers/userController';
+import { getLogin, getSignup, getLogout } from '../controllers/userController';
 
 export const homeRouter = Router();
 

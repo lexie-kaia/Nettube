@@ -1,4 +1,22 @@
 extends ../layouts/layout
 
 block content
-  h1 home
+  include ../partials/sidebar
+  .home
+    .video_block 
+      //- to do : video Id -> href path
+      a(href="")
+        .video_thumbnail
+          video(src="../../uploads/BicBuckBunny.mp4", controls)
+        .video_info
+          .info_column
+            img.video_info_avartar(src="", alt="")
+          .info_column
+            .info_row
+              h4.info_title videotitle
+            .info_row
+              strong.info_creator creator
+            .info_row
+              span 0 views
+              span  · 
+              span 2021.01.01

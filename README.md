@@ -52,9 +52,12 @@ This project focuses on learning the overall basic environment of web developmen
 
 **Table of contents**
 
-1. Learning and development Notes
+1. Setting up a Node.js development environment
 2. Creating a web server with Expressjs
-3. ...
+3. Implementing MVC pattern
+4. Manipulating MongoDB Atlas with Mongoose
+5. Refactoring and error handling
+6. ...
 
 <br/>
 
@@ -90,6 +93,7 @@ This project focuses on learning the overall basic environment of web developmen
 ## 2. Creating a web server with Expressjs
 
 - [x] **starting the server listening for connection! 'hello world!'**
+  - notes: ~~[http.md]()~~
   - `app.listen()`
   - `app.get()`
 - [ ] **middlewares setup**
@@ -104,8 +108,12 @@ This project focuses on learning the overall basic environment of web developmen
   - [x] `morgan` : HTTP request logger
   - (cors)
   - (static)
-  - [ ] `multer`
-- [ ] **API** 
+  - (multer) -> 4. Manipulating MongoDB Atlas with Mongoose
+
+## 3. Implemening MVC pattern
+
+- notes: [mvc.md]()
+- [ ] **API design** 
   | Router | HTTP verb | URL | Payload | Description |
   |:---|:---|:---|:---|:---|
   | homeRouter | GET | / || home |
@@ -122,12 +130,12 @@ This project focuses on learning the overall basic environment of web developmen
   |accountsRouter|(index)|/accounts| | (index url) |
   ||GET|/accounts/me| req.user | display personal account |
   ||GET|/accounts/profile|req.user|edit profile|
-  ||POST|/accounts/profile|req.user<br/>req.body {user}|edit profile<br/>(redirect    account)|
+  ||POST|/accounts/profile|req.user<br/>req.body {user}|edit profile<br/>(redirect me)|
   ||GET|/accounts/password|req.user|change password|
-  ||POST|/accounts/password|req.user<br/>req.body {user(pw)}|change password<br/>   (redirect account)|
+  ||POST|/accounts/password|req.user<br/>req.body {user(pw)}|change password<br/>   (redirect me)|
   |videosRouter|(index)|/videos||(index url)|
   ||GET|/videos/upload|req.user|upload new video|
-  ||POST|/videos/upload|req.user<br/>req.body {video}|upload new video<br/>(redirect     video detail)|
+  ||POST|/videos/upload|req.user<br/>req.body {video}|upload new video<br/>(redirect video detail)|
   ||GET|/videos/:videoId|req.params \<videoId\>|display video detail|
   ||GET|/videos/:videoId/edit|req.user<br/>req.params \<videoId\>|edit video detail|
   ||POST|/videos/:videoId/edit|req.user<br/>req.params \<videoId\><br/>req.body     {video}|edit video detail<br/>(redirect video detail)|
@@ -136,8 +144,7 @@ This project focuses on learning the overall basic environment of web developmen
   ||GET|/api/:videoId/views|req.params \<videoId\>|ajax update video views|
   ||GET|/api/:videoId/comments|req.params \<videoId\>|ajax update comments|
   - notes: [~~REST API~~]()
-- [ ] **MVC pattern**
-  - notes: [mvc.md]()
+
 - [X] **Contoller draft**
   - [X] `routes.js`
   - [X] Router middleware setup
@@ -148,31 +155,95 @@ This project focuses on learning the overall basic environment of web developmen
   - [X] `/controller`
     - [X] `userController.js`
     - [X] `videoController.js`
-- [X] **View engine setup**
-  - [X] installing pug
-  - [X] set view engine, views directory
-  - notes: [pug.md](https://github.com/lexie-kaia/Nettube/blob/main/notes/pug.md)
-- [ ] **View draft**
-  - [ ] : draft [ ] : html(contents) [ ] : css(styling)
-  - [X] /views
-    - [X] /layouts
-      - [X] [ ] layout.pug
-    - [X] /partials
-      - [X] [ ] header.pug
-      - [X] [ ] footer.pug
-    - [ ] /minxins
-      - [ ]
-    - pages
-      - [X] [ ] home(home, search)
-      - [X] [ ] signup
-      - [X] [ ] login
-      - [X] [ ] myAccount
-      - [X] [ ] editProfile
-      - [X] [ ] changePassword
-      - [X] [ ] videoDetail
-      - [X] [ ] uploadVideo
-      - [X] [ ] editVideo
-      - [X] [ ] error
 
+- [ ] **View draft**
+  - notes: [pug.md](https://github.com/lexie-kaia/Nettube/blob/main/notes/pug.md)
+  - [X] view engine setup
+    - [X] installing pug
+    - [X] set view engine, views directory
+  - process
+    1. draft
+    2. pug(html contents) -> mongoDb
+    3. sass(css styling) -> gulp
+  - [X] `/views`
+    - [X] `/layouts`
+      - [X] `layout.pug`
+    - [X] `/partials`
+      - [X] `header.pug`
+      - [X] `footer.pug`
+    - [ ] `/minxins`
+      - [ ]
+    - [X] `/pages`
+- [X] **View Contents**
+  - [X] `middlewares.js`
+  - [X] home
+  - [X] search
+  - [X] signup
+  - [X] login
+  - [X] myAccount
+  - [X] editProfile
+  - [X] changePassword
+  - [X] videoDetail
+  - [X] uploadVideo
+  - [X] editVideo
+  - [X] error
+
+## 4. Manipulating MongoDB Atlas with Mongoose
+
+- notes: ~~[noSQL.md]()~~
+- [ ] MongoDb Atlas setup
+- [ ] connecting MongoDB with mongoose
+- [ ] defining Schema
+  |Schema|name|value|options|
+  |:---|:---|:---|:---|
+  |Video||
+  ||videoFileUrl|String|required|
+  ||title|String|required|
+  ||description|String||
+  ||createdAt|Date|default: Date.now|
+  ||views|Number|default: 0|
+  ||creator|ObjectId|ref:User|
+  ||comments|[ObjectId]|ref:Comment|
+  |User||||
+  ||username|String||
+  ||email|String||
+  ||avatarUrl|String||
+  ||facebookId|Number||
+  ||githubId|Number||
+  ||comments|[ObjectID]|ref:Comment|
+  ||videos|[ObjectID]|ref:Video|
+  |Comment||||
+  ||text|String|required|
+  ||creator|ObjectId|ref:User|
+  ||createdAt|Date|default:Date.now|
+  - [ ] /models
+    - [ ] Video.js
+    - [ ] User.js
+    - [ ] Comment.js
+- [ ] CRUD
+- [ ] multer
+
+## 5. Refactoring and error handling
 - [ ] **error handler**
   - [ ] `error.js`
+  - notes: ~~[httpStatus.md]()~~
+
+## 6. Styling with Sass and bundling assets with Gulp
+- notes: ~~[sass.md]()~~
+- [ ] planning | designing
+- [ ] setting up gulp
+- [ ] styling
+
+## 7. user authentication with passport.js
+- notes: ~~[userAuth.md]()~~
+- [ ] passport.js
+- [ ] github
+- [ ] faceboock
+- [ ] route protection
+- [ ] 
+
+## 8. custom video player with DOM, html media element
+
+## 9. ajax
+
+## 10. deploy

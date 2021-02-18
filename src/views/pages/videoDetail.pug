@@ -1,4 +1,72 @@
 extends ../layouts/layout
 
 block content
-  h1 video detail
+  .video_detail 
+    .video_section
+      .video_player
+        video(src="../../uploads/BicBuckBunny.mp4", controls)
+
+      .video_info
+        .info_title
+          h1.title videotitle
+        .info_data
+          .info_column
+            span 0 views
+            span  · 
+            span 2021.01.01
+          .info_column 
+            button
+              i(class="fas fa-thumbs-up")
+              span 10
+            button
+              i(class="fas fa-thumbs-down")
+              span 10
+            button
+              i(class="fas fa-share")
+              span SHARE
+            button
+              i(class="fas fa-plus")
+              span SAVE
+            button 
+              i(class="fas fa-ellipsis-v")
+        hr
+        .info_channel
+          .info_column
+            img(src="", alt="")
+          .info_column
+            h2 Creator
+          .info_column
+            button 
+              a(herf="") Edit Video
+        .info_description 
+          p description
+        hr
+
+      .video_comment
+        .comment_header
+          strong 100 comments
+        .commemt_content
+          .comment_block
+            .comment_column
+              img(src="", alt="")
+            .comment_column
+              .comment_info
+                span Creator
+                span 2021.01.01
+              .comment_text
+                p comment
+          
+    .related_section
+      .video_block
+        a(href="")
+          .video_thumbnail
+            video(src="../../uploads/BicBuckBunny.mp4", controls)
+          .video_info
+            .info_row
+              h4.info_title videotitle
+            .info_row
+              strong.info_creator creator
+            .info_row
+              span 0 views
+              span  · 
+              span 2021.01.01

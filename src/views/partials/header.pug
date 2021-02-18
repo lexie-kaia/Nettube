@@ -1,2 +1,18 @@
-header
-  | header
+header.header 
+  .header_column
+    span.header_icon
+      i(class="fas fa-bars")
+    a.header_logo(href=routes.home)
+      i(class="fab fa-youtube")
+      span Nettube
+  .header_column
+    form(action="/search", method="GET")
+      input.header_search(type="text", name="search", placeholder="Search")
+      button.header_search_button(type="submit")
+        i(class="fas fa-search")
+  .header_column
+    ul.header_menu
+      li
+        a(href=routes.login) Log in
+      li
+        a(href=routes.signup) Sign up
