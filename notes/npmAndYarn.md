@@ -61,7 +61,7 @@ install - local - devdependencies
 
 ```
 npm install -D <package>
-yarn add --dev <package>
+yarn add -D <package>
 ```
 
 install - global

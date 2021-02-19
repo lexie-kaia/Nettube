@@ -13,7 +13,7 @@ This project focuses on learning the overall basic environment of web developmen
 - Manipulating _MongoDB Atlas_ with _Mongoose_
 - implementing social authentication with _Passport.js_
 - Using AJAX with _fetch APIs_ and _Axios_
-- Creating front-end pages with _Pug_ & _Sass_ and buldling assets with _Gulp_
+- Creating front-end pages with _Pug_ & _Sass_ and buldling assets with _Webpack_
 - Deploying with _AWS lightsail_ and _S3_ service
 
 <br/>
@@ -22,13 +22,13 @@ This project focuses on learning the overall basic environment of web developmen
 
 - Nomad Coder
   - [[풀스택]유튜브 클론코딩](https://nomadcoders.co/wetube)
-  - [Gulp 90분 마스터하기](https://nomadcoders.co/gulp-for-beginners)
 - Youtube 생활코딩
   - [WEB2 - Node.js](https://www.youtube.com/watch?v=3RS_A87IAPA&list=PLuHgQVnccGMA9QQX5wqj6ThK7t2tsGxjm)
   - [WEB3 - Express](https://www.youtube.com/watch?v=hwknmhLKgYg&list=PLuHgQVnccGMAGOQu8CBDO9hn-FXFmm4Wp)
   - [WEB3 - Node.js - Cookie & Auth](https://www.youtube.com/watch?v=i51xW3eh-T4&list=PLuHgQVnccGMDo8561VLWTZox8Zs3K7K_m)
   - [WEB4 - Express Session & Auth](https://www.youtube.com/watch?v=jTct6U8VV5E&list=PLuHgQVnccGMCHjWIDStjaZA2ZR-jwq-WU)
   - [WEB5 - Express Passport.js](https://www.youtube.com/watch?v=INUpGK7dTkk&list=PLuHgQVnccGMCBY2wxKYNzFWe6I1gD5xsX)
+  - [Webpack](https://www.youtube.com/watch?v=cp_MeXO2fLg&list=PLuHgQVnccGMChcT9IKopFDoAIoTA-03DA)
 - groomedu
   - [한 눈에 끝내는 Node.js](https://edu.goorm.io/learn/lecture/557/%ED%95%9C-%EB%88%88%EC%97%90-%EB%81%9D%EB%82%B4%EB%8A%94-node-js)
 - inflearn
@@ -36,8 +36,9 @@ This project focuses on learning the overall basic environment of web developmen
   - [MongoDB 기초부터 실무까지(feat.Node.js)](https://inf.run/xovo)
 - technical documents
   - [Node.js learn](https://nodejs.dev/learn)
-  - [Configure Babel](https://babeljs.io/docs/en/configuration) | [Prettier - Integrating with Linters](https://prettier.io/docs/en/integrating-with-linters.html) | [Configuring ESLint](https://eslint.org/docs/user-guide/configuring/)
   - [Express.js Guide, API reference](https://expressjs.com/)
+  - [Configure Babel](https://babeljs.io/docs/en/configuration) | [Prettier - Integrating with Linters](https://prettier.io/docs/en/integrating-with-linters.html) | [Configuring ESLint](https://eslint.org/docs/user-guide/configuring/)
+  - [webpack document](https://webpack.js.org/concepts/)
   - [pug](https://pugjs.org/api/getting-started.html)
   - [Mongoose docs](https://mongoosejs.com/docs/guide.html)
   - ...
@@ -57,7 +58,10 @@ This project focuses on learning the overall basic environment of web developmen
 3. Implementing MVC pattern
 4. Manipulating MongoDB Atlas with Mongoose
 5. Refactoring and error handling
-6. ...
+6. Styling with Sass and bundling assets with Webpack
+7. ...
+8. ...
+9. ...
 
 <br/>
 
@@ -65,30 +69,55 @@ This project focuses on learning the overall basic environment of web developmen
 
 - [x] **node, npm, yarn**
   1. `$ yarn init`
-  2. creating 'package.json'
+  2. creating `package.json`
   - notes : [npmAndYarn.md](https://github.com/lexie-kaia/Nettube/blob/main/notes/npmAndYarn.md)
+
 - [x] **babel**
-  1. installing Babel  
-     `$ yarn add --dev @babel/{core,node,preset-env}`
+  1. `$ yarn add -D @babel/{core,node,preset-env}`
   2. configuring `babel.config.js` with plugins/preset
-  3. update `package.json`  
-     `script: {"start": "babel-node src/index.js"}`
+  3. `package.json` scripts
+     `"dev:server": "babel-node src/index.js"`
+
 - [x] **eslint, prettier**
-  1. Instatlling packages  
-     `$ yarn add --dev eslint eslint-config-prettier eslint-plugin-prettier prettier`
-  2. configuring '.eslint.js'
-  3. Installing VSCode extensions
+  1. `$ yarn add -D eslint eslint-config-prettier eslint-plugin-prettier prettier`
+  2. configuring `.eslint.js`
+  3. Installing VSCode extensions (ESLint, Pretteir)
   - notes: [babelEslintPrettier.md](https://github.com/lexie-kaia/Nettube/blob/main/notes/babelEslintPrettier.md)
+
 - [x] **nodemon**
-  1. installing `$ yarn add --dev nodemon`
-  2.  configuring 'package.json'  
-    `script: {"start": "nodemon --exec babel-node src/index.js"}`
+  1. installing `$ yarn add -D nodemon`
+  2. `package.json` scripts  
+    `"dev:server": "nodemon --exec babel-node src/index.js"`  
+    '--exec' : runnign non-node scripts
+
 - [X] **dotenv**
   1. installing `$ yarn add dotenv`
-  2. creating '.env'
-  3. `import dotenv`, `dotenv.config()`
+  2. creating `.env`
+  3. import dotenv, `dotenv.config()`
   4. `process.env.<env_variable>`
-- [ ] **gulp**
+
+- [X] **webpack**
+  - notes: [webpack.md](https://github.com/lexie-kaia/Nettube/blob/main/notes/webpack.md)
+  1. `$ yarn add webpack webpack-cli`
+  2. creating `webpack.config.js`
+    - entry
+    - output
+    - mode -> `package.json` scripts  
+      - `"dev:assets": "webpack --mode=development"`
+      - `"build:assets": "webpack --mode=production"`
+  3. javascript
+    - `$ yarn add -D babel-loader`
+  4. sass
+    - `$ yarn add -D sass-loader sass`
+    - `$ yarn add -D postcss-loader postcss autoprefixer`
+      - 'postcss.config.js'
+      - 'package.json' browserlist
+        - `"browserslist": [ "last 2 versions" ]`
+    - `$ yarn add -D css-loader`
+    - `$ yarn add -D mini-css-extract-plugin`
+  5. watch
+    - `package.json` scripts  
+      - `"dev:assets": "webpack --mode=development --watch"`
 
 ## 2. Creating a web server with Expressjs
 
@@ -107,7 +136,7 @@ This project focuses on learning the overall basic environment of web developmen
   - (cookie-parser)
   - [x] `morgan` : HTTP request logger
   - (cors)
-  - (static)
+  - (static) -> 6. Styling with Sass and bundling assets with Webpack
   - (multer) -> 4. Manipulating MongoDB Atlas with Mongoose
 
 ## 3. Implemening MVC pattern
@@ -164,7 +193,7 @@ This project focuses on learning the overall basic environment of web developmen
   - process
     1. draft
     2. pug(html contents) -> mongoDb
-    3. sass(css styling) -> gulp
+    3. sass(css styling) -> webpack
   - [X] `/views`
     - [X] `/layouts`
       - [X] `layout.pug`
@@ -228,10 +257,11 @@ This project focuses on learning the overall basic environment of web developmen
   - [ ] `error.js`
   - notes: ~~[httpStatus.md]()~~
 
-## 6. Styling with Sass and bundling assets with Gulp
+## 6. Styling with Sass and bundling assets with Webpack
 - notes: ~~[sass.md]()~~
-- [ ] planning | designing
-- [ ] setting up gulp
+- [X] planning | designing
+- [X] configuring webpack
+- [ ] static middleware
 - [ ] styling
 
 ## 7. user authentication with passport.js
