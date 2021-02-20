@@ -40,6 +40,7 @@ This project focuses on learning the overall basic environment of web developmen
   - [Configure Babel](https://babeljs.io/docs/en/configuration) | [Prettier - Integrating with Linters](https://prettier.io/docs/en/integrating-with-linters.html) | [Configuring ESLint](https://eslint.org/docs/user-guide/configuring/)
   - [webpack document](https://webpack.js.org/concepts/)
   - [pug](https://pugjs.org/api/getting-started.html)
+  - [Sass document](https://sass-lang.com/documentation)
   - [Mongoose docs](https://mongoosejs.com/docs/guide.html)
   - ...
 - etc
@@ -70,7 +71,7 @@ This project focuses on learning the overall basic environment of web developmen
 - [x] **node, npm, yarn**
   1. `$ yarn init`
   2. creating `package.json`
-  - notes : [npmAndYarn.md](https://github.com/lexie-kaia/Nettube/blob/main/notes/npmAndYarn.md)
+  - notes : [npm_and_yarn.md](https://github.com/lexie-kaia/Nettube/blob/main/notes/npmAndYarn.md)
 
 - [x] **babel**
   1. `$ yarn add -D @babel/{core,node,preset-env}`
@@ -82,7 +83,7 @@ This project focuses on learning the overall basic environment of web developmen
   1. `$ yarn add -D eslint eslint-config-prettier eslint-plugin-prettier prettier`
   2. configuring `.eslint.js`
   3. Installing VSCode extensions (ESLint, Pretteir)
-  - notes: [babelEslintPrettier.md](https://github.com/lexie-kaia/Nettube/blob/main/notes/babelEslintPrettier.md)
+  - notes: [babel_eslint_prettier.md](https://github.com/lexie-kaia/Nettube/blob/main/notes/babelEslintPrettier.md)
 
 - [x] **nodemon**
   1. installing `$ yarn add -D nodemon`
@@ -98,6 +99,7 @@ This project focuses on learning the overall basic environment of web developmen
 
 - [X] **webpack**
   - notes: [webpack.md](https://github.com/lexie-kaia/Nettube/blob/main/notes/webpack.md)
+  - notes: [webpack_config_js.md - 웹팩 설정하기](https://github.com/lexie-kaia/Nettube/blob/main/notes/webpack_config_js.md)
   1. `$ yarn add webpack webpack-cli`
   2. creating `webpack.config.js`
     - entry
@@ -136,7 +138,7 @@ This project focuses on learning the overall basic environment of web developmen
   - (cookie-parser)
   - [x] `morgan` : HTTP request logger
   - (cors)
-  - (static) -> 6. Styling with Sass and bundling assets with Webpack
+  - [X] (static) -> 6. Styling with Sass and bundling assets with Webpack
   - (multer) -> 4. Manipulating MongoDB Atlas with Mongoose
 
 ## 3. Implemening MVC pattern
@@ -261,8 +263,12 @@ This project focuses on learning the overall basic environment of web developmen
 - notes: ~~[sass.md]()~~
 - [X] planning | designing
 - [X] configuring webpack
-- [ ] static middleware
-- [ ] styling
+- [X] static middleware
+- [ ] folder structure
+- [ ] styling draft
+- [ ] custom video player with JavaScript
+- [ ] video recorder with JavaScript
+
 
 ## 7. user authentication with passport.js
 - notes: ~~[userAuth.md]()~~

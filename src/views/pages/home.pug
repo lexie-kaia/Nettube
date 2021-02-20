@@ -1,22 +1,45 @@
 extends ../layouts/layout
 
 block content
-  include ../partials/sidebar
-  .home
-    .video_block 
-      //- to do : video Id -> href path
-      a(href="")
-        .video_thumbnail
-          video(src="../../uploads/BicBuckBunny.mp4", controls)
-        .video_info
-          .info_column
-            img.video_info_avartar(src="", alt="")
-          .info_column
-            .info_row
-              h4.info_title videotitle
-            .info_row
-              strong.info_creator creator
-            .info_row
-              span 0 views
-              span  · 
-              span 2021.01.01
+  div.div
+    include ../partials/sidebar
+    main.home
+      section.main_video
+        .video_player
+          video(src="https://serranoarevalo.github.io/notflix/9bfd1023900e31286103369c803c7ee9.ogv" autoplay muted)
+          //- video(src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4" controls autoplay muted)
+        .video_player_cover
+          h1.video_title Sintel
+          p.video_description 
+            | Sintel is an independently produced short film, initiated by the Blender Foundation as a means to further improve and validate the free/open source 3D creation suite Blender.
+          button.video_play_btn.btn_box
+            a(href="")
+              i(class="fas fa-play")
+              span Play
+
+
+      section.main_contents
+        .section_title
+          h2.title_heading Key Features
+        .section_videos
+          a.video_block(href="")
+            .video_thumbnail
+              video(src="https://serranoarevalo.github.io/notflix/9bfd1023900e31286103369c803c7ee9.ogv" controls)
+            .video_info
+              .info_column
+                .info_avartar
+                  img(src="", alt="")
+              .info_column
+                h3.info_title videotitle
+                h4.info_creator creator
+                .info_data
+                  span 0 views
+                  span  · 
+                  span 2021.01.01
+      section.main_contents
+        .section_title
+          h2.title_heading Demo Videos
+        .section_videos
+
+
+      

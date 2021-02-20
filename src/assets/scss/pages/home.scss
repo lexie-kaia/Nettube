@@ -1,0 +1,120 @@
+.div {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+}
+
+.home {
+  .main_video {
+    position: relative;
+    width: 100%;
+    height: 440px;
+    overflow: hidden;
+
+    .video_player {
+      max-width: 1800px;
+      min-width: 1200px;
+      width: 100%;
+      height: 440px;
+      margin: 0 auto;
+      transform: translateY(-120px);
+
+      video {
+        width: 100%;
+      }
+    }
+
+    .video_player_cover {
+      position: relative;
+      top: -450px;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      padding: 100px 140px 0;
+      height: 450px;
+      background-color: rgba(12, 12, 12, 0.6);
+
+      .video_title {
+        margin: 0 0 20px;
+        font-size: 60px;
+        font-weight: $bold;
+      }
+      .video_description {
+        margin-bottom: 20px;
+        width: 560px;
+        color: $off-white;
+        font-size: 19px;
+        font-weight: $medium;
+        letter-spacing: 0.05em;
+        line-height: 1.6;
+      }
+    }
+  }
+
+  .main_contents {
+    padding: 16px 40px;
+
+    .section_title {
+      display: flex;
+      align-items: center;
+      height: 64px;
+
+      .title_heading {
+        font-size: 24px;
+        font-weight: $bold;
+      }
+    }
+
+    .section_videos {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+
+      .video_block {
+        transition: all 0.25s;
+        &:hover {
+          transform: translate(-2px, -2px);
+          box-shadow: rgba(12, 12, 12, 0.2) 0px 8px 24px;
+        }
+
+        .video_thumbnail {
+          video {
+            width: 100%;
+          }
+        }
+
+        .video_info {
+          display: flex;
+
+          .info_avartar {
+            margin: 8px 12px 8px 8px;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: $point-blue;
+            img {
+            }
+          }
+
+          .info_title {
+            margin-top: 8px;
+            margin-bottom: 6px;
+            font-size: 17px;
+            font-weight: $medium;
+          }
+
+          .info_creator {
+            margin-bottom: 4px;
+            font-size: 15px;
+            color: $light-grey-1;
+          }
+
+          .info_data {
+            margin-bottom: 12px;
+            font-size: 15px;
+            color: $light-grey-1;
+          }
+        }
+      }
+    }
+  }
+}

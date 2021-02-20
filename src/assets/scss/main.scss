@@ -1,0 +1,8 @@
+@import './abstracts/variables';
+
+body {
+  background-color: $main-background;
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  font-weight: $thin;
+}

@@ -1,0 +1,62 @@
+.sidebar {
+  width: 300px;
+  background-color: $menu-background;
+  font-size: 14px;
+  font-weight: $regular;
+  line-height: 1.5;
+
+  @mixin rows {
+    padding: 20px 24px;
+    border-bottom: 1px solid $grey-1;
+    &:first-child {
+      background-color: $btn-dark-grey-highlight;
+    }
+  }
+  @mixin labels {
+    display: block;
+    margin-bottom: 6px;
+    color: $light-grey-1;
+  }
+  @mixin labels_sub {
+    display: block;
+    margin-bottom: 10px;
+    color: $light-grey-1;
+  }
+  @mixin contents {
+    color: $off-white;
+    font-weight: $medium;
+  }
+  @mixin lists {
+    margin-left: 24px;
+    color: $off-white;
+    list-style-type: disc;
+    &:first-child {
+      margin-top: 6px;
+    }
+  }
+
+  .rows {
+    @include rows;
+    &:last-child {
+      margin-bottom: 0;
+      border: none;
+    }
+    .labels {
+      @include labels;
+    }
+    .contents {
+      @include contents;
+      a {
+        &:hover {
+          color: $point-blue;
+        }
+      }
+    }
+    .labels_sub {
+      @include labels_sub;
+    }
+    .lists {
+      @include lists;
+    }
+  }
+}

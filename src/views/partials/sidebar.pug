@@ -1,33 +1,39 @@
-aside.sidebar 
-  h1 Nettube
-  h2 Youtube clone coding projects built with Node.js and MongoDB
-  p 
-    | This project focuses on learning the overall basic environment of web development from scratch using 
-    strong vanilla JavaScript
-    | .
-  h3 Github
-    a(href="https://github.com/lexie-kaia/Nettube") https://github.com/lexie-kaia/Nettube
-  h3 Key Features
+aside.sidebar
+  div.rows
+    span.labels Title
+    h1.contents Nettube
+  div.rows
+    span.labels Description
+    h2.contents Youtube clone coding projects built with Node.js and MongoDB
+  div.rows
+    span.labels Github
+    h3.contents
+      a(href="https://github.com/lexie-kaia/Nettube") https://github.com/lexie-kaia/Nettube
+  div.rows
     ul
-      li Development Environment
+      li.labels_sub Development Environment
         ul
-          li Node.js
-          li VSCode with Babel, ESLint and Prettier
-      li Front-end
+          li.lists Node.js
+          li.lists VSCode
+          li.lists Babel, ESLint and Prettier
+          li.lists Webpack
+      li.labels_sub Front-end
         ul          
-          li Pug
-          li Sass
-          li Webpack
-      li Back-end
+          li.lists Pug
+          li.lists Sass
+      li.labels_sub Back-end
         ul
-          li Express.js
-          li MongoDB
-      li Deploying
+          li.lists Express.js
+          li.lists MongoDB
+      li.labels_sub Deployment
         ul
-          li Server - Heroku
-          li Database - MongoDB Atlas, AWS S3
-      li Etc
+          li.lists Server - Heroku
+          li.lists Database - MongoDB Atlas, AWS S3
+      li.labels_sub Etc
         ul
-          li Implementing social authentication with Passport.js
-          li Using AJAX with fetch APIs and Axios
+          li.lists Implementing social authentication with Passport.js
+          li.lists Using AJAX with fetch APIs and Axios
+          li.lists Designing Custom video player
+  .rows
+    span.labels &copy Nettube #{new Date().getFullYear()}
 
