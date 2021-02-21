@@ -1,41 +1,45 @@
-extends ../layouts/layout
+extends ../layouts/layoutSingle
 
 block content
-  .upload_video
+  main.edit_video
     form(action="", method="")
-      .edit_header
-        .edit_column
-          h1 Edit Video
-        .edit_column
-          button(type="submit") Save
 
-      .edit_section
+      .main_header
+        h1.heading_main Edit Video
+        
+      .edit_contents
         .file_section
-          .file_header
-            h2 About Video
+          .sub_header
+            h2.heading_sub About Video
+
           .file_player
             video
           .file_info
             .info_row
-              span Video link
-              span http://.../videos/:videoId
+              .info_title Video link
+              a.info_data.info_link(href="") http://.../videos/:videoId
             .info_row
-              span Created at
-              span 2021.01.01
+              .info_title Created at
+              .info_data 2021.01.01
             .info_row
-              span Views
-              span 10
+              .info_title Views
+              .info_data 10
             .info_row
-              span Comments
-              span 10
+              .info_title Comments
+              .info_data 10
           
         .detail_section
           .detail_header
-            h2 Video Details
+            h2.heading_sub Video Details
+
           .detail_contents
-            .detail_container
-              label(for="title") Title
+            .input_area
+              label.input_label(for="title") Title
               input(type="text", id="title", name="title", placeholder="Add a title that describes your video", required)
-            .detail_container
-              label(for="description") Description
+            .input_area
+              label.input_label(for="description") Description
               textarea(id="description", name="description", placeholder="Tell viewers about your video")
+
+        .submit_btn    
+          button.btn_box_blue(type="submit") SAVE
+        
