@@ -1,18 +1,10 @@
-doctype html
-html(lang="en")
-  head
-    meta(charset="UTF-8")
-    meta(http-equiv="X-UA-Compatible", content="IE=edge")
-    meta(name="viewport", content="width=device-width, initial-scale=1.0")
-    link(rel="icon", href="data:;base64,iVBORw0KGgo=")
-    link(rel="stylesheet", href="https://use.fontawesome.com/releases/v5.15.1/css/all.css", integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp", crossorigin="anonymous")
-    title #{pageTitle} | #{siteName}
+extends ../layouts/layoutSingle
 
-  body
-    .error_body
-      .error_message
-        a(href=routes.home)
-          i(class="fab fa-youtube")
-          span Nettube
-        p The page you were looking for doesn't exist.
-        p You may have mistyped the address or the page may have moved.
+block content
+  main.error_body
+    .error_message
+      a(href=routes.home)
+        i(class="fab fa-youtube")
+        span Nettube
+      p The page you were looking for doesn't exist.
+      p You may have mistyped the address or the page may have moved.

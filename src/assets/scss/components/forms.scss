@@ -59,3 +59,32 @@
     }
   }
 }
+
+.form_area {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  input:not(input[type='file']) {
+    display: block;
+    margin-bottom: 20px;
+    padding: 0 16px;
+    height: 44px;
+    border: 1px solid $off-white;
+    border-radius: 8px;
+    &:focus {
+      border: 1px solid $point-blue;
+    }
+  }
+  input[type='submit'] {
+    margin-bottom: 0;
+    background-color: $point-blue;
+    color: $white;
+    border: none;
+    font-weight: $bold;
+  }
+
+  .input_file {
+    margin-bottom: 20px;
+    padding: 16px;
+  }
+}

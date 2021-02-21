@@ -1,28 +1,45 @@
-extends ../layouts/layout
+extends ../layouts/layoutSingle
 
 block content
-  .account
+  main.account
+    
     .profile_section
       .profile_row
-        img.profile_avartar(src="")
-        .profile_userName User Name
+        .profile_avatar
+          img(src="", alt="")
+        .profile_username User Name
         .profile_email email@email.com
-      .profile_row
-        button(type="button")
+      .profile_btns
+        button.btn_box_blue_l(type="button")
           a(href="") Edit Profile
-        button(type="button")
+        button.btn_box_blue_l(type="button")
           a(href="") Change Password
         
-    .contents_section
-      .video_section
-        .video_block
-        a(href="")
-          .video_thumbnail
-            video(src="../../uploads/BicBuckBunny.mp4", controls)
-          .video_info
-            .info_row
-              h4.info_title videotitle
-            .info_row
-              span 0 views
-              span  · 
-              span 2021.01.01
+    .videos_section
+      a.video_block(href="")
+        .video_thumbnail
+          video(src="https://serranoarevalo.github.io/notflix/9bfd1023900e31286103369c803c7ee9.ogv" controls)
+        .video_info
+          h3.info_title videotitle
+          .info_data
+            span 0 views
+            span  · 
+            span 2021.01.01
+      a.video_block(href="")
+        .video_thumbnail
+          video(src="https://serranoarevalo.github.io/notflix/9bfd1023900e31286103369c803c7ee9.ogv" controls)
+        .video_info
+          h3.info_title videotitle
+          .info_data
+            span 0 views
+            span  · 
+            span 2021.01.01
+      a.video_block(href="")
+        .video_thumbnail
+          video(src="https://serranoarevalo.github.io/notflix/9bfd1023900e31286103369c803c7ee9.ogv" controls)
+        .video_info
+          h3.info_title videotitle
+          .info_data
+            span 0 views
+            span  · 
+            span 2021.01.01

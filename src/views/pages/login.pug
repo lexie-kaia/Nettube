@@ -1,16 +1,16 @@
-extends ../layouts/layout
+extends ../layouts/layoutSingle
 
 block content
-  .login_container
-    .login_header
-      p Log in to Nettube
-    .form_section
-      form.form_container(action="" method="")
+  main.form_main
+    .main_header
+      h1.heading_main Log in to Nettube
+    .contents_container
+      form.form_area(action="" method="")
         input(type="text", name="email", placeholder="Email", required)
         input(type="password", name="password", placeholder="Password", required)
         input(type="submit", value="Continue")
-    .social_section
+    
       include ../partials/socialLogin
-    .signin_footer
-      p New to Nettube?
+      .form_footer
+        | New to Nettube? 
         a(href=routes.login) Create your Nettube account

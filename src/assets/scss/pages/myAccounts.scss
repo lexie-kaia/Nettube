@@ -1,0 +1,78 @@
+.account {
+  display: grid;
+  grid-template-columns: 496px 1fr;
+  gap: 36px;
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+  border: 1px solid red;
+
+  .profile_section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 48px;
+    background-color: $white;
+    color: $black;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: rgba(12, 12, 12, 1) 0px 8px 24px;
+    .profile_row {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .profile_avatar {
+        margin-bottom: 16px;
+        width: 144px;
+        height: 144px;
+        border-radius: 50%;
+        background-color: $point-blue;
+        img {
+        }
+      }
+      .profile_username {
+        margin-bottom: 12px;
+        font-size: 18px;
+        font-weight: $bold;
+      }
+      .profile_email {
+        margin-bottom: 24px;
+        font-size: 16px;
+        font-weight: $regular;
+      }
+    }
+    .profile_btns {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      .btn_box_blue_l:first-child {
+        margin-bottom: 12px;
+      }
+    }
+  }
+
+  .videos_section {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+
+    .video_block {
+      .video_thumbnail {
+        width: 100%;
+        video {
+          width: 100%;
+        }
+      }
+      .video_info {
+        .info_title {
+          margin: 12px 0 6px;
+        }
+        .info_data {
+          color: $light-grey-1;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}

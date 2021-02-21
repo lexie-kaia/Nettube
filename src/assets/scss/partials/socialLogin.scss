@@ -1,0 +1,11 @@
+.social_login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .social_text {
+    margin-bottom: 16px;
+    color: $grey-1;
+    font-size: 18px;
+    font-weight: $medium;
+  }
+}

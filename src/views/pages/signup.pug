@@ -1,20 +1,18 @@
-extends ../layouts/layout
+extends ../layouts/layoutSingle
 
 block content
-  .singup_container
-    .signup_header
-      p Log in to Nettube
-    .signup
-      p Create a new account
-    .form_section
-      form.form_container(action="" method="")
-        input(type="text", name="name", placeholder="Name", required)
-        input(type="text", name="email", placeholder="Email", required)
-        input(type="password", name="password", placeholder="Password", required)
-        input(type="password", name="passwordConfirm", placeholder="Confirm Password", required)
+  main.form_main
+    .main_header
+      h1.heading_main Create a new account
+    .contents_container
+      form.form_area(action="" method="")
+        input(type="text", name="name",placeholder="Name", required)
+        input(type="text", name="email",placeholder="Email", required)
+        input(type="password", name="password",placeholder="Password", required)
+        input(type="password", name="passwordConfirm",placeholder="Confirm Password", required)
         input(type="submit", value="Create Account")
-    .social_section
+
       include ../partials/socialLogin
-    .signup_footer
-      p Already have an account?
+      .form_footer
+        | Already have an account? 
         a(href=routes.login) Log in

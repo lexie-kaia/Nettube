@@ -1,0 +1,27 @@
+.form_main {
+  margin: 0 auto;
+  background-color: $white;
+  color: $black;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: rgba(12, 12, 12, 1) 0px 8px 24px;
+
+  .main_header {
+    padding: 0 24px;
+    border-bottom: 1px solid $off-white;
+  }
+
+  .contents_container {
+    padding: 40px 48px 28px;
+  }
+
+  .form_footer {
+    margin-top: 28px;
+    margin-bottom: 20px;
+    text-align: center;
+    a {
+      color: $point-blue;
+      font-weight: $regular;
+    }
+  }
+}
