@@ -1,0 +1,67 @@
+.upload_video {
+  width: 1080px;
+  margin: 0 auto;
+  background-color: $white;
+  color: $black;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: rgba(12, 12, 12, 1) 0px 8px 24px;
+
+  .main_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 24px;
+    border-bottom: 1px solid $off-white;
+  }
+
+  .upload_contents {
+    position: relative;
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 24px;
+    padding: 24px 48px 48px;
+
+    .file_section {
+      .upload_section {
+        margin-bottom: 24px;
+        .sub_header {
+          margin-bottom: 8px;
+        }
+      }
+
+      .record_section {
+        .sub_header {
+          margin-bottom: 16px;
+        }
+        .record_area {
+          border-radius: 8px;
+          overflow: hidden;
+          .record_player {
+            width: 320px;
+            height: 180px;
+            background-color: $menu-background;
+          }
+        }
+      }
+    }
+
+    .detail_section {
+      .detail_header {
+        margin-bottom: 8px;
+      }
+
+      .input_area {
+        &:first-child {
+          margin-bottom: 16px;
+        }
+      }
+    }
+
+    .submit_btn {
+      position: absolute;
+      bottom: 48px;
+      right: 48px;
+    }
+  }
+}

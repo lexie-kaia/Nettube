@@ -93,10 +93,21 @@
         font-weight: $medium;
       }
       .comments_form {
+        display: grid;
+        grid-template-columns: 36px 1fr;
+        gap: 16px;
+        margin-bottom: 36px;
+        .comments_avatar {
+          width: 36px;
+          height: 36px;
+          border-radius: 50%;
+          background-color: $main-red;
+          img {
+          }
+        }
       }
 
       .comments_contents {
-        margin-top: 36px;
         .comments_block {
           display: grid;
           grid-template-columns: 36px 1fr;

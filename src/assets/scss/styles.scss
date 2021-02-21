@@ -1,9 +1,9 @@
-// base
-@import './base/reset';
-
 // abstract
 @import './abstracts/variables';
 @import './abstracts/typography';
+
+// base
+@import './base/reset';
 
 // main
 @import './main.scss';
@@ -22,3 +22,4 @@
 @import './pages/home.scss';
 @import './pages/search.scss';
 @import './pages/videodetail.scss';
+@import './pages/uploadVideo.scss';

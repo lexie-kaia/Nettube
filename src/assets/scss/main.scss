@@ -8,6 +8,13 @@ body {
   font-weight: $thin;
 }
 
+.body_single {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+}
+
 .div_main {
   display: grid;
   grid-template-columns: 300px 1fr;

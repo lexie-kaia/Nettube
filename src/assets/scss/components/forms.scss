@@ -20,9 +20,42 @@
     border-radius: 4px;
     font-size: 16px;
     font-weight: $bold;
+    transition: all 0.25s;
+    cursor: pointer;
     &:hover {
       background-color: $btn-grey-highlight;
       color: $dark-grey-2;
+    }
+  }
+}
+
+.input_file {
+  background-color: $off-white-background;
+  padding: 12px;
+  border-radius: 8px;
+}
+
+.input_area {
+  padding: 12px;
+  color: $black;
+  border-radius: 8px;
+  border: 1px solid $off-white;
+
+  input[type='text'] {
+    width: 100%;
+    color: inherit;
+    &::placeholder {
+      color: $light-grey-1;
+      font-weight: $thin;
+    }
+  }
+
+  textarea {
+    width: 100%;
+    height: 10em;
+    color: inherit;
+    &::placeholder {
+      color: $light-grey-1;
     }
   }
 }

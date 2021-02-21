@@ -53,6 +53,7 @@
   border-radius: 4px;
   font-size: 16px;
   font-weight: $bold;
+  transition: all 0.25s;
   a {
     display: flex;
     justify-content: center;
@@ -66,6 +67,47 @@
   &:hover {
     background-color: $btn-grey-highlight;
     color: $dark-grey-2;
+  }
+}
+
+.btn_box_blue {
+  width: 100px;
+  height: 40px;
+  background-color: $point-blue;
+  color: $white;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: $bold;
+  transition: all 0.25s;
+  a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    i {
+      margin-right: 8px;
+    }
+  }
+}
+
+.btn_record {
+  width: 100%;
+  height: 40px;
+  background-color: $main-red;
+  color: $white;
+  font-size: 16px;
+  font-weight: $bold;
+  transition: all 0.25s;
+  a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    i {
+      margin-right: 8px;
+    }
   }
 }
 

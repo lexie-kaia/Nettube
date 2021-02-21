@@ -5,3 +5,24 @@ $bold: 700;
 $medium: 500;
 $regular: 400;
 $thin: 300;
+
+.heading_main {
+  line-height: 64px;
+  color: $grey-1;
+  font-size: 24px;
+  font-weight: $bold;
+}
+
+.heading_sub {
+  line-height: 36px;
+  color: $grey-1;
+  font-size: 18px;
+  font-weight: $bold;
+}
+
+.input_label {
+  display: block;
+  margin-bottom: 8px;
+  color: $light-grey-1;
+  font-size: 16px;
+}

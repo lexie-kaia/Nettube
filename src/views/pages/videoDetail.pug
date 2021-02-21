@@ -1,4 +1,4 @@
-extends ../layouts/layout
+extends ../layouts/layoutMain
 
 block content
   main.video_detail 
@@ -47,9 +47,12 @@ block content
       .comments
         .comments_header -- comments
         .comments_form
+          .comments_avatar
+            img(src="", alt="")
           form.form_comments(action="", method="")
             input(type="text", placeholder="Add a public comment...")
             input.btn_box_grey(type="submit" value="COMMENT")
+
         .comments_contents
           .comments_block
             .comments_avatar
