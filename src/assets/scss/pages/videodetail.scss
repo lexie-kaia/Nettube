@@ -1,0 +1,165 @@
+.video_detail {
+  padding: 32px;
+  display: grid;
+  grid-template-columns: 1fr 500px;
+  gap: 32px;
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+  // border: 1px solid red;
+
+  .video_section {
+    // border: 1px solid red;
+
+    .video_player {
+      width: 100%;
+      video {
+        width: 100%;
+      }
+    }
+
+    .info {
+      .info_title {
+        margin: 24px 0;
+        .info_heading {
+          font-size: 24px;
+          font-weight: $medium;
+        }
+      }
+
+      .info_row {
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: 16px;
+        color: $light-grey-1;
+        border-bottom: 1px solid $line;
+        font-size: 16px;
+        font-weight: $regular;
+        .info_column {
+          line-height: 24px;
+        }
+        .info_btns {
+          padding-right: 8px;
+          .btn_info_menu {
+            margin-left: 8px;
+          }
+        }
+      }
+
+      .channel {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 24px;
+
+        .channel_profile {
+          display: flex;
+          align-items: center;
+
+          .channel_avatar {
+            margin-right: 16px;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background-color: $point-blue;
+            img {
+            }
+          }
+
+          .channel_info {
+            .channel_creator {
+              margin-bottom: 4px;
+            }
+
+            .channel_subscribers {
+              color: $light-grey-1;
+              font-size: 14px;
+              font-weight: $regular;
+            }
+          }
+        }
+      }
+
+      .description {
+        padding: 24px 0;
+        border-bottom: 1px solid $line;
+      }
+    }
+
+    .comments {
+      .comments_header {
+        margin: 24px 0;
+        font-size: 18px;
+        font-weight: $medium;
+      }
+      .comments_form {
+      }
+
+      .comments_contents {
+        margin-top: 36px;
+        .comments_block {
+          display: grid;
+          grid-template-columns: 36px 1fr;
+          gap: 16px;
+          margin-bottom: 36px;
+
+          .comments_avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: $point-blue;
+            img {
+            }
+          }
+
+          .comments_info {
+            margin-bottom: 8px;
+            .comments_createat {
+              margin-left: 12px;
+              color: $light-grey-1;
+              font-size: 14px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .related_section {
+    // border: 1px solid red;
+
+    .video_block {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 12px;
+      margin-bottom: 12px;
+      .video_thumbnail {
+        width: 100%;
+        video {
+          width: 100%;
+        }
+      }
+
+      .video_info {
+        .info_title {
+          margin-top: 4px;
+          margin-bottom: 6px;
+          font-size: 17px;
+          font-weight: $medium;
+        }
+
+        .info_creator {
+          margin-bottom: 4px;
+          font-size: 15px;
+          color: $light-grey-1;
+        }
+
+        .info_data {
+          margin-bottom: 12px;
+          font-size: 15px;
+          color: $light-grey-1;
+        }
+      }
+    }
+  }
+}

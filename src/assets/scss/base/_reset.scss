@@ -142,3 +142,19 @@ a {
   color: inherit;
   text-decoration: none;
 }
+
+input {
+  border: none;
+  outline: none;
+
+  &:focus {
+    border: none;
+    outline: none;
+  }
+}
+
+video {
+  &:focus {
+    outline: none;
+  }
+}

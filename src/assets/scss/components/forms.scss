@@ -1,0 +1,28 @@
+.form_comments {
+  display: grid;
+  grid-template-columns: 1fr 130px;
+  gap: 24px;
+  input[type='text'] {
+    height: 36px;
+    background-color: transparent;
+    border-bottom: 1px solid $line-highlight;
+    color: $white;
+    transition: all 0.25s;
+    &:focus {
+      border-bottom: 1px solid $black;
+    }
+  }
+  input[type='submit'] {
+    width: 130px;
+    height: 40px;
+    background-color: $btn-grey;
+    color: $btn-color-inacitve;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: $bold;
+    &:hover {
+      background-color: $btn-grey-highlight;
+      color: $dark-grey-2;
+    }
+  }
+}

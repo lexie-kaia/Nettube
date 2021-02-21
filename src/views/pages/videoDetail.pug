@@ -1,72 +1,112 @@
 extends ../layouts/layout
 
 block content
-  .video_detail 
+  main.video_detail 
     .video_section
       .video_player
-        video(src="../../uploads/BicBuckBunny.mp4", controls)
+        video(src="https://serranoarevalo.github.io/notflix/9bfd1023900e31286103369c803c7ee9.ogv", controls)
 
-      .video_info
+      .info
         .info_title
-          h1.title videotitle
-        .info_data
+          h1.info_heading videotitle
+        .info_row
           .info_column
+            span ---- views
+            span  · 
+            span ----.--.--
+          .info_btns
+            button.btn_info_menu
+              i(class="fas fa-thumbs-up")
+              span ----
+            button.btn_info_menu
+              i(class="fas fa-thumbs-down")
+              span ----
+            button.btn_info_menu
+              i(class="fas fa-share")
+              span SHARE
+            button.btn_info_menu
+              i(class="fas fa-plus")
+              span SAVE
+            button.btn_info_menu
+              i(class="fas fa-ellipsis-h")
+
+        .channel
+          .channel_profile
+            .channel_avatar
+              img(src="", alt="")
+            .channel_info
+              h2.channel_creator Creator
+              span.channel_subscribers --.-K subscribers
+          .channel_btns
+            button.btn_box_grey(type="button") 
+              a(herf="") EDIT VIDEO
+
+        .description 
+          p Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam ab voluptatem vel ipsa, reiciendis quia illo harum, ducimus, maiores tenetur temporibus. Corrupti dignissimos aliquid, illum minus atque aperiam rerum voluptates voluptas laudantium?
+
+      .comments
+        .comments_header -- comments
+        .comments_form
+          form.form_comments(action="", method="")
+            input(type="text", placeholder="Add a public comment...")
+            input.btn_box_grey(type="submit" value="COMMENT")
+        .comments_contents
+          .comments_block
+            .comments_avatar
+              img(src="", alt="")
+            .comments_column
+              .comments_info
+                span.comments_creator Creator
+                span.comments_createat 2021.01.01
+              p.comments_text
+                | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur ipsum error unde voluptatibus dolor molestias eligendi cumque reiciendis praesentium obcaecati.
+          .comments_block
+            .comments_avatar
+              img(src="", alt="")
+            .comments_column
+              .comments_info
+                span.comments_creator Creator
+                span.comments_createat 2021.01.01
+              p.comments_text
+                | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur
+          .comments_block
+            .comments_avatar
+              img(src="", alt="")
+            .comments_column
+              .comments_info
+                span.comments_creator Creator
+                span.comments_createat 2021.01.01
+              p.comments_text
+                | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur ipsum error unde voluptatibus dolor molestias eligendi cumque reiciendis praesentium obcaecati. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus labore esse aliquid?
+          
+    .related_section
+      a.video_block(href="")
+        .video_thumbnail
+          video(src="https://serranoarevalo.github.io/notflix/9bfd1023900e31286103369c803c7ee9.ogv" controls)
+        .video_info
+          h3.info_title videotitle
+          h4.info_creator creator
+          .info_data
             span 0 views
             span  · 
             span 2021.01.01
-          .info_column 
-            button
-              i(class="fas fa-thumbs-up")
-              span 10
-            button
-              i(class="fas fa-thumbs-down")
-              span 10
-            button
-              i(class="fas fa-share")
-              span SHARE
-            button
-              i(class="fas fa-plus")
-              span SAVE
-            button 
-              i(class="fas fa-ellipsis-v")
-        hr
-        .info_channel
-          .info_column
-            img(src="", alt="")
-          .info_column
-            h2 Creator
-          .info_column
-            button 
-              a(herf="") Edit Video
-        .info_description 
-          p description
-        hr
-
-      .video_comment
-        .comment_header
-          strong 100 comments
-        .commemt_content
-          .comment_block
-            .comment_column
-              img(src="", alt="")
-            .comment_column
-              .comment_info
-                span Creator
-                span 2021.01.01
-              .comment_text
-                p comment
-          
-    .related_section
-      .video_block
-        a(href="")
-          .video_thumbnail
-            video(src="../../uploads/BicBuckBunny.mp4", controls)
-          .video_info
-            .info_row
-              h4.info_title videotitle
-            .info_row
-              strong.info_creator creator
-            .info_row
-              span 0 views
-              span  · 
-              span 2021.01.01
+      a.video_block(href="")
+        .video_thumbnail
+          video(src="https://serranoarevalo.github.io/notflix/9bfd1023900e31286103369c803c7ee9.ogv" controls)
+        .video_info
+          h3.info_title Lorem ipsum dolor sit amet consectetur
+          h4.info_creator creator
+          .info_data
+            span 0 views
+            span  · 
+            span 2021.01.01
+      a.video_block(href="")
+        .video_thumbnail
+          video(src="https://serranoarevalo.github.io/notflix/9bfd1023900e31286103369c803c7ee9.ogv" controls)
+        .video_info
+          h3.info_title Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          h4.info_creator creator
+          .info_data
+            span 0 views
+            span  · 
+            span 2021.01.01

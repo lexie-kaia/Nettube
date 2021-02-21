@@ -7,20 +7,18 @@
   font-weight: $medium;
 }
 
-.btn_circle {
-  display: flex;
-  justify-content: center;
+.btn_info_menu {
+  display: inline-flex;
   align-items: center;
-  width: 28px;
-  height: 28px;
+  padding: 0 8px;
+  height: 24px;
   background-color: transparent;
-  color: $off-white;
-  border: 1px solid $off-white;
-  border-radius: 50%;
-  font-size: 12px;
-  font-weight: $medium;
-  &:hover {
-    background-color: rgba(255, 255, 255, 0.2);
+  color: $light-grey-1;
+  font-size: 16px;
+  font-weight: $bold;
+  i {
+    margin-right: 4px;
+    font-size: 20px;
   }
 }
 
@@ -44,5 +42,46 @@
     &:hover {
       opacity: 0.6;
     }
+  }
+}
+
+.btn_box_grey {
+  width: 130px;
+  height: 40px;
+  background-color: $btn-grey;
+  color: $btn-color-inacitve;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: $bold;
+  a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    i {
+      margin-right: 8px;
+    }
+  }
+  &:hover {
+    background-color: $btn-grey-highlight;
+    color: $dark-grey-2;
+  }
+}
+
+.btn_circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 28px;
+  height: 28px;
+  background-color: transparent;
+  color: $off-white;
+  border: 1px solid $off-white;
+  border-radius: 50%;
+  font-size: 12px;
+  font-weight: $medium;
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.2);
   }
 }

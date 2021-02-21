@@ -1,8 +1,3 @@
-.div {
-  display: grid;
-  grid-template-columns: 300px 1fr;
-}
-
 .home {
   .main_video {
     position: relative;
@@ -54,9 +49,7 @@
     padding: 16px 40px;
 
     .section_title {
-      display: flex;
-      align-items: center;
-      height: 64px;
+      line-height: 64px;
 
       .title_heading {
         font-size: 24px;
@@ -85,7 +78,7 @@
         .video_info {
           display: flex;
 
-          .info_avartar {
+          .info_avatar {
             margin: 8px 12px 8px 8px;
             width: 36px;
             height: 36px;
