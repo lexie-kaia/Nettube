@@ -28,7 +28,7 @@
   - `&` (parent selector)
 - **partials**
   - `@import`
-  - 파일 이름이 `_`(underscore)로 시작하면 .css 파일로 따로 컴파일하지 않음
+  - (파일 이름이 `_`(underscore)로 시작하면 .css 파일로 따로 컴파일하지 않음)
 - (modules)
 - **mixins**
   - reusable code block
@@ -41,8 +41,8 @@
     // @include <name>(<argument>)
   ```
 - (extends/inheritance)
-- operators
-  - Sass는 연산자로 계산이 가능함
+- **operators**
+
 
 <br>
 
@@ -115,7 +115,7 @@ sass/
   }
 }
 ```
-- css property orcer : group by type
+- css property order : group by type
 ```css
 #selector {
   /* positionings */

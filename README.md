@@ -221,10 +221,16 @@ This project focuses on learning the overall basic environment of web developmen
 
 ## 4. Manipulating MongoDB Atlas with Mongoose
 
-- notes: ~~[noSQL.md]()~~
-- [ ] MongoDb Atlas setup
-- [ ] connecting MongoDB with mongoose
+- notes: ~~[mongoDB.md]()~~
+- [X] creating MongoDB Atlas cluster
+- [X] `$ yarn add mongoose`
+- [X] `db.js`(setup) -> `init.js`(call)
+- [X] connecting MongoDB with mongoose, mongoDB compass
 - [ ] defining Schema
+    - [ ] /models
+      - [ ] Video.js
+      - [ ] User.js
+      - [ ] Comment.js
   |Schema|name|value|options|
   |:---|:---|:---|:---|
   |Video||
@@ -247,10 +253,6 @@ This project focuses on learning the overall basic environment of web developmen
   ||text|String|required|
   ||creator|ObjectId|ref:User|
   ||createdAt|Date|default:Date.now|
-  - [ ] /models
-    - [ ] Video.js
-    - [ ] User.js
-    - [ ] Comment.js
 - [ ] CRUD
 - [ ] multer
 
@@ -264,8 +266,45 @@ This project focuses on learning the overall basic environment of web developmen
 - [X] planning | designing
 - [X] configuring webpack
 - [X] static middleware
-- [ ] folder structure
-- [ ] styling draft
+- [X] folder structure overview
+  ```
+  scss/
+  |
+  |- base/
+  |   |- _reset.scss
+  |   |- ...
+  |
+  |- abstracts/
+  |   |- _variables.scss
+  |   |- _typography.scss
+  |
+  |- components/
+  |   |- _ buttons.scss
+  |   |- _ form.scss
+  |
+  |- partials/
+  |   |- _header.scss
+  |   |- _footer.scss
+  |   |- _sidebar.scss
+  |   |- _socialLogin.scss
+  |   |- _ videoPlayer.scss
+  |
+  |- pages/
+  |   |- home.scss
+  |   |- search.scss
+  |   |- videoDetail.scss
+  |   |- uploadVideo.scss
+  |   |- editVideo.scss
+  |   |- myAccount.scss
+  |   |- formMain.scss
+  |
+  | 
+  `- styles.scss
+  ```
+  ```
+  styels.scss --->  main.js ---> webpack(+autoprefixer) ---> static/styels.css
+  ```
+- [X] styling draft
 - [ ] custom video player with JavaScript
 - [ ] video recorder with JavaScript
 
