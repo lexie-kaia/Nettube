@@ -6,9 +6,10 @@ import path from 'path';
 
 import { routes } from './routes';
 import { homeRouter } from './routers/homeRouter';
-import { accountsRouter } from './routers/accountsRouter';
-import { videosRouter } from './routers/videosRouter';
+import { accountRouter } from './routers/accountsRouter';
+import { videoRouter } from './routers/videoRouter';
 import { localMiddleware } from './middlewares';
+import { ApiError, apiErrorHandler } from './error';
 
 dotenv.config();
 
@@ -24,17 +25,20 @@ app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use('/static', express.static(path.join(__dirname, 'static')));
+app.use('/uploads', express.static(path.join(__dirname, '..', 'uploads')));
 
 app.use(localMiddleware);
 
 // router
 app.use(routes.home, homeRouter);
-app.use(routes.accounts, accountsRouter);
-app.use(routes.videos, videosRouter);
+app.use(routes.accounts, accountRouter);
+app.use(routes.videos, videoRouter);
 
 // error handler
 app.use((req, res, next) => {
-  res.render('pages/error', { pageTitle: 'Error' });
+  next(ApiError.nonFound('Not Found'));
 });
+
+app.use(apiErrorHandler);
 
 export default app;

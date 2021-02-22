@@ -2,7 +2,7 @@ extends ../layouts/layoutSingle
 
 block content
   main.upload_video
-    form(action="", method="")
+    form(action=`/videos${routes.uploadVideo}`, method="post", enctype="multipart/form-data")
 
       .main_header
         h1.heading_main Upload Video

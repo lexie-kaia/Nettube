@@ -39,5 +39,3 @@ export const routes = {
   editVideo: EDITVIDEO,
   deleteVideo: DELETEVIDEO,
 };
-
-// export default routes;

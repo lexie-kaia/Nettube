@@ -1,4 +1,5 @@
 extends ../layouts/layoutMain
+include ../mixins/searchVideoBlock
 
 block content
   div.div_main
@@ -6,20 +7,15 @@ block content
     main.search
       section.search_section
         .section_title
-          h2.title_heading Searching for #{search}
+          h2.title_heading #{search}
         
         .section_videos
-          a.video_block(href="")
-            .video_thumbnail
-              video(src="https://serranoarevalo.github.io/notflix/9bfd1023900e31286103369c803c7ee9.ogv" controls)
-            .video_info
-              h3.info_title videotitle TITLE
-              .info_data
-                span 0 views
-                span  · 
-                span 2021.01.01
-              .info_profile
-                .info_avartar
-                  img(src="", alt="")
-                h4.info_creator creator
-              div.info_description Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae accusantium voluptatum exercitationem dolorem sed enim, error dolores quos eum. Molestias aut natus minus sapiente
+          each video in videos
+            +searchVideoBlock({
+              id: video.id,
+              videoFileUrl: video.videoFileUrl,
+              title: video.title,
+              description: video.description,
+              views: video.views,
+              createdAt: video.createdAt,
+            })

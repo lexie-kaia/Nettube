@@ -103,5 +103,10 @@ dist
 # TernJS port file
 .tern-port
 
+
+# uploaded files
+uploads/
+
 # Build
 build/
+

@@ -1,4 +1,5 @@
 extends ../layouts/layoutMain
+include ../mixins/homeVideoBlock
 
 block content
   div.div_main
@@ -22,24 +23,79 @@ block content
         .section_title
           h2.title_heading Key Features
         .section_videos
-          a.video_block(href="")
-            .video_thumbnail
-              video(src="https://serranoarevalo.github.io/notflix/9bfd1023900e31286103369c803c7ee9.ogv" controls)
-            .video_info
-              .info_column
-                .info_avatar
-                  img(src="", alt="")
-              .info_column
-                h3.info_title videotitle
-                h4.info_creator creator
-                .info_data
-                  span 0 views
-                  span  · 
-                  span 2021.01.01
+          .video_block
+            a(href="")
+              .video_thumbnail
+                video(src="https://serranoarevalo.github.io/notflix/9bfd1023900e31286103369c803c7ee9.ogv" controls)
+              .video_info
+                .info_column
+                  .info_avatar
+                    img(src="", alt="")
+                .info_column
+                  h3.info_title videotitle
+                  h4.info_creator creator
+                  .info_data
+                    span 0 views
+                    span  · 
+                    span 2021.01.01
+          .video_block
+            a(href="")
+              .video_thumbnail
+                video(src="https://serranoarevalo.github.io/notflix/9bfd1023900e31286103369c803c7ee9.ogv" controls)
+              .video_info
+                .info_column
+                  .info_avatar
+                    img(src="", alt="")
+                .info_column
+                  h3.info_title videotitle
+                  h4.info_creator creator
+                  .info_data
+                    span 0 views
+                    span  · 
+                    span 2021.01.01
+          .video_block
+            a(href="")
+              .video_thumbnail
+                video(src="https://serranoarevalo.github.io/notflix/9bfd1023900e31286103369c803c7ee9.ogv" controls)
+              .video_info
+                .info_column
+                  .info_avatar
+                    img(src="", alt="")
+                .info_column
+                  h3.info_title videotitle
+                  h4.info_creator creator
+                  .info_data
+                    span 0 views
+                    span  · 
+                    span 2021.01.01
+          .video_block
+            a(href="")
+              .video_thumbnail
+                video(src="https://serranoarevalo.github.io/notflix/9bfd1023900e31286103369c803c7ee9.ogv" controls)
+              .video_info
+                .info_column
+                  .info_avatar
+                    img(src="", alt="")
+                .info_column
+                  h3.info_title videotitle
+                  h4.info_creator creator
+                  .info_data
+                    span 0 views
+                    span  · 
+                    span 2021.01.01
       section.main_contents
         .section_title
           h2.title_heading Demo Videos
         .section_videos
+          each video in videos
+            +homeVideoBlock({
+              id: video.id,
+              videoFileUrl: video.videoFileUrl,
+              title: video.title,
+              description: video.description,
+              views: video.views,
+              createdAt: video.createdAt,
+            })
 
 
       

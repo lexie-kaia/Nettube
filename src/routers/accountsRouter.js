@@ -7,8 +7,8 @@ import {
   getMy,
 } from '../controllers/userController';
 
-export const accountsRouter = Router();
+export const accountRouter = Router();
 
-accountsRouter.get(routes.me, getMy);
-accountsRouter.get(routes.editProfile, getEditProfile);
-accountsRouter.get(routes.changePassword, getChangePassword);
+accountRouter.get(routes.me, getMy);
+accountRouter.get(routes.editProfile, getEditProfile);
+accountRouter.get(routes.changePassword, getChangePassword);

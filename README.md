@@ -138,7 +138,9 @@ This project focuses on learning the overall basic environment of web developmen
   - (cookie-parser)
   - [x] `morgan` : HTTP request logger
   - (cors)
-  - [X] (static) -> 6. Styling with Sass and bundling assets with Webpack
+  - [X] (static)  
+    -> 4. Manipulating MongoDB Atlas with Mongoose  
+    -> 6. Styling with Sass and bundling assets with Webpack
   - (multer) -> 4. Manipulating MongoDB Atlas with Mongoose
 
 ## 3. Implemening MVC pattern
@@ -226,11 +228,11 @@ This project focuses on learning the overall basic environment of web developmen
 - [X] `$ yarn add mongoose`
 - [X] `db.js`(setup) -> `init.js`(call)
 - [X] connecting MongoDB with mongoose, mongoDB compass
-- [ ] defining Schema
-    - [ ] /models
-      - [ ] Video.js
-      - [ ] User.js
-      - [ ] Comment.js
+- [X] defining Schema
+    - [X] /models
+      - [X] Video.js
+      - [X] User.js
+      - [X] Comment.js
   |Schema|name|value|options|
   |:---|:---|:---|:---|
   |Video||
@@ -254,7 +256,31 @@ This project focuses on learning the overall basic environment of web developmen
   ||creator|ObjectId|ref:User|
   ||createdAt|Date|default:Date.now|
 - [ ] CRUD
-- [ ] multer
+  - [ ] upload video page form : upload(creating) videos
+    - [X] multer middleware
+      - `yarn add multer`
+      - `middlewares.js`
+        -> import multer(<form enctype="multipart/form-data"></form>)
+    - [X] create documents
+      - `videoController.js`
+        -> `req.body`, `req.file`
+      - `Video.create(newVideo)`
+    - [ ] make `isPrivate`
+    - [ ] update User data(`User.videos.id`)
+  - [X] home video section : reading videos
+    - [X] static middleware `/uploads`
+    - [X] `Video.find({})`
+    - [X] home video mixins
+    - [ ] href
+    - [ ] creator
+  - [X] search video section : finding videos
+    - [X] `req.query`
+    - [X] `Video.find({ title: { $regex: req.query, $options: 'i'}})`
+    - [X] search video mixins
+    - [ ] href
+    - [ ] creator
+  - [ ] edit video page form : editing videos
+  - [ ] delete button : deleting videos
 
 ## 5. Refactoring and error handling
 - [ ] **error handler**
@@ -322,3 +348,6 @@ This project focuses on learning the overall basic environment of web developmen
 ## 9. ajax
 
 ## 10. deploy
+
+preparing
+- [ ] multer dest
