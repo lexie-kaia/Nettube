@@ -3,11 +3,24 @@
 - [Mongoose docs](https://mongoosejs.com/docs/guide.html)
 - [MongoDB 기초부터 실무까지(feat.Node.js)](https://inf.run/xovo)
 - [MongoDB Documentation Query and Projection Operators](https://docs.mongodb.com/manual/reference/operator/query/)
+- [SQL vs NoSQL](https://academind.com/tutorials/sql-vs-nosql/)
 
 <br>
 
-## NoSQL
+## SQL vs NoSQL
+- SQL(structured Query Language)
+  - a language designed for RDBMS(Relational Database Management Systems)
+  - Relational Database
+    1. Strict Schema
+      - Data is stored in database tables by following a strict data schema
+    2. Relations
+      - Data is distributed across multiple tables which are connected via relations  
+      -> minimizing data redundancy(not repeating information, only refering to it)
+- NoSQL
+  - JSON-like key-value pair 'document' -> 'collection' -> 'database'  
+    -> flexible
 
+<br>
 
 ## Connecting Database with Mongoose
 - `$ yarn add mongoose`

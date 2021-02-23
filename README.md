@@ -42,7 +42,7 @@ This project focuses on learning the overall basic environment of web developmen
   - [pug](https://pugjs.org/api/getting-started.html)
   - [Sass document](https://sass-lang.com/documentation)
   - [Mongoose docs](https://mongoosejs.com/docs/guide.html)
-  - ...
+  - [passport.js document](http://www.passportjs.org/docs/) | [express-session](https://github.com/expressjs/session/blob/master/README.md) | [Using HTTP cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies)
 - etc
   - 김정환블로그 [프론트엔드 개발환경의 이해](https://jeonghwan-kim.github.io/series/2019/12/09/frontend-dev-env-npm.html)
   - [REST API Tutorial](https://restfulapi.net/)
@@ -57,10 +57,10 @@ This project focuses on learning the overall basic environment of web developmen
 1. Setting up a Node.js development environment
 2. Creating a web server with Expressjs
 3. Implementing MVC pattern
-4. Manipulating MongoDB Atlas with Mongoose
+4. Styling with Sass and bundling assets with Webpack
 5. Refactoring and error handling
-6. Styling with Sass and bundling assets with Webpack
-7. ...
+6. Manipulating MongoDB Atlas with Mongoose
+7. Implementing user authentication with passport.js
 8. ...
 9. ...
 
@@ -139,14 +139,14 @@ This project focuses on learning the overall basic environment of web developmen
   - [x] `morgan` : HTTP request logger
   - (cors)
   - [X] (static)  
-    -> 4. Manipulating MongoDB Atlas with Mongoose  
-    -> 6. Styling with Sass and bundling assets with Webpack
-  - (multer) -> 4. Manipulating MongoDB Atlas with Mongoose
+    -> 6. Manipulating MongoDB Atlas with Mongoose
+    -> 4. Styling with Sass and bundling assets with Webpack
+  - (multer) -> 6. Manipulating MongoDB Atlas with Mongoose
 
 ## 3. Implemening MVC pattern
 
 - notes: [mvc.md]()
-- [ ] **API design** 
+- [X] **API design** 
   | Router | HTTP verb | URL | Payload | Description |
   |:---|:---|:---|:---|:---|
   | homeRouter | GET | / || home |
@@ -189,7 +189,7 @@ This project focuses on learning the overall basic environment of web developmen
     - [X] `userController.js`
     - [X] `videoController.js`
 
-- [ ] **View draft**
+- [X] **View draft**
   - notes: [pug.md](https://github.com/lexie-kaia/Nettube/blob/main/notes/pug.md)
   - [X] view engine setup
     - [X] installing pug
@@ -204,8 +204,7 @@ This project focuses on learning the overall basic environment of web developmen
     - [X] `/partials`
       - [X] `header.pug`
       - [X] `footer.pug`
-    - [ ] `/minxins`
-      - [ ]
+    - [ ] `/minxins` -> 6. Manipulating MongoDB Atlas with Mongoose
     - [X] `/pages`
 - [X] **View Contents**
   - [X] `middlewares.js`
@@ -221,117 +220,8 @@ This project focuses on learning the overall basic environment of web developmen
   - [X] editVideo
   - [X] error
 
-## 4. Manipulating MongoDB Atlas with Mongoose
-
-- notes: [mongo.md](https://github.com/lexie-kaia/Nettube/blob/main/notes/mongo.md)
-- [X] creating MongoDB Atlas cluster
-- [X] `$ yarn add mongoose`
-- [X] `db.js`(setup) -> `init.js`(call)
-- [X] connecting MongoDB with mongoose, mongoDB compass
-- [X] defining Schema
-    - [X] /models
-      - [X] Video.js
-      - [X] User.js
-      - [X] Comment.js
-  |Schema|name|value|options|
-  |:---|:---|:---|:---|
-  |Video||
-  ||videoFileUrl|String|required|
-  ||title|String|required|
-  ||description|String||
-  ||createdAt|Date|default: Date.now|
-  ||views|Number|default: 0|
-  ||creator|ObjectId|ref:User|
-  ||comments|[ObjectId]|ref:Comment|
-  |User||||
-  ||username|String||
-  ||email|String||
-  ||avatarUrl|String||
-  ||facebookId|Number||
-  ||githubId|Number||
-  ||comments|[ObjectID]|ref:Comment|
-  ||videos|[ObjectID]|ref:Video|
-  |Comment||||
-  ||text|String|required|
-  ||creator|ObjectId|ref:User|
-  ||createdAt|Date|default:Date.now|
-- [ ] CRUD
-  - [ ] upload video page form : upload(creating) videos
-    - [X] multer middleware
-      - `yarn add multer`
-      - `middlewares.js`
-        -> import multer(\<form enctype="multipart/form-data"\>\</form\>)
-    - [X] create documents
-      - `videoController.js`
-        -> `req.body`, `req.file`
-      - `Video.create(newVideo)`
-    - [ ] make `isPrivate`
-    - [ ] update `User.videos.id`
-    - [X] redirect to video detail page
-  - [X] home video section : finding all videos
-    - [X] static middleware `/uploads`
-    - [X] `Video.find({})`
-    - [X] home video mixins
-    - [X] a href -> video detail page
-    - [ ] populate()
-      - [ ] creator
-  - [X] search video section : finding videos by query
-    - [X] `req.query` -> search
-    - [X] `Video.find({ title: { $regex: search, $options: 'i'}})`
-    - [X] search video mixins
-    - [X] a href -> video detail page
-    - [ ] populate()
-      - [ ] creator
-  - [ ] video detail page : finding video by id
-    - [X] a href  
-      -> `routes.js` `routes.videoDetail()`
-    - [X] `req.params` -> videoId
-    - [X] `mongoose.isValidObjectId(req.params)`
-    - [X] Promise.all)[]
-      - [X] `Video.findById(videoId)` -> video
-      - [X] `Video.find({ _id: { $ne: videoId }})` -> videos
-    - [X] video detail, videos mixins
-    - [X] a href -> edit video page 
-    - [ ] populate()
-      - creater
-      - comments
-  - [ ] edit video page form : editing videos
-    - [ ] get edit video page
-      - [X] a href  
-        -> `routes.js` `routes.editVideo()`
-      - [X] `req.params` -> videoId
-      - [X] `mongoose.isValidObjectId(req.params)`
-      - [ ] make `isPrivate`
-      - [ ] user validation
-      - [X] Video.findById(videoId)
-      - [ ] populate()
-        - creator
-        - comments
-      - [X] update input value
-    - [ ] post edit video page
-      - [X] `req.params`, `req.body` -> videoId, video
-      - [X] `mongoose.isValidObjectId(req.params)`
-      - [ ] make `isPrivate`
-      - [ ] user validation
-      - [X] `Video.findById(videoId)`, `video.save()`
-      - [X] redirect to video detail page
-  - [ ] delete button : deleting videos
-    - [X] a href  
-        -> `routes.js` `routes.deleteVideo()`
-    - [X] `req.params` -> videoId
-    - [X] `mongoose.isValidObjectId(req.params)`
-    - [ ] make `isPrivate`
-    - [ ] user validation
-    - [X] Video.findByIdAndDelete(videoId)
-    - [ ] update `User.videos.id`
-    - [X] redirect to home page
-
-## 5. Refactoring and error handling
-- [X] **error handler**
-  - [X] `error.js`
-
-## 6. Styling with Sass and bundling assets with Webpack
-- notes: ~~[sass.md]()~~
+## 4. Styling with Sass and bundling assets with Webpack
+- notes: [sass.md](https://github.com/lexie-kaia/Nettube/blob/main/notes/sass.md)
 - [X] planning | designing
 - [X] configuring webpack
 - [X] static middleware
@@ -377,20 +267,155 @@ This project focuses on learning the overall basic environment of web developmen
 - [ ] custom video player with JavaScript
 - [ ] video recorder with JavaScript
 
+## 5. Refactoring and error handling
+- [X] **api error handler - http status**
+  - [X] `error.js`
 
-## 7. user authentication with passport.js
-- notes: ~~[userAuth.md]()~~
-- [ ] passport.js
-- [ ] github
-- [ ] faceboock
+## 6. Manipulating MongoDB Atlas with Mongoose
+
+- notes: [mongo.md](https://github.com/lexie-kaia/Nettube/blob/main/notes/mongo.md)
+- [X] creating MongoDB Atlas cluster
+- [X] `$ yarn add mongoose`
+- [X] `db.js` -> `init.js`
+- [X] connecting MongoDB Atlas with mongoose, mongoDB compass
+- [X] defining Schema
+    - [X] /models
+      - [X] Video.js
+      - [X] User.js
+      - [X] Comment.js
+
+  |Schema|name|value|options|
+  |:---|:---|:---|:---|
+  |Video||
+  ||videoFileUrl|String|required|
+  ||title|String|required|
+  ||description|String||
+  ||createdAt|Date|default: Date.now|
+  ||views|Number|default: 0|
+  ||creator|ObjectId|ref:User|
+  ||comments|[ObjectId]|ref:Comment|
+  |User||||
+  ||username|String||
+  ||email|String||
+  ||avatarUrl|String||
+  ||facebookId|Number||
+  ||githubId|Number||
+  ||comments|[ObjectID]|ref:Comment|
+  ||videos|[ObjectID]|ref:Video|
+  |Comment||||
+  ||text|String|required|
+  ||creator|ObjectId|ref:User|
+  ||createdAt|Date|default:Date.now|
+
+- [ ] **CRUD**
+  - [ ] **upload video page form : upload(creating) videos**
+    - [X] multer middleware
+      - `yarn add multer`
+      - `middlewares.js`
+        -> import multer(\<form enctype="multipart/form-data"\>\</form\>)
+    - [X] create documents
+      - `videoController.js`
+        -> `req.body`, `req.file`
+      - `Video.create(newVideo)`
+    - [ ] make `isPrivate`
+    - [ ] update `User.videos.id`
+    - [X] redirect to video detail page
+  - [X] **home video section : finding all videos**
+    - [X] static middleware `/uploads`
+    - [X] `Video.find({})`
+    - [X] home video mixins
+    - [X] a href -> video detail page
+    - [ ] populate()
+      - [ ] creator
+  - [X] **search video section : finding videos by query**
+    - [X] `req.query` -> search
+    - [X] `Video.find({ title: { $regex: search, $options: 'i'}})`
+    - [X] search video mixins
+    - [X] a href -> video detail page
+    - [ ] populate()
+      - [ ] creator
+  - [ ] **video detail page : finding video by id**
+    - [X] a href  
+      -> `routes.js` `routes.videoDetail()`
+    - [X] `req.params` -> videoId
+    - [X] `mongoose.isValidObjectId(req.params)`
+    - [X] Promise.all)[]
+      - [X] `Video.findById(videoId)` -> video
+      - [X] `Video.find({ _id: { $ne: videoId }})` -> videos
+    - [X] video detail, videos mixins
+    - [X] a href -> edit video page 
+    - [ ] populate()
+      - creater
+      - comments
+  - [ ] **edit video page form : editing videos**
+    - [ ] **get edit video page**
+      - [X] a href  
+        -> `routes.js` `routes.editVideo()`
+      - [X] `req.params` -> videoId
+      - [X] `mongoose.isValidObjectId(req.params)`
+      - [ ] make `isPrivate`
+      - [ ] user validation
+      - [X] Video.findById(videoId)
+      - [ ] populate()
+        - creator
+        - comments
+      - [X] update input value
+    - [ ] **post edit video page**
+      - [X] `req.params`, `req.body` -> videoId, video
+      - [X] `mongoose.isValidObjectId(req.params)`
+      - [ ] make `isPrivate`
+      - [ ] user validation
+      - [X] `Video.findById(videoId)`, `video.save()`
+      - [X] redirect to video detail page
+  - [ ] **delete button : deleting videos**
+    - [X] a href  
+        -> `routes.js` `routes.deleteVideo()`
+    - [X] `req.params` -> videoId
+    - [X] `mongoose.isValidObjectId(req.params)`
+    - [ ] make `isPrivate`
+    - [ ] user validation
+    - [X] Video.findByIdAndDelete(videoId)
+    - [ ] update `User.videos.id`
+    - [X] redirect to home page
+
+## 7. Implementing user authentication with passport.js
+- notes: [user_auth.md](https://github.com/lexie-kaia/Nettube/blob/main/notes/mongo.md)
+1. [X] **phase 1: passport setup with session**
+  - [X] **install packages**
+    `$ yarn add passport express-session connect-mongo`
+  - [X] **set up session**
+    - secret
+      - https://randomkeygen.com/
+      - process.env.COOKIE_SECRET
+    - resave: false
+    - saveUninitialized: false
+    - (cookie)
+    - store
+      - connect-mongo
+  - [X]**initialize passport and enable session support**
+    - `passport.initailize()`
+    - `passport.session()`
+2. [X] **phase 2: local strategy setup**
+  - [X] **install packages**
+    `$ yarn add passport-local passport-local-mongoose`
+  - [X] **add passport-local-mongoose plugin in `User` model**
+  - [X] `passport.js`
+    - [X] create local strategy
+    - [X] `passport.serializeUser()` 
+      : invoked on authentication, store serialized user idenifier in the session
+    - [X] `passport.deserializeUser()`
+      : invoked on every subsequent request, restore `req.user`
+3. [ ] **phase 3: signup and login controller setup**
+4. [ ] **phase 4: social authentication**
+  - [ ] **github**
+  - [ ] **facebook**
+
 - [ ] route protection
 - [ ] 
 
-## 8. custom video player with DOM, html media element
+## 8. ajax
 
-## 9. ajax
-
-## 10. deploy
+## 9. deploy
 
 preparing
 - [ ] multer dest
