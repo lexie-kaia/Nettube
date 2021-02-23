@@ -1,5 +1,5 @@
 mixin homeVideoBlock(video={})
-  a.video_block(href="")
+  a.video_block(href=routes.videoDetail(video.id))
     .video_thumbnail
       video(src=`/${video.videoFileUrl}` controls)
     .video_info
@@ -10,33 +10,4 @@ mixin homeVideoBlock(video={})
         h3.info_title=video.title
         h4.info_creator creator
         .info_data
-          if (video.views === 1) || (video.views === 0)
-            span #{video.views} view
-          else
-            span #{video.views} views
-          span  · 
-          if video.createdAt.getMonth() === 0
-            span Jan
-          else if video.createdAt.getMonth() === 1
-            span Feb
-          else if video.createdAt.getMonth() === 2
-            span Mar
-          else if video.createdAt.getMonth() === 3
-            span Apr
-          else if video.createdAt.getMonth() === 4
-            span May
-          else if video.createdAt.getMonth() === 5
-            span Jun
-          else if video.createdAt.getMonth() === 6
-            span Jul
-          else if video.createdAt.getMonth() === 7
-            span Aug
-          else if video.createdAt.getMonth() === 8
-            span Sep
-          else if video.createdAt.getMonth() === 9
-            span Oct
-          else if video.createdAt.getMonth() === 10
-            span Nov
-          else if video.createdAt.getMonth() === 11
-            span Dec
-          span  #{video.createdAt.getDate()}, #{video.createdAt.getFullYear()}
+          include ../partials/viewAndCreatedAt

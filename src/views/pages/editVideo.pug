@@ -2,7 +2,7 @@ extends ../layouts/layoutSingle
 
 block content
   main.edit_video
-    form(action="", method="")
+    form(action=routes.editVideo(video.id), method="POST")
 
       .main_header
         h1.heading_main Edit Video
@@ -13,21 +13,25 @@ block content
             h2.heading_sub About Video
 
           .file_player
-            video
+            video(src=`/${video.videoFileUrl}`, controls)
           .file_info
             .info_row
               .info_title Video link
-              a.info_data.info_link(href="") http://.../videos/:videoId
+              a.info_data.info_link(href=routes.videoDetail(video.id))=`http://localhost:8080${routes.videoDetail(video.id)}`
             .info_row
               .info_title Created at
-              .info_data 2021.01.01
+              .info_data
+                include ../partials/createdAt
             .info_row
               .info_title Views
-              .info_data 10
+              .info_data=video.views
             .info_row
               .info_title Comments
               .info_data 10
-          
+            .delete_btn
+              button.btn_box.light_grey_long(type="button")
+                a(href=routes.deleteVideo(video.id)) DELETE VIDEO
+      
         .detail_section
           .detail_header
             h2.heading_sub Video Details
@@ -35,11 +39,11 @@ block content
           .detail_contents
             .input_area
               label.input_label(for="title") Title
-              input(type="text", id="title", name="title", placeholder="Add a title that describes your video", required)
+              input(type="text", id="title", name="title", value=video.title, required)
             .input_area
               label.input_label(for="description") Description
-              textarea(id="description", name="description", placeholder="Tell viewers about your video")
+              textarea(id="description", name="description")=video.description
 
-        .submit_btn    
-          button.btn_box_blue(type="submit") SAVE
+        .submit_btn
+          button.btn_box.blue_short(type="submit") SAVE
         

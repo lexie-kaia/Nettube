@@ -223,7 +223,7 @@ This project focuses on learning the overall basic environment of web developmen
 
 ## 4. Manipulating MongoDB Atlas with Mongoose
 
-- notes: ~~[mongoDB.md]()~~
+- notes: [mongo.md](https://github.com/lexie-kaia/Nettube/blob/main/notes/mongo.md)
 - [X] creating MongoDB Atlas cluster
 - [X] `$ yarn add mongoose`
 - [X] `db.js`(setup) -> `init.js`(call)
@@ -260,32 +260,75 @@ This project focuses on learning the overall basic environment of web developmen
     - [X] multer middleware
       - `yarn add multer`
       - `middlewares.js`
-        -> import multer(<form enctype="multipart/form-data"></form>)
+        -> import multer(\<form enctype="multipart/form-data"\>\</form\>)
     - [X] create documents
       - `videoController.js`
         -> `req.body`, `req.file`
       - `Video.create(newVideo)`
     - [ ] make `isPrivate`
-    - [ ] update User data(`User.videos.id`)
-  - [X] home video section : reading videos
+    - [ ] update `User.videos.id`
+    - [X] redirect to video detail page
+  - [X] home video section : finding all videos
     - [X] static middleware `/uploads`
     - [X] `Video.find({})`
     - [X] home video mixins
-    - [ ] href
-    - [ ] creator
-  - [X] search video section : finding videos
-    - [X] `req.query`
-    - [X] `Video.find({ title: { $regex: req.query, $options: 'i'}})`
+    - [X] a href -> video detail page
+    - [ ] populate()
+      - [ ] creator
+  - [X] search video section : finding videos by query
+    - [X] `req.query` -> search
+    - [X] `Video.find({ title: { $regex: search, $options: 'i'}})`
     - [X] search video mixins
-    - [ ] href
-    - [ ] creator
+    - [X] a href -> video detail page
+    - [ ] populate()
+      - [ ] creator
+  - [ ] video detail page : finding video by id
+    - [X] a href  
+      -> `routes.js` `routes.videoDetail()`
+    - [X] `req.params` -> videoId
+    - [X] `mongoose.isValidObjectId(req.params)`
+    - [X] Promise.all)[]
+      - [X] `Video.findById(videoId)` -> video
+      - [X] `Video.find({ _id: { $ne: videoId }})` -> videos
+    - [X] video detail, videos mixins
+    - [X] a href -> edit video page 
+    - [ ] populate()
+      - creater
+      - comments
   - [ ] edit video page form : editing videos
+    - [ ] get edit video page
+      - [X] a href  
+        -> `routes.js` `routes.editVideo()`
+      - [X] `req.params` -> videoId
+      - [X] `mongoose.isValidObjectId(req.params)`
+      - [ ] make `isPrivate`
+      - [ ] user validation
+      - [X] Video.findById(videoId)
+      - [ ] populate()
+        - creator
+        - comments
+      - [X] update input value
+    - [ ] post edit video page
+      - [X] `req.params`, `req.body` -> videoId, video
+      - [X] `mongoose.isValidObjectId(req.params)`
+      - [ ] make `isPrivate`
+      - [ ] user validation
+      - [X] `Video.findById(videoId)`, `video.save()`
+      - [X] redirect to video detail page
   - [ ] delete button : deleting videos
+    - [X] a href  
+        -> `routes.js` `routes.deleteVideo()`
+    - [X] `req.params` -> videoId
+    - [X] `mongoose.isValidObjectId(req.params)`
+    - [ ] make `isPrivate`
+    - [ ] user validation
+    - [X] Video.findByIdAndDelete(videoId)
+    - [ ] update `User.videos.id`
+    - [X] redirect to home page
 
 ## 5. Refactoring and error handling
-- [ ] **error handler**
-  - [ ] `error.js`
-  - notes: ~~[httpStatus.md]()~~
+- [X] **error handler**
+  - [X] `error.js`
 
 ## 6. Styling with Sass and bundling assets with Webpack
 - notes: ~~[sass.md]()~~

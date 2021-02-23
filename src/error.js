@@ -4,12 +4,12 @@ export class ApiError {
     this.message = message;
   }
 
-  static badRequest(msg) {
-    return new ApiError(400, msg);
+  static badRequest() {
+    return new ApiError(400, 'Bad Request');
   }
 
-  static nonFound(msg) {
-    return new ApiError(404, msg);
+  static nonFound() {
+    return new ApiError(404, 'Not Found');
   }
 }
 

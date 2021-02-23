@@ -36,7 +36,7 @@ app.use(routes.videos, videoRouter);
 
 // error handler
 app.use((req, res, next) => {
-  next(ApiError.nonFound('Not Found'));
+  next(ApiError.nonFound());
 });
 
 app.use(apiErrorHandler);

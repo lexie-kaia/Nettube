@@ -1,0 +1,13 @@
+mixin detailSideVideoBlock(video={})
+  a.video_block(href=routes.videoDetail(video.id))
+    .video_thumbnail
+      video(src=`/${video.videoFileUrl}` controls)
+    .video_info
+      h3.info_title=video.title
+      h4.info_creator creator
+      .info_data
+          include ../partials/viewAndCreatedAt
+
+
+
+          

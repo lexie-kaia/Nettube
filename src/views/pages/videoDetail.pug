@@ -1,26 +1,25 @@
 extends ../layouts/layoutMain
+include ../mixins/detailSideVideoBlock
 
 block content
   main.video_detail 
     .video_section
       .video_player
-        video(src="https://serranoarevalo.github.io/notflix/9bfd1023900e31286103369c803c7ee9.ogv", controls)
+        video(src=`/${video.videoFileUrl}`, controls)
 
       .info
         .info_title
-          h1.info_heading videotitle
+          h1.info_heading=video.title
         .info_row
           .info_column
-            span ---- views
-            span  · 
-            span ----.--.--
+            include ../partials/viewAndCreatedAt
           .info_btns
             button.btn_info_menu
               i(class="fas fa-thumbs-up")
-              span ----
+              span LIKE
             button.btn_info_menu
               i(class="fas fa-thumbs-down")
-              span ----
+              span DISLIKE
             button.btn_info_menu
               i(class="fas fa-share")
               span SHARE
@@ -36,13 +35,13 @@ block content
               img(src="", alt="")
             .channel_info
               h2.channel_creator Creator
-              span.channel_subscribers --.-K subscribers
+              span.channel_subscribers 100K subscribers
           .channel_btns
-            button.btn_box_grey(type="button") 
-              a(herf="") EDIT VIDEO
+            button.btn_box.blue_point(type="button") 
+              a(href=routes.editVideo(video.id)) EDIT VIDEO
 
         .description 
-          p Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam ab voluptatem vel ipsa, reiciendis quia illo harum, ducimus, maiores tenetur temporibus. Corrupti dignissimos aliquid, illum minus atque aperiam rerum voluptates voluptas laudantium?
+          p=video.description
 
       .comments
         .comments_header -- comments
@@ -51,7 +50,7 @@ block content
             img(src="", alt="")
           form.form_comments(action="", method="")
             input(type="text", placeholder="Add a public comment...")
-            input.btn_box_grey(type="submit" value="COMMENT")
+            button.btn_box.blue_point(type="submit") COMMENT
 
         .comments_contents
           .comments_block
@@ -83,33 +82,11 @@ block content
                 | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur ipsum error unde voluptatibus dolor molestias eligendi cumque reiciendis praesentium obcaecati. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus labore esse aliquid?
           
     .related_section
-      a.video_block(href="")
-        .video_thumbnail
-          video(src="https://serranoarevalo.github.io/notflix/9bfd1023900e31286103369c803c7ee9.ogv" controls)
-        .video_info
-          h3.info_title videotitle
-          h4.info_creator creator
-          .info_data
-            span 0 views
-            span  · 
-            span 2021.01.01
-      a.video_block(href="")
-        .video_thumbnail
-          video(src="https://serranoarevalo.github.io/notflix/9bfd1023900e31286103369c803c7ee9.ogv" controls)
-        .video_info
-          h3.info_title Lorem ipsum dolor sit amet consectetur
-          h4.info_creator creator
-          .info_data
-            span 0 views
-            span  · 
-            span 2021.01.01
-      a.video_block(href="")
-        .video_thumbnail
-          video(src="https://serranoarevalo.github.io/notflix/9bfd1023900e31286103369c803c7ee9.ogv" controls)
-        .video_info
-          h3.info_title Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          h4.info_creator creator
-          .info_data
-            span 0 views
-            span  · 
-            span 2021.01.01
+      each video in videos
+        +detailSideVideoBlock({
+          id: video.id,
+          videoFileUrl: video.videoFileUrl,
+          title: video.title,
+          createdAt: video.createdAt,
+        })
+      

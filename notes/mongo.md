@@ -57,17 +57,41 @@ Kitten.find({});
 Kitten.find({ name: 'Silence'});
 Kitten.find({ name: { $regex: 'Sil', $options: i }}) // i : case insensitivity
 ```
-```
+```js
 // query operators
 // $gte : greater than or equal to
 // $gt : greater than
 // $lte : less than or equal to
 // $lt : less than
 // $in : matches any of the values in an array
-// $not
+// $ne : not equal to 
+// $not : inverts the effect of a query expression(logical operator)
 // $regex
 ```
 
-```
+```js
 Kitten.findById(id);
 ```
+- **Updating**
+```js
+Kitten.findOneAndUpdate({name: 'Silence'}, {name: 'Shh'})
+```
+
+```js
+Kitten.findByIdAndUpdate(id, {name: 'Fluffy'})
+// this method skips mongoose schema validation and updates nongodb database directly
+
+const kitty = Kitten.findById(id)
+kitty.name = 'Fluffy'
+kitty.save()
+```
+
+- **Deleting**
+```js
+Kitten.findByIdAndDelete(id)
+```
+```js
+Kitten.findOneAndDelete(id)
+Kitten.findOneAndRemove(id)
+```
+- This function differs slightly from `Model.findOneAndRemove()` in that `findOneAndRemove()` becomes a MongoDB findAndModify() command, as opposed to a `findOneAndDelete()` command. For most mongoose use cases, this distinction is purely pedantic. <u>You should use `findOneAndDelete()` unless you have a good reason not to.</u>

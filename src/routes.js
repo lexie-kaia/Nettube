@@ -34,8 +34,17 @@ export const routes = {
 
   // videos router
   videos: VIDEOS,
-  videoDetail: VIDEODETAIL,
+  videoDetail: (videoId) => {
+    if (videoId) return `/videos/${videoId}`;
+    else return VIDEODETAIL;
+  },
   uploadVideo: UPLOADVIDEO,
-  editVideo: EDITVIDEO,
-  deleteVideo: DELETEVIDEO,
+  editVideo: (videoId) => {
+    if (videoId) return `/videos/${videoId}/edit`;
+    else return EDITVIDEO;
+  },
+  deleteVideo: (videoId) => {
+    if (videoId) return `/videos/${videoId}/delete`;
+    else return DELETEVIDEO;
+  },
 };

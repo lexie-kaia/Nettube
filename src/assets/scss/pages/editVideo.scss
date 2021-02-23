@@ -23,6 +23,10 @@
       width: 320px;
       height: 180px;
       background-color: $menu-background;
+      video {
+        width: 100%;
+        margin: auto 0;
+      }
     }
 
     .file_info {
@@ -30,6 +34,7 @@
       padding: 16px 12px;
       background-color: $off-white-background;
       border-radius: 8px;
+      overflow: hidden;
       .info_row {
         margin-bottom: 16px;
         &:last-child {
@@ -47,34 +52,13 @@
       }
 
       .info_link {
+        word-break: break-all;
+        word-wrap: normal;
         &:hover {
           color: $point-blue;
         }
       }
     }
-
-    // .file_section {
-    //   .upload_section {
-    //     margin-bottom: 24px;
-    //     .sub_header {
-    //       margin-bottom: 8px;
-    //     }
-    //   }
-
-    //   .record_section {
-    //     .sub_header {
-    //       margin-bottom: 16px;
-    //     }
-    //     .record_area {
-    //       border-radius: 8px;
-    //       overflow: hidden;
-    //       .record_player {
-    //         width: 320px;
-    //         height: 180px;
-    //         background-color: $menu-background;
-    //       }
-    //     }
-    //   }
   }
 
   .detail_section {

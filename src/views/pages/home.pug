@@ -13,7 +13,7 @@ block content
           h1.video_title Sintel
           p.video_description 
             | Sintel is an independently produced short film, initiated by the Blender Foundation as a means to further improve and validate the free/open source 3D creation suite Blender.
-          button.video_play_btn.btn_box
+          button.btn_box.main_play
             a(href="")
               i(class="fas fa-play")
               span Play
@@ -92,7 +92,6 @@ block content
               id: video.id,
               videoFileUrl: video.videoFileUrl,
               title: video.title,
-              description: video.description,
               views: video.views,
               createdAt: video.createdAt,
             })
