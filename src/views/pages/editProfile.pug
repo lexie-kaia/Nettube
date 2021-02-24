@@ -5,10 +5,10 @@ block content
     .main_header
       h1.heading_main Edit Profile
     .contents_container
-      form.form_area(action="" method="")
+      form.form_area(action=routes.editProfile(user.id), method="POST", enctype="multipart/form-data")
         .input_file
           label.input_label(for="avatar") Avatar
           input(type="file", id="avatar", name="avatar", accept="image/*")
-        input(type="text", name="name", placeholder="Name", required)
-        input(type="text", name="email", placeholder="Email", required)
+        input(type="text", name="username", placeholder="Username", value=user.username, required)
+        input(type="text", name="email", placeholder="Email", value=user.email, required)
         input(type="submit", value="Save Changes")

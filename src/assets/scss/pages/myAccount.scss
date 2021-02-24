@@ -1,11 +1,10 @@
 .account {
   display: grid;
   grid-template-columns: 496px 1fr;
-  gap: 36px;
+  gap: 48px;
   max-width: 1440px;
   width: 100%;
   margin: 0 auto;
-  border: 1px solid red;
 
   .profile_section {
     display: flex;
@@ -27,7 +26,9 @@
         height: 144px;
         border-radius: 50%;
         background-color: $point-blue;
+        overflow: hidden;
         img {
+          width: 100%;
         }
       }
       .profile_username {
@@ -46,7 +47,7 @@
       flex-direction: column;
       align-items: center;
       width: 100%;
-      .btn_box_blue_l:first-child {
+      .btn_box.blue_long:first-child {
         margin-bottom: 12px;
       }
     }

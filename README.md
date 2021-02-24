@@ -441,9 +441,19 @@ This project focuses on learning the overall basic environment of web developmen
     4. [X] authenticate requests
       - /auth/facebook
       - /auth/facebook/callback
-5. [ ] **phase 5: update my account page**
-6. [ ] **phase 6: route protection(access control)**
-- [ ] route protection
+- [X] **update my account pages**
+  - [X] my account
+  - [X] edit profile
+    - [X] multer middleware
+  - [X] change password
+- [ ] **access control**
+  - [ ] display components 
+    - [X] header menu
+    - [ ] edit video button
+  - [X] onlyPrivate / onlyPublic middleware
+  - [ ] route protection through user validation
+    - [ ] edit video 
+    
 
 ## 8. ajax
 

@@ -14,22 +14,23 @@ import {
   facebookAuth,
   facebookAuthCallback,
 } from '../controllers/userController';
+import { onlyPrivate, onlyPublic } from '../middlewares';
 
 export const homeRouter = Router();
 
 homeRouter.get(routes.home, getHome);
 homeRouter.get(routes.search, getSearch);
 
-homeRouter.get(routes.signup, getSignup);
-homeRouter.post(routes.signup, postSignup, postLogin);
+homeRouter.get(routes.signup, onlyPublic, getSignup);
+homeRouter.post(routes.signup, onlyPublic, postSignup, postLogin);
 
-homeRouter.get(routes.login, getLogin);
-homeRouter.post(routes.login, postLogin);
+homeRouter.get(routes.login, onlyPublic, getLogin);
+homeRouter.post(routes.login, onlyPublic, postLogin);
 
-homeRouter.get(routes.logout, getLogout);
+homeRouter.get(routes.logout, onlyPrivate, getLogout);
 
-homeRouter.get(routes.github, githubAuth);
+homeRouter.get(routes.github, onlyPublic, githubAuth);
 homeRouter.get(routes.githubCallback, githuAuthCallback, redirectHome);
 
-homeRouter.get(routes.facebook, facebookAuth);
+homeRouter.get(routes.facebook, onlyPublic, facebookAuth);
 homeRouter.get(routes.facebookCallback, facebookAuthCallback, redirectHome);

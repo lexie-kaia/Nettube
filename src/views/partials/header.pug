@@ -22,10 +22,10 @@ header.header
       else
         li
           button.btn_header(type="button")
-            a(href=`${routes.videos}${routes.uploadVideo}`) New Video
+            a(href=routes.uploadVideo(loggedUser.id)) New Video
         li
           button.btn_header(type="button")
-            a(href=`${routes.accounts}${routes.me}`) My Account
+            a(href=routes.me(loggedUser.id)) My Account
         li
           button.btn_header(type="button")
             a(href=routes.logout) Log Out

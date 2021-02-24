@@ -80,11 +80,11 @@
     color: $white;
   }
 
-  // &.blue_long {
-  //   width: 240px;
-  //   background-color: $point-blue;
-  //   color: $white;
-  // }
+  &.blue_long {
+    width: 240px;
+    background-color: $point-blue;
+    color: $white;
+  }
 
   &.recording {
     width: 100%;

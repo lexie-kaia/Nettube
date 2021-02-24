@@ -34,9 +34,18 @@ export const routes = {
 
   // accounts router
   accounts: ACCOUNTS,
-  me: ME,
-  editProfile: EDITPROFILE,
-  changePassword: CHANGEPASSWORD,
+  me: (userId) => {
+    if (userId) return ACCOUNTS + ME;
+    else return ME;
+  },
+  editProfile: (userId) => {
+    if (userId) return ACCOUNTS + EDITPROFILE;
+    else return EDITPROFILE;
+  },
+  changePassword: (userId) => {
+    if (userId) return ACCOUNTS + CHANGEPASSWORD;
+    else return CHANGEPASSWORD;
+  },
 
   // videos router
   videos: VIDEOS,
@@ -44,7 +53,10 @@ export const routes = {
     if (videoId) return `/videos/${videoId}`;
     else return VIDEODETAIL;
   },
-  uploadVideo: UPLOADVIDEO,
+  uploadVideo: (userId) => {
+    if (userId) return VIDEOS + UPLOADVIDEO;
+    else return UPLOADVIDEO;
+  },
   editVideo: (videoId) => {
     if (videoId) return `/videos/${videoId}/edit`;
     else return EDITVIDEO;

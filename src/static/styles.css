@@ -352,6 +352,11 @@ body {
   background-color: #3ea6ff;
   color: #ffffff;
 }
+.btn_box.blue_long {
+  width: 240px;
+  background-color: #3ea6ff;
+  color: #ffffff;
+}
 .btn_box.recording {
   width: 100%;
   background-color: #ff0000;
@@ -1171,11 +1176,10 @@ body {
 .account {
   display: grid;
   grid-template-columns: 496px 1fr;
-  gap: 36px;
+  gap: 48px;
   max-width: 1440px;
   width: 100%;
   margin: 0 auto;
-  border: 1px solid red;
 }
 .account .profile_section {
   display: -webkit-box;
@@ -1214,6 +1218,10 @@ body {
   height: 144px;
   border-radius: 50%;
   background-color: #3ea6ff;
+  overflow: hidden;
+}
+.account .profile_section .profile_row .profile_avatar img {
+  width: 100%;
 }
 .account .profile_section .profile_row .profile_username {
   margin-bottom: 12px;
@@ -1238,7 +1246,7 @@ body {
           align-items: center;
   width: 100%;
 }
-.account .profile_section .profile_btns .btn_box_blue_l:first-child {
+.account .profile_section .profile_btns .btn_box.blue_long:first-child {
   margin-bottom: 12px;
 }
 .account .videos_section {

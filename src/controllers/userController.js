@@ -41,7 +41,7 @@ export const getLogout = (req, res) => {
   res.redirect('/');
 };
 
-// Github login
+// github login
 export const githubAuth = passport.authenticate('github');
 
 export const githuAuthCallback = passport.authenticate('github', {
@@ -80,7 +80,7 @@ export const githubVerifyCallback = async (
   }
 };
 
-// Github login
+// facebook login
 export const facebookAuth = passport.authenticate('facebook');
 
 export const facebookAuthCallback = passport.authenticate('facebook', {
@@ -120,13 +120,52 @@ export const facebookVerifyCallback = async (
 export const redirectHome = (req, res) => res.redirect(routes.home);
 
 // my account
-export const getMy = (req, res) =>
-  res.render('pages/myAccount', { pageTitle: 'My Account' });
+export const getMy = (req, res) => {
+  return res.render('pages/myAccount', {
+    pageTitle: 'My Account',
+    user: req.user,
+  });
+};
 
 // edit profile
-export const getEditProfile = (req, res) =>
-  res.render('pages/editProfile', { pageTitle: 'Edit Profile' });
+export const getEditProfile = async (req, res, next) => {
+  try {
+    const user = await User.findById(req.user.id);
+    return res.render('pages/editProfile', { pageTitle: 'Edit Profile', user });
+  } catch (err) {
+    next(err);
+  }
+};
+
+export const postEditProfie = async (req, res) => {
+  try {
+    const { name, email } = req.body;
+    const user = await User.findById(req.user.id);
+    if (name) user.name = name;
+    if (email) user.email = email;
+    if (req.file) user.avatarUrl = req.file.path;
+    await user.save();
+    return res.redirect(routes.me(req.user.id));
+  } catch (err) {
+    next(err);
+  }
+};
 
 // change password
 export const getChangePassword = (req, res) =>
-  res.render('pages/changePassword', { pageTitle: 'Change Password' });
+  res.render('pages/changePassword', {
+    pageTitle: 'Change Password',
+    user: req.user,
+  });
+
+export const postChangePassword = async (req, res, next) => {
+  try {
+    const { currentPassword, newPassword, newPasswordConfirm } = req.body;
+    if (newPassword !== newPasswordConfirm)
+      return next(ApiError.badRequest(routes.changePassword(req.user.id)));
+    await req.user.changePassword(currentPassword, newPassword);
+    return res.redirect(routes.me(req.user.id));
+  } catch (err) {
+    next(err);
+  }
+};

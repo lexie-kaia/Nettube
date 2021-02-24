@@ -9,16 +9,16 @@ import {
   postEditVideo,
   postUpload,
 } from '../controllers/videoController';
-import { uploadVideo } from '../middlewares';
+import { onlyPrivate, uploadVideo } from '../middlewares';
 
 export const videoRouter = Router();
 
-videoRouter.get(routes.uploadVideo, getUpload);
-videoRouter.post(routes.uploadVideo, uploadVideo, postUpload);
+videoRouter.get(routes.uploadVideo(), onlyPrivate, getUpload);
+videoRouter.post(routes.uploadVideo(), onlyPrivate, uploadVideo, postUpload);
 
 videoRouter.get(routes.videoDetail(), getVideoDetail);
 
-videoRouter.get(routes.editVideo(), getEditVideo);
-videoRouter.post(routes.editVideo(), postEditVideo);
+videoRouter.get(routes.editVideo(), onlyPrivate, getEditVideo);
+videoRouter.post(routes.editVideo(), onlyPrivate, postEditVideo);
 
-videoRouter.get(routes.deleteVideo(), getDeleteVideo);
+videoRouter.get(routes.deleteVideo(), onlyPrivate, getDeleteVideo);

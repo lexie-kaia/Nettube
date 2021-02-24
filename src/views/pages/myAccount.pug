@@ -6,14 +6,14 @@ block content
     .profile_section
       .profile_row
         .profile_avatar
-          img(src="", alt="")
-        .profile_username User Name
-        .profile_email email@email.com
+          img(src=user.avatarUrl, alt="")
+        .profile_username=user.username
+        .profile_email=user.email
       .profile_btns
-        button.btn_box_blue_l(type="button")
-          a(href="") Edit Profile
-        button.btn_box_blue_l(type="button")
-          a(href="") Change Password
+        button.btn_box.blue_long(type="button")
+          a(href=routes.editProfile(user.id)) Edit Profile
+        button.btn_box.blue_long(type="button")
+          a(href=routes.changePassword(user.id)) Change Password
         
     .videos_section
       a.video_block(href="")
