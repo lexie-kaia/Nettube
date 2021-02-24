@@ -9,5 +9,5 @@ mixin searchVideoBlock(video={})
       .info_profile
         .info_avartar
           img(src="", alt="")
-        h4.info_creator creator
+        h4.info_creator=video.creator
       .info_description=video.description

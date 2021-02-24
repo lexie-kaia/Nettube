@@ -8,6 +8,6 @@ mixin homeVideoBlock(video={})
           img(src="", alt="")
       .info_column
         h3.info_title=video.title
-        h4.info_creator creator
+        h4.info_creator=video.creator
         .info_data
           include ../partials/viewAndCreatedAt

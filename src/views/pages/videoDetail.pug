@@ -32,9 +32,9 @@ block content
         .channel
           .channel_profile
             .channel_avatar
-              img(src="", alt="")
+              img(src=video.creator.avatarUrl, alt="")
             .channel_info
-              h2.channel_creator Creator
+              h2.channel_creator=video.creator.username
               span.channel_subscribers 100K subscribers
           .channel_btns
             button.btn_box.blue_point(type="button") 
