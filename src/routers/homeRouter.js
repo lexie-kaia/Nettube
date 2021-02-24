@@ -11,6 +11,8 @@ import {
   githubAuth,
   githuAuthCallback,
   redirectHome,
+  facebookAuth,
+  facebookAuthCallback,
 } from '../controllers/userController';
 
 export const homeRouter = Router();
@@ -28,3 +30,6 @@ homeRouter.get(routes.logout, getLogout);
 
 homeRouter.get(routes.github, githubAuth);
 homeRouter.get(routes.githubCallback, githuAuthCallback, redirectHome);
+
+homeRouter.get(routes.facebook, facebookAuth);
+homeRouter.get(routes.facebookCallback, facebookAuthCallback, redirectHome);

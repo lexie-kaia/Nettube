@@ -80,6 +80,43 @@ export const githubVerifyCallback = async (
   }
 };
 
+// Github login
+export const facebookAuth = passport.authenticate('facebook');
+
+export const facebookAuthCallback = passport.authenticate('facebook', {
+  failureRedirect: '/login',
+});
+
+export const facebookVerifyCallback = async (
+  accessToken,
+  refreshToken,
+  profile,
+  cb
+) => {
+  try {
+    const { name: username, id: facebookId, email } = profile._json;
+    const avatarUrl = `https://graph.facebook.com/${facebookId}/picture?type=large`;
+
+    const user = await User.findOne({ email });
+    if (user) {
+      user.username = username;
+      user.avatarUrl = avatarUrl;
+      user.facebookId = facebookId;
+      await user.save();
+      return cb(null, user);
+    }
+    const newUser = await User.create({
+      username,
+      email,
+      avatarUrl,
+      facebookId,
+    });
+    return cb(null, newUser);
+  } catch (err) {
+    cb(err);
+  }
+};
+
 export const redirectHome = (req, res) => res.redirect(routes.home);
 
 // my account

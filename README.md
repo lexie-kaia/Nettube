@@ -425,10 +425,25 @@ This project focuses on learning the overall basic environment of web developmen
     4. [X] authenticate requests
       - /auth/github
       - /auth/github/callback
-  - [ ] **facebook**
-5. [ ] **phase 5: route protection(access control)**
+  - [X] **facebook**
+    1. [X] install
+      `$ yarn add passport-facebook`
+    2. [X] register an application
+      - https://developers.facebook.com/
+      -
+    3. [X] configure strategy
+      - clientID
+      - clientSecret
+      - callbackURL
+      - verifyCallback
+      - scope
+      - profileFields
+    4. [X] authenticate requests
+      - /auth/facebook
+      - /auth/facebook/callback
+5. [ ] **phase 5: update my account page**
+6. [ ] **phase 6: route protection(access control)**
 - [ ] route protection
-- [ ] 
 
 ## 8. ajax
 
