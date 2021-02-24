@@ -42,7 +42,7 @@ This project focuses on learning the overall basic environment of web developmen
   - [pug](https://pugjs.org/api/getting-started.html)
   - [Sass document](https://sass-lang.com/documentation)
   - [Mongoose docs](https://mongoosejs.com/docs/guide.html)
-  - [passport.js document](http://www.passportjs.org/docs/) | [express-session](https://github.com/expressjs/session/blob/master/README.md) | [Using HTTP cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies)
+  - [passport.js](http://www.passportjs.org/docs/) | [express-session](https://github.com/expressjs/session/blob/master/README.md) | [Using HTTP cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies) | [passport-local-mongoose](https://github.com/saintedlama/passport-local-mongoose#readme) | [connect-mongo](https://github.com/jdesboeufs/connect-mongo/tree/v3.x)
 - etc
   - 김정환블로그 [프론트엔드 개발환경의 이해](https://jeonghwan-kim.github.io/series/2019/12/09/frontend-dev-env-npm.html)
   - [REST API Tutorial](https://restfulapi.net/)
@@ -405,11 +405,28 @@ This project focuses on learning the overall basic environment of web developmen
       : invoked on authentication, store serialized user idenifier in the session
     - [X] `passport.deserializeUser()`
       : invoked on every subsequent request, restore `req.user`
-3. [ ] **phase 3: signup and login controller setup**
+3. [X] **phase 3: signup and login controller setup**
+  - [X] postSignup
+  - [X] postLogin
+  - [X] change header menu
+  - [X] getLogout
 4. [ ] **phase 4: social authentication**
-  - [ ] **github**
+  - [X] **github**
+    1. [X] install
+      `$ yarn add passport-github2`
+    2. [X] register an application
+      - https://github.com/settings/applications/new
+    3. [X] configure strategy
+      - clientID
+      - clientSecret
+      - callbackURL
+      - verifyCallback
+      - scope
+    4. [X] authenticate requests
+      - /auth/github
+      - /auth/github/callback
   - [ ] **facebook**
-
+5. [ ] **phase 5: route protection(access control)**
 - [ ] route protection
 - [ ] 
 

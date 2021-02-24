@@ -1,11 +1,10 @@
 import express from 'express';
 import dotenv from 'dotenv';
-dotenv.config();
 import helmet from 'helmet';
 import morgan from 'morgan';
 import session from 'express-session';
 import connectMongo from 'connect-mongo';
-const MongoStore = connectMongo.default;
+import mongoose from 'mongoose';
 import passport from 'passport';
 import path from 'path';
 
@@ -19,6 +18,9 @@ import { ApiError, apiErrorHandler } from './error';
 import './passport';
 
 const app = express();
+
+dotenv.config();
+const MongoStore = connectMongo(session);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -37,7 +39,7 @@ app.use(
     secret: process.env.COOKIE_SECRET,
     resave: false,
     saveUninitialized: false,
-    store: MongoStore.create({ mongoUrl: process.env.MONGO_URL }),
+    store: new MongoStore({ mongooseConnection: mongoose.connection }),
   })
 );
 app.use(passport.initialize());

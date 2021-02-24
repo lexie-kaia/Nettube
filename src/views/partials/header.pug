@@ -12,7 +12,20 @@ header.header
         i(class="fas fa-search")
   .column_menu
     ul.header_menu
-      li
-        a.menu_btn(href=routes.login) Log in
-      li
-        a.menu_btn(href=routes.signup) Sign up
+      if !loggedUser
+        li
+          button.btn_header(type="button")
+            a(href=routes.login) Log In
+        li
+          button.btn_header(type="button")
+            a(href=routes.signup) Sign Up
+      else
+        li
+          button.btn_header(type="button")
+            a(href=`${routes.videos}${routes.uploadVideo}`) New Video
+        li
+          button.btn_header(type="button")
+            a(href=`${routes.accounts}${routes.me}`) My Account
+        li
+          button.btn_header(type="button")
+            a(href=routes.logout) Log Out

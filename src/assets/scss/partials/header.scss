@@ -73,20 +73,6 @@
     .header_menu {
       display: flex;
       padding-right: 12px;
-      .menu_btn {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: 0 4px;
-        width: 72px;
-        height: 52px;
-        // border: 1px solid white;
-        font-size: 16px;
-        font-weight: $bold;
-        &:hover {
-          color: $light-grey-1;
-        }
-      }
     }
   }
 }

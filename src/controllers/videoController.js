@@ -6,6 +6,7 @@ import Video from '../models/Video';
 
 // home
 export const getHome = async (req, res) => {
+  console.log(req.user);
   try {
     const videos = await Video.find({});
     return res.render('pages/home', { pageTitle: 'Home', videos });

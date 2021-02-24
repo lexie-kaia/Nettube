@@ -7,6 +7,23 @@
   font-weight: $medium;
 }
 
+.btn_header {
+  margin: 0 12px;
+  background-color: transparent;
+  color: $white;
+  font-size: 16px;
+  font-weight: $bold;
+  a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 52px;
+  }
+  &:hover {
+    color: $light-grey-1;
+  }
+}
+
 .btn_info_menu {
   display: inline-flex;
   align-items: center;
