@@ -120,11 +120,15 @@ export const facebookVerifyCallback = async (
 export const redirectHome = (req, res) => res.redirect(routes.home);
 
 // my account
-export const getMy = (req, res) => {
-  return res.render('pages/myAccount', {
-    pageTitle: 'My Account',
-    user: req.user,
-  });
+export const getMy = async (req, res) => {
+  try {
+    const user = await User.findById(req.user.id).populate('videos');
+    console.log(typeof user.videos[0]);
+    console.log(user.videos);
+    return res.render('pages/myAccount', { pageTitle: 'My Account', user });
+  } catch (err) {
+    next(err);
+  }
 };
 
 // edit profile

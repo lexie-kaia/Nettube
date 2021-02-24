@@ -128,10 +128,7 @@ export const getDeleteVideo = async (req, res) => {
     const video = await Video.findById(videoId);
     if (video.creator.toString() !== req.user.id)
       return next(ApiError.badRequest());
-
-    const userVideos = req.user.videos;
-    req.user.videos = userVideos.splice(userVideos.indexOf(videoId), 1);
-
+    req.user.videos.pull(videoId);
     await Promise.all([Video.deleteOne({ _id: videoId }), req.user.save()]);
     return res.redirect(routes.home);
   } catch (err) {

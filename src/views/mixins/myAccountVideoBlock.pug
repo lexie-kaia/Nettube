@@ -1,0 +1,8 @@
+mixin myAccountVideoBlock(video={})
+  a.video_block(href=routes.videoDetail(video.id))
+    .video_thumbnail
+      video(src=`/${video.videoFileUrl}` controls)
+    .video_info
+      h3.info_title=video.title
+      .info_data
+        include ../partials/viewAndCreatedAt

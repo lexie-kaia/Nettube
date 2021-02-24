@@ -446,13 +446,16 @@ This project focuses on learning the overall basic environment of web developmen
   - [X] edit profile
     - [X] multer middleware
   - [X] change password
-- [ ] **access control**
-  - [ ] display components 
+- [x] **access control and route protection**
+  - [X] display components 
     - [X] header menu
-    - [ ] edit video button
+    - [X] edit video button
   - [X] onlyPrivate / onlyPublic middleware
-  - [ ] route protection through user validation
-    - [ ] edit video 
+  - [X] user validation
+    - [X] video detail
+    - [X] upload video
+    - [X] edit video 
+    - [X] delete video
     
 
 ## 8. ajax
