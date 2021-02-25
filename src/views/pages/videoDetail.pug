@@ -1,12 +1,13 @@
 extends ../layouts/layoutMain
 include ../mixins/detailSideVideoBlock
+include ../partials/videoPlayer
 
 block content
   main.video_detail 
     .video_section
-      .video_player
-        video(src=`/${video.videoFileUrl}`, controls)
-
+      +videoPlayer({
+        videoFileUrl: video.videoFileUrl,
+      })
       .info
         .info_title
           h1.info_heading=video.title

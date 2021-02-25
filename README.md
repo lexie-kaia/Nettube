@@ -264,8 +264,6 @@ This project focuses on learning the overall basic environment of web developmen
   styels.scss --->  main.js ---> webpack(+autoprefixer) ---> static/styels.css
   ```
 - [X] styling draft
-- [ ] custom video player with JavaScript
-- [ ] video recorder with JavaScript
 
 ## 5. Refactoring and error handling
 - [X] **api error handler - http status**
@@ -456,6 +454,16 @@ This project focuses on learning the overall basic environment of web developmen
     - [X] upload video
     - [X] edit video 
     - [X] delete video
+
+## 8. Custom Video Player and Video Recorder
+- [ ] custom video player with JavaScript
+  - [ ] html
+  - [ ] css
+  - [ ] `videoPlayer.js`
+- [ ] video recorder with JavaScript
+  - [X] html
+  - [X] css
+  - [ ] `videoRecorder.js`
     
 
 ## 8. ajax

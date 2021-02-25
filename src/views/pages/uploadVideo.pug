@@ -23,9 +23,9 @@ block content
               h2.heading_sub Record Video
               p.text No video? Create your own video here.
             .record_area
-              button.btn_box.recording(type="button") Start Recording
-              .record_player
-                video
+              button.btn_box.recording#jsRecordBtn(type="button") Start Recording
+              .record_player#jsRecordPlayer
+                video#jsRecordPreview
           
         .detail_section
           .detail_header
