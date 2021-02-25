@@ -4,9 +4,9 @@ mixin detailSideVideoBlock(video={})
       video(src=`/${video.videoFileUrl}` controls)
     .video_info
       h3.info_title=video.title
-      h4.info_creator creator
+      h4.info_creator=video.creator.username
       .info_data
-          include ../partials/viewAndCreatedAt
+        include ../partials/viewAndCreatedAt
 
 
 

@@ -456,17 +456,23 @@ This project focuses on learning the overall basic environment of web developmen
     - [X] delete video
 
 ## 8. Custom Video Player and Video Recorder
-- [ ] custom video player with JavaScript
-  - [ ] html
-  - [ ] css
-  - [ ] `videoPlayer.js`
-- [ ] video recorder with JavaScript
+- [X] **custom video player**
   - [X] html
   - [X] css
-  - [ ] `videoRecorder.js`
-    
+  - [X] `videoPlayer.js`
+- [X] **video recorder**
+  - [X] html
+  - [X] css
+  - [X] `videoRecorder.js`
 
 ## 8. ajax
+- [X] registering view
+- [X] adding a comment
+  - [X] api route, contoller
+  - [X] `videoPlayer.js` -> fetch
+  - [X] `addComments.js` -> axios
+
+## 9. refactoring and modify readme.md
 
 ## 9. deploy
 

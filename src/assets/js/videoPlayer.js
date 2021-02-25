@@ -14,6 +14,13 @@ const totalTime = document.querySelector('#jsTotalTime');
 const progressBar = document.querySelector('#jsProgressBar');
 const progressBarContainer = document.querySelector('#jsProgressBarContainer');
 
+const registerView = () => {
+  const videoId = window.location.href.split('/videos/')[1];
+  fetch(`/api/${videoId}/views`, {
+    method: 'POST',
+  });
+};
+
 function handlePlayBtnClick() {
   const method = video.paused ? 'play' : 'pause';
   video[method]();
@@ -111,6 +118,7 @@ function setVideoTime() {
 
 function handleEnded() {
   playBtn.innerHTML = '<i class="fas fa-play"></i>';
+  registerView();
 }
 
 function handleProgress() {

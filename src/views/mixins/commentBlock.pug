@@ -1,0 +1,33 @@
+mixin commentBlock(comment={})
+  .comments_block
+    .comments_avatar
+    .comments_column
+      .comments_info
+        span.comments_creator=comment.creator
+        span.comments_createat
+          if comment.createdAt.getMonth() === 0
+            span Jan
+          else if comment.createdAt.getMonth() === 1
+            span Feb
+          else if comment.createdAt.getMonth() === 2
+            span Mar
+          else if comment.createdAt.getMonth() === 3
+            span Apr
+          else if comment.createdAt.getMonth() === 4
+            span May
+          else if comment.createdAt.getMonth() === 5
+            span Jun
+          else if comment.createdAt.getMonth() === 6
+            span Jul
+          else if comment.createdAt.getMonth() === 7
+            span Aug
+          else if comment.createdAt.getMonth() === 8
+            span Sep
+          else if comment.createdAt.getMonth() === 9
+            span Oct
+          else if comment.createdAt.getMonth() === 10
+            span Nov
+          else if comment.createdAt.getMonth() === 11
+            span Dec
+          span  #{comment.createdAt.getDate()}, #{comment.createdAt.getFullYear()}
+      p.comments_text=comment.text

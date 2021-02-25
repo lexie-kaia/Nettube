@@ -3,10 +3,10 @@ import mongoose from 'mongoose';
 import { routes } from '../routes';
 import { ApiError } from '../error';
 import Video from '../models/Video';
+import Comment from '../models/Comment';
 
 // home
 export const getHome = async (req, res) => {
-  console.log(req.user);
   try {
     const videos = await Video.find({}).populate('creator');
     return res.render('pages/home', { pageTitle: 'Home', videos });
@@ -53,7 +53,6 @@ export const postUpload = async (req, res, next) => {
   try {
     const { title, description } = req.body;
     const { path } = req.file;
-    console.log(req.user.id);
     const newVideo = await Video.create({
       videoFileUrl: path,
       title,
@@ -75,9 +74,11 @@ export const getVideoDetail = async (req, res, next) => {
     const { videoId } = req.params;
     if (!mongoose.isValidObjectId(videoId)) return next(ApiError.badRequest());
     const [video, videos] = await Promise.all([
-      Video.findById(videoId).populate('creator'),
-      Video.find({ _id: { $ne: videoId } }),
+      Video.findById(videoId).populate('creator').populate('comments'),
+      Video.find({ _id: { $ne: videoId } }).populate('creator'),
     ]);
+    video.views += 1;
+    await video.save();
     return res.render('pages/videoDetail', {
       pageTitle: 'Video',
       video,
@@ -93,9 +94,7 @@ export const getEditVideo = async (req, res, next) => {
   try {
     const { videoId } = req.params;
     if (!mongoose.isValidObjectId(videoId)) return next(ApiError.badRequest());
-
     const video = await Video.findById(videoId);
-
     if (video.creator.toString() !== req.user.id)
       return next(ApiError.badRequest());
     return res.render('pages/editVideo', { pageTitle: 'Edit Video', video });
@@ -109,7 +108,6 @@ export const postEditVideo = async (req, res) => {
     const { videoId } = req.params;
     const { title, description } = req.body;
     if (!mongoose.isValidObjectId(videoId)) return next(ApiError.badRequest());
-
     const video = await Video.findById(videoId);
     if (title) video.title = title;
     if (description) video.description = description;
@@ -120,11 +118,11 @@ export const postEditVideo = async (req, res) => {
   }
 };
 
+// delete video
 export const getDeleteVideo = async (req, res) => {
   try {
     const { videoId } = req.params;
     if (!mongoose.isValidObjectId(videoId)) return next(ApiError.badRequest());
-
     const video = await Video.findById(videoId);
     if (video.creator.toString() !== req.user.id)
       return next(ApiError.badRequest());
@@ -133,5 +131,42 @@ export const getDeleteVideo = async (req, res) => {
     return res.redirect(routes.home);
   } catch (err) {
     next(err);
+  }
+};
+
+// register views
+export const postRegisterViews = async (req, res) => {
+  try {
+    const { videoId } = req.params;
+    if (!mongoose.isValidObjectId(videoId)) return next(ApiError.badRequest());
+    const video = await Video.findById(videoId);
+    video.views += 1;
+    await video.save();
+    res.status(200);
+  } catch (err) {
+    res.status(400);
+  } finally {
+    res.end();
+  }
+};
+
+// add comments
+export const postAddComments = async (req, res) => {
+  try {
+    const { videoId } = req.params;
+    const { text, creator } = req.body;
+    if (!mongoose.isValidObjectId(videoId)) return next(ApiError.badRequest());
+    const video = await Video.findById(videoId);
+    const newComment = await Comment.create({
+      text,
+      creator,
+    });
+    video.comments.push(newComment.id);
+    await video.save();
+    res.status(200);
+  } catch (err) {
+    res.status(400);
+  } finally {
+    res.end();
   }
 };

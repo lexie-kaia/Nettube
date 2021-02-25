@@ -1,6 +1,6 @@
 .form_comments {
   display: grid;
-  grid-template-columns: 1fr 130px;
+  grid-template-columns: 130px 1fr 130px;
   gap: 24px;
   input[type='text'] {
     height: 36px;

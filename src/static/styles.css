@@ -401,7 +401,7 @@ body {
 
 .form_comments {
   display: grid;
-  grid-template-columns: 1fr 130px;
+  grid-template-columns: 130px 1fr 130px;
   gap: 24px;
 }
 .form_comments input[type=text] {
@@ -1050,7 +1050,11 @@ body {
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background-color: #ff0000;
+  background-color: #3ea6ff;
+  overflow: hidden;
+}
+.video_detail .video_section .comments .comments_form .comments_avatar img {
+  width: 100%;
 }
 .video_detail .video_section .comments .comments_contents .comments_block {
   display: grid;
@@ -1062,7 +1066,7 @@ body {
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background-color: #3ea6ff;
+  background-color: #565656;
 }
 .video_detail .video_section .comments .comments_contents .comments_block .comments_info {
   margin-bottom: 8px;

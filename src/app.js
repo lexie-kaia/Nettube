@@ -12,13 +12,13 @@ import { routes } from './routes';
 import { homeRouter } from './routers/homeRouter';
 import { accountRouter } from './routers/accountsRouter';
 import { videoRouter } from './routers/videoRouter';
+import { apiRouter } from './routers/apiRouter';
 import { localMiddleware } from './middlewares';
 import { ApiError, apiErrorHandler } from './error';
 
 import './passport';
 
 const app = express();
-
 dotenv.config();
 const MongoStore = connectMongo(session);
 
@@ -33,7 +33,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use('/static', express.static(path.join(__dirname, 'static')));
 app.use('/uploads', express.static(path.join(__dirname, '..', 'uploads')));
-
 app.use(
   session({
     secret: process.env.COOKIE_SECRET,
@@ -44,13 +43,13 @@ app.use(
 );
 app.use(passport.initialize());
 app.use(passport.session());
-
 app.use(localMiddleware);
 
 // routers
 app.use(routes.home, homeRouter);
 app.use(routes.accounts, accountRouter);
 app.use(routes.videos, videoRouter);
+app.use(routes.api, apiRouter);
 
 // error handler
 app.use((req, res, next) => {

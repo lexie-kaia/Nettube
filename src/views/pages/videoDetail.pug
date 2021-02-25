@@ -1,5 +1,6 @@
 extends ../layouts/layoutMain
 include ../mixins/detailSideVideoBlock
+include ../mixins/commentBlock
 include ../partials/videoPlayer
 
 block content
@@ -45,49 +46,43 @@ block content
           p=video.description
 
       .comments
-        .comments_header -- comments
+        .comments_header
+          span#jsCommentsNumber #{video.comments.length}
+          if (video.comments.length === 1) || (video.comments.length === 0)
+            span  comment
+          else
+            span  comments
         .comments_form
           .comments_avatar
             img(src="", alt="")
-          form.form_comments(action="", method="")
-            input(type="text", placeholder="Add a public comment...")
+          form.form_comments#jsAddCommentForm
+            input(type="text", placeholder="Creator", name="creator", id="jsCreator", required)
+            input(type="text", placeholder="Add a public comment...", name="text", id="jsText", required)
             button.btn_box.blue_point(type="submit") COMMENT
 
-        .comments_contents
+        .comments_contents#jsCommentsContents
+          each comment in video.comments.reverse()
+            +commentBlock({
+              text: comment.text,
+              creator: comment.creator,
+              createdAt: comment.createdAt
+            })
           .comments_block
             .comments_avatar
-              img(src="", alt="")
             .comments_column
               .comments_info
-                span.comments_creator Creator
-                span.comments_createat 2021.01.01
-              p.comments_text
-                | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur ipsum error unde voluptatibus dolor molestias eligendi cumque reiciendis praesentium obcaecati.
-          .comments_block
-            .comments_avatar
-              img(src="", alt="")
-            .comments_column
-              .comments_info
-                span.comments_creator Creator
-                span.comments_createat 2021.01.01
-              p.comments_text
-                | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur
-          .comments_block
-            .comments_avatar
-              img(src="", alt="")
-            .comments_column
-              .comments_info
-                span.comments_creator Creator
-                span.comments_createat 2021.01.01
-              p.comments_text
-                | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur ipsum error unde voluptatibus dolor molestias eligendi cumque reiciendis praesentium obcaecati. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus labore esse aliquid?
-          
+                span.comments_creator creator
+                span.comments_createat 2020.2020
+              p.comments_text adfasdf
+
     .related_section
       each video in videos
         +detailSideVideoBlock({
           id: video.id,
           videoFileUrl: video.videoFileUrl,
           title: video.title,
+          views: video.views,
           createdAt: video.createdAt,
+          creator: video.creator,
         })
       

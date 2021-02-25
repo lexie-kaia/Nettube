@@ -92,8 +92,10 @@
           width: 36px;
           height: 36px;
           border-radius: 50%;
-          background-color: $main-red;
+          background-color: $point-blue;
+          overflow: hidden;
           img {
+            width: 100%;
           }
         }
       }
@@ -109,7 +111,7 @@
             width: 36px;
             height: 36px;
             border-radius: 50%;
-            background-color: $point-blue;
+            background-color: $grey-1;
             img {
             }
           }
