@@ -34,7 +34,7 @@ block content
         .channel
           a.channel_profile(href=routes.channel(video.creator.id))
             .channel_avatar
-              img(src=`/${video.creator.avatarUrl}`, alt="")
+              img(src=video.creator.avatarUrl, alt="")
             .channel_info
               h2.channel_creator=video.creator.username
               span.channel_subscribers 1K subscribers

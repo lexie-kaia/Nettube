@@ -163,14 +163,13 @@ export const getEditProfile = async (req, res, next) => {
 export const postEditProfie = async (req, res) => {
   try {
     const { name, email } = req.body;
+    const { location } = req.file;
     const userId = req.user.id;
     if (!mongoose.isValidObjectId(userId)) return next(ApiError.badRequest());
     const user = await User.findById(userId);
-    console.log(user);
     if (name) user.name = name;
     if (email) user.email = email;
-    if (req.file) user.avatarUrl = req.file.path;
-    console.log(user);
+    if (req.file) user.avatarUrl = location;
     await user.save();
     return res.redirect(routes.me(req.user.id));
   } catch (err) {

@@ -1,6 +1,6 @@
 mixin videoPlayer(video={})
   .main_video_player#jsVideoPlayer
-    video#jsVideo(src=`/${video.videoFileUrl}`)
+    video#jsVideo(src=video.videoFileUrl)
     .player_controls#jsVideoControls
      
       .progress_bar_container#jsProgressBarContainer
