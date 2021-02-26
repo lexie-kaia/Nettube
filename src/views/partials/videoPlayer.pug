@@ -2,10 +2,8 @@ mixin videoPlayer(video={})
   .main_video_player#jsVideoPlayer
     video#jsVideo(src=video.videoFileUrl)
     .player_controls#jsVideoControls
-     
       .progress_bar_container#jsProgressBarContainer
         .progress_bar#jsProgressBar
-      
       .btn_container
         .btns_column
           span.btn#jsPlayBtn
@@ -14,7 +12,6 @@ mixin videoPlayer(video={})
             span#jsCurrentTime 
             | /
             span#jsTotalTime 
-          
         .btns_column  
           input.volume#jsVolume(type='range', min='0', max='1', step='0.1')
           span.btn#jsVolumeBtn

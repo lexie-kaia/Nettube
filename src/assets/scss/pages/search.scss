@@ -20,6 +20,7 @@
 
     .section_videos {
       margin-bottom: 64px;
+
       .video_block {
         display: grid;
         grid-template-columns: 360px 1fr;
@@ -58,7 +59,9 @@
               height: 36px;
               border-radius: 50%;
               background-color: $point-blue;
+              overflow: hidden;
               img {
+                width: 100%;
               }
             }
 
@@ -69,7 +72,6 @@
           }
 
           .info_description {
-            // height: 80px;
             max-width: 716px;
             width: 100%;
             color: $light-grey-1;
@@ -80,10 +82,6 @@
           }
         }
       }
-    }
-
-    video {
-      width: 300px;
     }
   }
 }

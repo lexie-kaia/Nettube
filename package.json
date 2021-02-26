@@ -7,9 +7,14 @@
   "author": "lexie-kaia <kaia.gayeon.kim@gmail.com>",
   "private": true,
   "scripts": {
+    "start": "node build/init.js",
+    "prebuild": "rm -rf build && rm -rf src/static",
+    "build": "yarn build:server && yarn build:assets && yarn copy:assets",
+    "build:server": "babel src --out-dir build --ignore src/assets/**/*.js --ignore src/static/*.js",
+    "build:assets": "webpack --mode=production",
+    "copy:assets": "cp -r src/static build && cp -r src/views build",
     "dev:server": "nodemon --exec babel-node src/init.js",
-    "dev:assets": "webpack --mode=development --watch",
-    "build:assets": "webpack --mode=production"
+    "dev:assets": "webpack --mode=development --watch"
   },
   "dependencies": {
     "aws-sdk": "^2.852.0",
@@ -31,6 +36,7 @@
     "pug": "^3.0.0"
   },
   "devDependencies": {
+    "@babel/cli": "^7.13.0",
     "@babel/core": "^7.12.16",
     "@babel/node": "^7.12.16",
     "@babel/polyfill": "^7.12.1",

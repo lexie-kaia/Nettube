@@ -4,10 +4,10 @@
   video {
     width: 100%;
   }
+
   .player_controls {
     position: absolute;
     bottom: 0;
-
     width: 100%;
     background-color: rgba($color: #121212, $alpha: 0.5);
     transition: all 0.5s;
@@ -22,6 +22,7 @@
       background-color: $light-grey-1;
       transition: all 0.15s;
       cursor: pointer;
+
       .progress_bar {
         width: 0;
         height: 100%;
@@ -38,6 +39,7 @@
       align-items: center;
       padding: 0 12px 0 18px;
       height: 48px;
+
       .btns_column {
         display: flex;
         align-items: center;
@@ -63,11 +65,9 @@
         font-weight: bold;
         cursor: pointer;
       }
+
       .time {
         font-size: 16px;
-      }
-
-      .volume {
       }
     }
   }

@@ -34,9 +34,11 @@
     @include header_column;
     justify-self: center;
     width: 100%;
+
     .search_form {
       display: flex;
       width: 100%;
+
       .header_search {
         padding: 0 12px;
         width: 100%;
@@ -54,6 +56,7 @@
           border: 1px solid $point-blue;
         }
       }
+
       .header_search_btn {
         width: 72px;
         height: 32px;
@@ -69,6 +72,7 @@
   .column_menu {
     @include header_column;
     justify-self: end;
+
     .header_menu {
       display: flex;
       padding-right: 12px;

@@ -22,6 +22,7 @@
     .file_section {
       .upload_section {
         margin-bottom: 24px;
+
         .sub_header {
           margin-bottom: 8px;
         }
@@ -31,14 +32,15 @@
         .sub_header {
           margin-bottom: 16px;
         }
+
         .record_area {
           background-color: $menu-background;
           border-radius: 8px;
           overflow: hidden;
+
           .record_player {
             width: 320px;
             height: 180px;
-
             video {
               width: 100%;
             }

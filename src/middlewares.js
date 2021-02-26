@@ -1,8 +1,8 @@
+import dotenv from 'dotenv';
+dotenv.config();
 import multer from 'multer';
 import multerS3 from 'multer-s3';
 import aws from 'aws-sdk';
-import dotenv from 'dotenv';
-dotenv.config();
 
 import { routes } from './routes';
 
@@ -28,6 +28,7 @@ const multerVideo = multer({
     bucket: 'nettube/videos',
   }),
 });
+
 const multerAvatar = multer({
   storage: multerS3({
     s3: s3,

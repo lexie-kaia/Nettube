@@ -15,7 +15,6 @@ export const postSignup = async (req, res, next) => {
     const { username, email, password, passwordConfirm } = req.body;
     if (password !== passwordConfirm)
       return next(ApiError.badRequest(routes.signup));
-
     const user = new User({
       username,
       email,
@@ -60,7 +59,6 @@ export const githubVerifyCallback = async (
     const email = profile.emails[0].value;
     const avatarUrl = profile.photos[0].value;
     const githubId = profile.id;
-
     const user = await User.findOne({ email });
     if (user) {
       user.username = username;
@@ -97,7 +95,6 @@ export const facebookVerifyCallback = async (
   try {
     const { name: username, id: facebookId, email } = profile._json;
     const avatarUrl = `https://graph.facebook.com/${facebookId}/picture?type=large`;
-
     const user = await User.findOne({ email });
     if (user) {
       user.username = username;

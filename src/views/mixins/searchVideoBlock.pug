@@ -8,6 +8,6 @@ mixin searchVideoBlock(video={})
         include ../partials/viewAndCreatedAt
       .info_profile
         .info_avartar
-          img(src="", alt="")
-        h4.info_creator=video.creator
+          img(src=video.creator.avatarUrl, alt="")
+        h4.info_creator=video.creator.username
       .info_description=video.description

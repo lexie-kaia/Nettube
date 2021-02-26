@@ -14,7 +14,6 @@ import { onlyPrivate, uploadAvatar } from '../middlewares';
 export const userRouter = Router();
 
 userRouter.get(routes.editProfile(), onlyPrivate, getEditProfile);
-
 userRouter.post(
   routes.editProfile(),
   onlyPrivate,

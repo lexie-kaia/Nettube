@@ -1,3 +1,4 @@
+import '@babel/polyfill';
 import express from 'express';
 import dotenv from 'dotenv';
 import helmet from 'helmet';
@@ -32,7 +33,6 @@ app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use('/static', express.static(path.join(__dirname, 'static')));
-app.use('/uploads', express.static(path.join(__dirname, '..', 'uploads')));
 app.use(
   session({
     secret: process.env.COOKIE_SECRET,

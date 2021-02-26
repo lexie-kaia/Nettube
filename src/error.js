@@ -16,7 +16,6 @@ export class ApiError {
 
 export const apiErrorHandler = (err, req, res, next) => {
   console.error(err);
-
   if (err instanceof ApiError) {
     if (err.redirectRoute) return res.redirect(err.redirectRoute);
     return res.status(err.code).render('pages/error', { err });
