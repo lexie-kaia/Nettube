@@ -4,7 +4,10 @@ import passportLocalMongoose from 'passport-local-mongoose';
 const UserSchema = new mongoose.Schema({
   username: String,
   email: String,
-  avatarUrl: String,
+  avatarUrl: {
+    type: String,
+    default: 'uploads\\imgs\\default_avatar',
+  },
   facebookId: Number,
   githubId: Number,
   videos: [

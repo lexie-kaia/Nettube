@@ -46,13 +46,6 @@ function handleVolumeBtnClick() {
   }
 }
 
-function handleSpaceKeydown(event) {
-  if (event.code === 'Space') {
-    event.preventDefault();
-    handlePlayBtnClick();
-  }
-}
-
 function handleRangeDrag(event) {
   const value = event.target.value;
   video.volume = value;
@@ -134,13 +127,17 @@ function scrub(event) {
 }
 
 let hide = null;
-function showControls() {
+function handleShowAndHideContorls() {
   if (hide) {
     clearTimeout(hide);
   }
+  showControls();
+  hide = setTimeout(hideControls, 2000);
+}
+
+function showControls() {
   controls.classList.add('show');
   videoPlayer.style.cursor = 'default';
-  hide = setTimeout(hideControls, 2000);
 }
 
 function hideControls() {
@@ -151,7 +148,6 @@ function hideControls() {
 function init() {
   playBtn.addEventListener('click', handlePlayBtnClick);
   video.addEventListener('click', handlePlayBtnClick);
-  document.addEventListener('keydown', handleSpaceKeydown);
   video.addEventListener('play', handleVideoPlay);
   video.addEventListener('pause', handleVideoPause);
 
@@ -174,7 +170,8 @@ function init() {
   progressBarContainer.addEventListener('mousedown', () => (mousedown = true));
   progressBarContainer.addEventListener('mouseup', () => (mousedown = false));
 
-  videoPlayer.addEventListener('mousemove', showControls);
+  video.addEventListener('loadedmetadata', showControls);
+  videoPlayer.addEventListener('mousemove', handleShowAndHideContorls);
   videoPlayer.addEventListener('mouseleave', hideControls);
 }
 

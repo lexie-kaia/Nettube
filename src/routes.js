@@ -5,13 +5,14 @@ const SIGNUP = '/signup';
 const LOGIN = '/login';
 const LOGOUT = '/logout';
 
-// accounts router
-const ACCOUNTS = '/accounts';
+// user router
+const USERS = '/users';
+const CHANNEL = '/:userId';
 const ME = '/me';
 const EDIT_PROFILE = '/profile';
 const CHANGE_PASSWORD = '/password';
 
-// videos router
+// video router
 const VIDEOS = '/videos';
 const UPLOAD_VIDEO = '/upload';
 const VIDEO_DETAIL = '/:videoId';
@@ -38,17 +39,21 @@ export const routes = {
   logout: LOGOUT,
 
   // accounts router
-  accounts: ACCOUNTS,
+  users: USERS,
+  channel: (userId) => {
+    if (userId) return `/users/${userId}`;
+    else return CHANNEL;
+  },
   me: (userId) => {
-    if (userId) return ACCOUNTS + ME;
+    if (userId) return USERS + ME;
     else return ME;
   },
   editProfile: (userId) => {
-    if (userId) return ACCOUNTS + EDIT_PROFILE;
+    if (userId) return USERS + EDIT_PROFILE;
     else return EDIT_PROFILE;
   },
   changePassword: (userId) => {
-    if (userId) return ACCOUNTS + CHANGE_PASSWORD;
+    if (userId) return USERS + CHANGE_PASSWORD;
     else return CHANGE_PASSWORD;
   },
 

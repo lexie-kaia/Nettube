@@ -43,7 +43,7 @@ const addComment = (text, creator) => {
     <div class="comments_column">
       <div class="comments_info">
         <span class="comments_creator">${creator}</span>
-        <span class=".comments_createat">${createdAt}</span>    
+        <span class="comments_createdat">${createdAt}</span>    
       </div>
       <p class="comments_text">${text}</p>
     </div>

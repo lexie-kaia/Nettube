@@ -7,14 +7,13 @@ block content
     main.home
       section.main_video
         .video_player
-          video(src="https://serranoarevalo.github.io/notflix/9bfd1023900e31286103369c803c7ee9.ogv" autoplay muted)
-          //- video(src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4" controls autoplay muted)
+          video(src='/uploads/videos/e3461304479bf54f04ba4cdbd76f8f49' autoplay muted)
         .video_player_cover
           h1.video_title Sintel
           p.video_description 
             | Sintel is an independently produced short film, initiated by the Blender Foundation as a means to further improve and validate the free/open source 3D creation suite Blender.
           button.btn_box.main_play
-            a(href="")
+            a(href="/videos/6038c09a7a301850a8003c93")
               i(class="fas fa-play")
               span Play
 
@@ -23,66 +22,45 @@ block content
         .section_title
           h2.title_heading Key Features
         .section_videos
-          .video_block
-            a(href="")
-              .video_thumbnail
-                video(src="https://serranoarevalo.github.io/notflix/9bfd1023900e31286103369c803c7ee9.ogv" controls)
-              .video_info
-                .info_column
-                  .info_avatar
-                    img(src="", alt="")
-                .info_column
-                  h3.info_title videotitle
-                  h4.info_creator creator
-                  .info_data
-                    span 0 views
-                    span  · 
-                    span 2021.01.01
-          .video_block
-            a(href="")
-              .video_thumbnail
-                video(src="https://serranoarevalo.github.io/notflix/9bfd1023900e31286103369c803c7ee9.ogv" controls)
-              .video_info
-                .info_column
-                  .info_avatar
-                    img(src="", alt="")
-                .info_column
-                  h3.info_title videotitle
-                  h4.info_creator creator
-                  .info_data
-                    span 0 views
-                    span  · 
-                    span 2021.01.01
-          .video_block
-            a(href="")
-              .video_thumbnail
-                video(src="https://serranoarevalo.github.io/notflix/9bfd1023900e31286103369c803c7ee9.ogv" controls)
-              .video_info
-                .info_column
-                  .info_avatar
-                    img(src="", alt="")
-                .info_column
-                  h3.info_title videotitle
-                  h4.info_creator creator
-                  .info_data
-                    span 0 views
-                    span  · 
-                    span 2021.01.01
-          .video_block
-            a(href="")
-              .video_thumbnail
-                video(src="https://serranoarevalo.github.io/notflix/9bfd1023900e31286103369c803c7ee9.ogv" controls)
-              .video_info
-                .info_column
-                  .info_avatar
-                    img(src="", alt="")
-                .info_column
-                  h3.info_title videotitle
-                  h4.info_creator creator
-                  .info_data
-                    span 0 views
-                    span  · 
-                    span 2021.01.01
+          a.video_block(href="/users/6038b9a0e4fe783664e57b8a")
+            .video_thumbnail
+              img(src="/uploads/imgs/channeldetail.png")
+            .video_info
+              .info_column
+                .info_avatar
+              .info_column
+                h3.info_title CRUD operations on video doucuments using Mongoose, MongoDB Atlas, AWS S3
+                h4.info_creator channel detail · Feb 26, 2021
+          a.video_block(href="/videos/6038bfee7a301850a8003c91")
+            .video_thumbnail
+              img(src="/uploads/imgs/videodetail.png")
+            .video_info
+              .info_column
+                .info_avatar
+              .info_column
+                h3.info_title Using Axios on writing a video comment and updating the page instantly
+                h4.info_creator video detail · Feb 26, 2021
+          a.video_block(href=routes.signup)
+            .video_thumbnail
+              img(src="/uploads/imgs/signup.png")
+            .video_info
+              .info_column
+                .info_avatar
+                  img(src="", alt="")
+              .info_column
+                h3.info_title Implementing social login with Passport.js - Facebook, GitHub
+                h4.info_creator login · Feb 26, 2021
+          a.video_block(href=routes.uploadVideo(true))
+            .video_thumbnail
+              img(src="/uploads/imgs/uploadvideo.png")
+            .video_info
+              .info_column
+                .info_avatar
+                  img(src="", alt="")
+              .info_column
+                h3.info_title Custom video player on video detail page and video recorder on upload video page
+                h4.info_creator upload video · Feb 26, 2021
+
       section.main_contents
         .section_title
           h2.title_heading Demo Videos
@@ -94,7 +72,7 @@ block content
               title: video.title,
               views: video.views,
               createdAt: video.createdAt,
-              creator: video.creator.username
+              creator: video.creator
             })
 
 

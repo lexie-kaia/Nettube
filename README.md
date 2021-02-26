@@ -160,12 +160,13 @@ This project focuses on learning the overall basic environment of web developmen
   ||GET|/auth/github/callback||github login|
   ||GET|/auth/facebook||facebook login|
   ||GET|/auth/facebook/callback||facebook login|
-  |accountsRouter|(index)|/accounts| | (index url) |
-  ||GET|/accounts/me| req.user | display personal account |
-  ||GET|/accounts/profile|req.user|edit profile|
-  ||POST|/accounts/profile|req.user<br/>req.body {user}|edit profile<br/>(redirect me)|
-  ||GET|/accounts/password|req.user|change password|
-  ||POST|/accounts/password|req.user<br/>req.body {user(pw)}|change password<br/>   (redirect me)|
+  |accountsRouter|(index)|/users| | (index url) |
+  ||GET|/users/:userId| req.user | channel |
+  ||GET|/users/me| req.user | my account |
+  ||GET|/users/profile|req.user|edit profile|
+  ||POST|/users/profile|req.user<br/>req.body {user}|edit profile<br/>(redirect me)|
+  ||GET|/users/password|req.user|change password|
+  ||POST|/users/password|req.user<br/>req.body {user(pw)}|change password<br/>   (redirect me)|
   |videosRouter|(index)|/videos||(index url)|
   ||GET|/videos/upload|req.user|upload new video|
   ||POST|/videos/upload|req.user<br/>req.body {video}|upload new video<br/>(redirect video detail)|
@@ -174,8 +175,8 @@ This project focuses on learning the overall basic environment of web developmen
   ||POST|/videos/:videoId/edit|req.user<br/>req.params \<videoId\><br/>req.body     {video}|edit video detail<br/>(redirect video detail)|
   ||POST|/videos/:videoId/delete|req.user<br/>req.params \<videoId\>|delete video<br/>(redirect home)|
   |apiRouter|(index)|/api||(index url)|
-  ||GET|/api/:videoId/views|req.params \<videoId\>|ajax update video views|
-  ||GET|/api/:videoId/comments|req.params \<videoId\>|ajax update comments|
+  ||GET|/api/:videoId/views|req.params \<videoId\>| register video views|
+  ||GET|/api/:videoId/comments|req.params \<videoId\>| add comments|
   - notes: [~~REST API~~]()
 
 - [X] **Contoller draft**
@@ -474,7 +475,4 @@ This project focuses on learning the overall basic environment of web developmen
 
 ## 9. refactoring and modify readme.md
 
-## 9. deploy
-
-preparing
-- [ ] multer dest
+## 10. deploy

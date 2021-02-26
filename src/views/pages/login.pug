@@ -8,7 +8,7 @@ block content
       form.form_area(action=routes.login method="POST")
         input(type="text", name="email", placeholder="Email", required)
         input(type="password", name="password", placeholder="Password", required)
-        input(type="submit", value="Continue")
+        button.btn_box.blue_long(type="submit")  Continue
     
       include ../partials/socialLogin
       .form_footer

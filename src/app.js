@@ -10,7 +10,7 @@ import path from 'path';
 
 import { routes } from './routes';
 import { homeRouter } from './routers/homeRouter';
-import { accountRouter } from './routers/accountsRouter';
+import { userRouter } from './routers/userRouter';
 import { videoRouter } from './routers/videoRouter';
 import { apiRouter } from './routers/apiRouter';
 import { localMiddleware } from './middlewares';
@@ -47,7 +47,7 @@ app.use(localMiddleware);
 
 // routers
 app.use(routes.home, homeRouter);
-app.use(routes.accounts, accountRouter);
+app.use(routes.users, userRouter);
 app.use(routes.videos, videoRouter);
 app.use(routes.api, apiRouter);
 

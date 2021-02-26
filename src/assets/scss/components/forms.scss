@@ -55,21 +55,25 @@
     padding: 0 16px;
     height: 44px;
     border: 1px solid $off-white;
-    border-radius: 8px;
+    border-radius: 6px;
     &:focus {
       border: 1px solid $point-blue;
     }
   }
-  input[type='submit'] {
-    margin-bottom: 0;
-    background-color: $point-blue;
-    color: $white;
-    border: none;
-    font-weight: $bold;
-  }
+  // input[type='submit'] {
+  //   margin-bottom: 0;
+  //   // background-color: $point-blue;
+  //   color: $white;
+  //   border: none;
+  //   font-weight: $bold;
+  // }
 
   .input_file {
     margin-bottom: 20px;
     padding: 16px;
+  }
+
+  .blue_long {
+    margin-bottom: 20px;
   }
 }

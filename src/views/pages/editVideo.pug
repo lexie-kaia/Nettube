@@ -27,7 +27,7 @@ block content
               .info_data=video.views
             .info_row
               .info_title Comments
-              .info_data 10
+              .info_data=video.comments.length
             .delete_btn
               button.btn_box.light_grey_long(type="button")
                 a(href=routes.deleteVideo(video.id)) DELETE VIDEO

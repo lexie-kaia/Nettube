@@ -5,9 +5,9 @@ mixin homeVideoBlock(video={})
     .video_info
       .info_column
         .info_avatar
-          img(src="", alt="")
+          img(src=`/${video.creator.avatarUrl}`, alt="")
       .info_column
         h3.info_title=video.title
-        h4.info_creator=video.creator
+        h4.info_creator=video.creator.username
         .info_data
           include ../partials/viewAndCreatedAt

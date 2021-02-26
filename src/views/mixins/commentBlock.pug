@@ -4,7 +4,7 @@ mixin commentBlock(comment={})
     .comments_column
       .comments_info
         span.comments_creator=comment.creator
-        span.comments_createat
+        span.comments_createdat
           if comment.createdAt.getMonth() === 0
             span Jan
           else if comment.createdAt.getMonth() === 1

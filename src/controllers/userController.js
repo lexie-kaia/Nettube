@@ -1,3 +1,4 @@
+import mongoose from 'mongoose';
 import passport from 'passport';
 
 import { ApiError } from '../error';
@@ -120,12 +121,24 @@ export const facebookVerifyCallback = async (
 export const redirectHome = (req, res) => res.redirect(routes.home);
 
 // my account
-export const getMy = async (req, res) => {
+export const getMyAccount = async (req, res, next) => {
   try {
-    const user = await User.findById(req.user.id).populate('videos');
-    console.log(typeof user.videos[0]);
-    console.log(user.videos);
-    return res.render('pages/myAccount', { pageTitle: 'My Account', user });
+    const userId = req.user.id;
+    console.log(userId);
+    if (!mongoose.isValidObjectId(userId)) return next(ApiError.badRequest());
+    const user = await User.findById(userId).populate('videos');
+    return res.render('pages/userDetail', { pageTitle: 'My Account', user });
+  } catch (err) {
+    next(err);
+  }
+};
+
+export const getChannel = async (req, res, next) => {
+  try {
+    const { userId } = req.params;
+    if (!mongoose.isValidObjectId(userId)) return next(ApiError.badRequest());
+    const user = await User.findById(userId).populate('videos');
+    return res.render('pages/userDetail', { pageTitle: user.username, user });
   } catch (err) {
     next(err);
   }
@@ -133,9 +146,15 @@ export const getMy = async (req, res) => {
 
 // edit profile
 export const getEditProfile = async (req, res, next) => {
+  console.log('1');
   try {
-    const user = await User.findById(req.user.id);
-    return res.render('pages/editProfile', { pageTitle: 'Edit Profile', user });
+    const userId = req.user.id;
+    if (!mongoose.isValidObjectId(userId)) return next(ApiError.badRequest());
+    const user = await User.findById(userId);
+    return res.render('pages/editProfile', {
+      pageTitle: 'Edit Profile',
+      user: req.user,
+    });
   } catch (err) {
     next(err);
   }
@@ -144,10 +163,14 @@ export const getEditProfile = async (req, res, next) => {
 export const postEditProfie = async (req, res) => {
   try {
     const { name, email } = req.body;
-    const user = await User.findById(req.user.id);
+    const userId = req.user.id;
+    if (!mongoose.isValidObjectId(userId)) return next(ApiError.badRequest());
+    const user = await User.findById(userId);
+    console.log(user);
     if (name) user.name = name;
     if (email) user.email = email;
     if (req.file) user.avatarUrl = req.file.path;
+    console.log(user);
     await user.save();
     return res.redirect(routes.me(req.user.id));
   } catch (err) {

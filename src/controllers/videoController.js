@@ -2,6 +2,7 @@ import mongoose from 'mongoose';
 
 import { routes } from '../routes';
 import { ApiError } from '../error';
+
 import Video from '../models/Video';
 import Comment from '../models/Comment';
 
@@ -79,6 +80,7 @@ export const getVideoDetail = async (req, res, next) => {
     ]);
     video.views += 1;
     await video.save();
+    console.log(video);
     return res.render('pages/videoDetail', {
       pageTitle: 'Video',
       video,

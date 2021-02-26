@@ -11,4 +11,6 @@ block content
           input(type="file", id="avatar", name="avatar", accept="image/*")
         input(type="text", name="username", placeholder="Username", value=user.username, required)
         input(type="text", name="email", placeholder="Email", value=user.email, required)
-        input(type="submit", value="Save Changes")
+        button.btn_box.blue_long(type="submit") Save Changes
+        button.btn_box.blue_long(type="button")
+          a(href=routes.changePassword(user.id)) Change Password

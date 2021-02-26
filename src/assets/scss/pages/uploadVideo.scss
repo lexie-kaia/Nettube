@@ -32,12 +32,13 @@
           margin-bottom: 16px;
         }
         .record_area {
+          background-color: $menu-background;
           border-radius: 8px;
           overflow: hidden;
           .record_player {
             width: 320px;
             height: 180px;
-            background-color: $menu-background;
+
             video {
               width: 100%;
             }

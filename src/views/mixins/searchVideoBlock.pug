@@ -1,5 +1,5 @@
 mixin searchVideoBlock(video={})
-  a.video_block(href==routes.videoDetail(video.id))
+  a.video_block(href=routes.videoDetail(video.id))
     .video_thumbnail
       video(src=`/${video.videoFileUrl}` controls)
     .video_info

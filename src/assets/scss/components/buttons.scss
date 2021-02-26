@@ -33,9 +33,30 @@
   color: $light-grey-1;
   font-size: 16px;
   font-weight: $bold;
+  cursor: default;
   i {
     margin-right: 4px;
     font-size: 20px;
+  }
+}
+
+.btn_profile_menu {
+  display: inline-flex;
+  align-items: center;
+  padding: 0 32px;
+  height: 40px;
+  background-color: transparent;
+  color: $light-grey-1;
+  font-size: 16px;
+  font-weight: $bold;
+  cursor: default;
+  border-bottom: 4px solid $semi-black;
+  i {
+    margin-right: 4px;
+    font-size: 20px;
+  }
+  &:first-child {
+    border-bottom: 4px solid $light-grey-1;
   }
 }
 
@@ -61,10 +82,8 @@
     background-color: $white;
     color: $real-black;
     font-size: 18px;
-    a {
-      &:hover {
-        opacity: 0.6;
-      }
+    &:hover {
+      opacity: 0.6;
     }
   }
 
@@ -81,7 +100,8 @@
   }
 
   &.blue_long {
-    width: 240px;
+    border-radius: 6px;
+    width: 100%;
     background-color: $point-blue;
     color: $white;
   }
@@ -90,14 +110,25 @@
     width: 100%;
     background-color: $main-red;
     color: $white;
+    border-radius: 0;
   }
 
   &.social {
-    width: 130px;
+    width: 100%;
     background-color: $off-white;
     color: $grey-1;
     &:first-child {
-      margin-right: 12px;
+      margin-bottom: 20px;
+    }
+  }
+
+  &.grey_point {
+    width: 130px;
+    background-color: $btn-grey;
+    color: $btn-color-inacitve;
+    cursor: default;
+    a {
+      cursor: default;
     }
   }
 

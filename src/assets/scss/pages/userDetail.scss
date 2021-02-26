@@ -1,0 +1,71 @@
+.account {
+  .profile_section {
+    // height: 180px;
+    padding: 40px 80px 0;
+    background-color: $semi-black;
+    .profile_container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .profile_info {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+        .profile_avatar {
+          margin-right: 24px;
+          width: 96px;
+          height: 96px;
+          border-radius: 50%;
+          background-color: $point-blue;
+          overflow: hidden;
+          img {
+            width: 100%;
+          }
+        }
+        .profile_username {
+          font-size: 28px;
+          font-weight: $medium;
+        }
+      }
+    }
+    .profile_btns {
+    }
+  }
+
+  .videos_section {
+    padding: 16px 80px;
+    .section_title {
+      line-height: 64px;
+
+      .title_heading {
+        font-size: 24px;
+        font-weight: $bold;
+      }
+    }
+    .videos_container {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+
+      .video_block {
+        .video_thumbnail {
+          width: 100%;
+          video {
+            width: 100%;
+          }
+        }
+        .video_info {
+          .info_title {
+            margin: 12px 0 6px;
+            font-weight: $medium;
+          }
+          .info_data {
+            color: $light-grey-1;
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+}

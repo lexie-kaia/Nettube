@@ -1,0 +1,48 @@
+extends ../layouts/layoutMain
+include ../mixins/userDetailVideoBlock
+
+block content
+  div.div_main
+    include ../partials/sidebar
+    main.account
+      .profile_section
+        .profile_container
+          .profile_info
+            .profile_avatar
+              img(src=`/${user.avatarUrl}`, alt="")
+            .profile_username=user.username
+            
+          .profile_btns
+            if loggedUser && user.id === loggedUser.id
+              button.btn_box.blue_point(type="button")
+                a(href="/users/profile") EDIT PROFILE
+            else
+              button.btn_box.grey_point(type="button")
+                a(href="") SUBSCRIBE
+        .profile_btns
+          button.btn_profile_menu
+            span HOME
+          button.btn_profile_menu
+            span VIDEOS
+          button.btn_profile_menu
+            span PLAYLISTS
+          button.btn_profile_menu
+            span COMMUNITY
+          button.btn_profile_menu
+            span CHANNELS
+          button.btn_profile_menu
+            span ABOUT
+          
+          
+      .videos_section
+        .section_title
+          h2.title_heading Videos
+        .videos_container
+          each video in user.videos
+            +myAccountVideoBlock({
+              id: video.id,
+              videoFileUrl: video.videoFileUrl,
+              title: video.title,
+              views: video.views,
+              createdAt: video.createdAt,
+            })

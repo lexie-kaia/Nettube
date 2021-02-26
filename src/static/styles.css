@@ -303,10 +303,35 @@ body {
   color: #969696;
   font-size: 16px;
   font-weight: 700;
+  cursor: default;
 }
 .btn_info_menu i {
   margin-right: 4px;
   font-size: 20px;
+}
+
+.btn_profile_menu {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0 32px;
+  height: 40px;
+  background-color: transparent;
+  color: #969696;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: default;
+  border-bottom: 4px solid #181818;
+}
+.btn_profile_menu i {
+  margin-right: 4px;
+  font-size: 20px;
+}
+.btn_profile_menu:first-child {
+  border-bottom: 4px solid #969696;
 }
 
 .btn_box {
@@ -339,7 +364,7 @@ body {
   color: #000000;
   font-size: 18px;
 }
-.btn_box.main_play a:hover {
+.btn_box.main_play:hover {
   opacity: 0.6;
 }
 .btn_box.blue_short {
@@ -353,7 +378,8 @@ body {
   color: #ffffff;
 }
 .btn_box.blue_long {
-  width: 240px;
+  border-radius: 6px;
+  width: 100%;
   background-color: #3ea6ff;
   color: #ffffff;
 }
@@ -361,14 +387,24 @@ body {
   width: 100%;
   background-color: #ff0000;
   color: #ffffff;
+  border-radius: 0;
 }
 .btn_box.social {
-  width: 130px;
+  width: 100%;
   background-color: #e0e0e0;
   color: #565656;
 }
 .btn_box.social:first-child {
-  margin-right: 12px;
+  margin-bottom: 20px;
+}
+.btn_box.grey_point {
+  width: 130px;
+  background-color: #484848;
+  color: #969696;
+  cursor: default;
+}
+.btn_box.grey_point a {
+  cursor: default;
 }
 .btn_box.light_grey_long {
   width: 100%;
@@ -489,21 +525,17 @@ body {
   padding: 0 16px;
   height: 44px;
   border: 1px solid #e0e0e0;
-  border-radius: 8px;
+  border-radius: 6px;
 }
 .form_area input:not(input[type=file]):focus {
   border: 1px solid #3ea6ff;
 }
-.form_area input[type=submit] {
-  margin-bottom: 0;
-  background-color: #3ea6ff;
-  color: #ffffff;
-  border: none;
-  font-weight: 700;
-}
 .form_area .input_file {
   margin-bottom: 20px;
   padding: 16px;
+}
+.form_area .blue_long {
+  margin-bottom: 20px;
 }
 
 .header {
@@ -635,6 +667,7 @@ body {
 
 .sidebar {
   width: 300px;
+  height: 100%;
   background-color: #323232;
   font-size: 14px;
   font-weight: 400;
@@ -694,6 +727,9 @@ body {
   color: #565656;
   font-size: 18px;
   font-weight: 500;
+}
+.social_login .social_btns {
+  width: 100%;
 }
 
 .main_video_player {
@@ -852,6 +888,11 @@ body {
 .home .main_contents .section_videos .video_block .video_thumbnail video {
   width: 100%;
 }
+.home .main_contents .section_videos .video_block .video_thumbnail img {
+  width: 100%;
+  -webkit-box-shadow: rgba(12, 12, 12, 0.2) 0px 8px 24px;
+          box-shadow: rgba(12, 12, 12, 0.2) 0px 8px 24px;
+}
 .home .main_contents .section_videos .video_block .video_info {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -862,13 +903,18 @@ body {
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background-color: #3ea6ff;
+  background-color: #565656;
+  overflow: hidden;
+}
+.home .main_contents .section_videos .video_block .video_info .info_avatar img {
+  width: 100%;
 }
 .home .main_contents .section_videos .video_block .video_info .info_title {
   margin-top: 8px;
   margin-bottom: 6px;
   font-size: 17px;
   font-weight: 500;
+  line-height: 1.2;
 }
 .home .main_contents .section_videos .video_block .video_info .info_creator {
   margin-bottom: 4px;
@@ -1016,12 +1062,19 @@ body {
       -ms-flex-align: center;
           align-items: center;
 }
+.video_detail .video_section .info .channel .channel_profile:hover {
+  color: #3ea6ff;
+}
 .video_detail .video_section .info .channel .channel_profile .channel_avatar {
   margin-right: 16px;
   width: 48px;
   height: 48px;
   border-radius: 50%;
   background-color: #3ea6ff;
+  overflow: hidden;
+}
+.video_detail .video_section .info .channel .channel_profile .channel_avatar img {
+  width: 100%;
 }
 .video_detail .video_section .info .channel .channel_profile .channel_info .channel_creator {
   margin-bottom: 4px;
@@ -1034,6 +1087,7 @@ body {
 .video_detail .video_section .info .description {
   padding: 24px 0;
   border-bottom: 1px solid #484848;
+  line-height: 1.4;
 }
 .video_detail .video_section .comments .comments_header {
   margin: 24px 0;
@@ -1071,7 +1125,7 @@ body {
 .video_detail .video_section .comments .comments_contents .comments_block .comments_info {
   margin-bottom: 8px;
 }
-.video_detail .video_section .comments .comments_contents .comments_block .comments_info .comments_createat {
+.video_detail .video_section .comments .comments_contents .comments_block .comments_info .comments_createdat {
   margin-left: 12px;
   color: #969696;
   font-size: 14px;
@@ -1136,13 +1190,13 @@ body {
   margin-bottom: 16px;
 }
 .upload_video .upload_contents .file_section .record_section .record_area {
+  background-color: #323232;
   border-radius: 8px;
   overflow: hidden;
 }
 .upload_video .upload_contents .file_section .record_section .record_area .record_player {
   width: 320px;
   height: 180px;
-  background-color: #323232;
 }
 .upload_video .upload_contents .file_section .record_section .record_area .record_player video {
   width: 100%;
@@ -1255,97 +1309,71 @@ body {
   font-weight: 400;
 }
 
-.account {
-  display: grid;
-  grid-template-columns: 496px 1fr;
-  gap: 48px;
-  max-width: 1440px;
-  width: 100%;
-  margin: 0 auto;
-}
 .account .profile_section {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  padding: 48px;
-  background-color: #ffffff;
-  color: #121212;
-  border-radius: 8px;
-  overflow: hidden;
-  -webkit-box-shadow: #0c0c0c 0px 8px 24px;
-          box-shadow: #0c0c0c 0px 8px 24px;
+  padding: 40px 80px 0;
+  background-color: #181818;
 }
-.account .profile_section .profile_row {
+.account .profile_section .profile_container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
 }
-.account .profile_section .profile_row .profile_avatar {
-  margin-bottom: 16px;
-  width: 144px;
-  height: 144px;
+.account .profile_section .profile_container .profile_info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 20px;
+}
+.account .profile_section .profile_container .profile_info .profile_avatar {
+  margin-right: 24px;
+  width: 96px;
+  height: 96px;
   border-radius: 50%;
   background-color: #3ea6ff;
   overflow: hidden;
 }
-.account .profile_section .profile_row .profile_avatar img {
+.account .profile_section .profile_container .profile_info .profile_avatar img {
   width: 100%;
 }
-.account .profile_section .profile_row .profile_username {
-  margin-bottom: 12px;
-  font-size: 18px;
-  font-weight: 700;
-}
-.account .profile_section .profile_row .profile_email {
-  margin-bottom: 24px;
-  font-size: 16px;
-  font-weight: 400;
-}
-.account .profile_section .profile_btns {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  width: 100%;
-}
-.account .profile_section .profile_btns .btn_box.blue_long:first-child {
-  margin-bottom: 12px;
+.account .profile_section .profile_container .profile_info .profile_username {
+  font-size: 28px;
+  font-weight: 500;
 }
 .account .videos_section {
+  padding: 16px 80px;
+}
+.account .videos_section .section_title {
+  line-height: 64px;
+}
+.account .videos_section .section_title .title_heading {
+  font-size: 24px;
+  font-weight: 700;
+}
+.account .videos_section .videos_container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 24px;
 }
-.account .videos_section .video_block .video_thumbnail {
+.account .videos_section .videos_container .video_block .video_thumbnail {
   width: 100%;
 }
-.account .videos_section .video_block .video_thumbnail video {
+.account .videos_section .videos_container .video_block .video_thumbnail video {
   width: 100%;
 }
-.account .videos_section .video_block .video_info .info_title {
+.account .videos_section .videos_container .video_block .video_info .info_title {
   margin: 12px 0 6px;
+  font-weight: 500;
 }
-.account .videos_section .video_block .video_info .info_data {
+.account .videos_section .videos_container .video_block .video_info .info_data {
   color: #969696;
   font-size: 14px;
 }

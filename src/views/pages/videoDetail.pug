@@ -32,15 +32,16 @@ block content
               i(class="fas fa-ellipsis-h")
 
         .channel
-          .channel_profile
+          a.channel_profile(href=routes.channel(video.creator.id))
             .channel_avatar
-              img(src=video.creator.avatarUrl, alt="")
+              img(src=`/${video.creator.avatarUrl}`, alt="")
             .channel_info
               h2.channel_creator=video.creator.username
-              span.channel_subscribers 100K subscribers
+              span.channel_subscribers 1K subscribers
           .channel_btns
-            button.btn_box.blue_point(type="button") 
-              a(href=routes.editVideo(video.id)) EDIT VIDEO
+            if loggedUser && video.creator.id === loggedUser.id
+              button.btn_box.blue_point(type="button") 
+                a(href=routes.editVideo(video.id)) EDIT VIDEO
 
         .description 
           p=video.description
@@ -67,13 +68,6 @@ block content
               creator: comment.creator,
               createdAt: comment.createdAt
             })
-          .comments_block
-            .comments_avatar
-            .comments_column
-              .comments_info
-                span.comments_creator creator
-                span.comments_createat 2020.2020
-              p.comments_text adfasdf
 
     .related_section
       each video in videos
