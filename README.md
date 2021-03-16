@@ -1,24 +1,37 @@
 # Nettube
 
+<br />
+
+<img src="https://github.com/lexie-kaia/Nettube/blob/main/src/assets/imgs/home.PNG?raw=true" alt="Home">
+
+<br />
+
 **Youtube clone coding projects built with Node.js and MongoDB**
 
-This project focuses on learning the overall basic environment of web development from scratch using vanilla JavaScript. The codes are mostly based on [Youtube Clone Coding Course](https://nomadcoders.co/wetube) on Nomad Coder, but also refers to many other contents including official technical documents. Listed below are the related materials and this document is mainly about learning and development notes at a beginner level.
+This project focuses on learning **the overall basic environment of web development from scratch using vanilla JavaScript**. The codes are mostly based on Youtube Clone Coding Course on Nomad Coder, but also refers to many other contents including official technical documents. Listed below are the related materials.
 
-<br/>
+<br />
 
-**Key Features**
+<h3>Key Features</h3>
 
 - Setting up _Node.js_ development environment with _Babel_, _ESLint_, _Prettier_
 - Creating a web server with _Express.js_ and implementing MVC pattern
 - Manipulating _MongoDB Atlas_ with _Mongoose_
-- implementing social authentication with _Passport.js_
+- Implementing social authentication with _Passport.js_
 - Using AJAX with _fetch APIs_ and _Axios_
 - Creating front-end pages with _Pug_ & _Sass_ and buldling assets with _Webpack_
-- Deploying with _AWS lightsail_ and _S3_ service
+- Deploying with _Heroku_ and _S3_ service
+
+<br />
+
+<img src="https://github.com/lexie-kaia/Nettube/blob/main/src/assets/imgs/videodetail.PNG?raw=true" alt="Video detail" />
+<img src="https://github.com/lexie-kaia/Nettube/blob/main/src/assets/imgs/channeldetail.PNG?raw=true" alt="Channel detail" />
+<img src="https://github.com/lexie-kaia/Nettube/blob/main/src/assets/imgs/uploadvideo.PNG?raw=true" alt="Upload video" />
+<img src="https://github.com/lexie-kaia/Nettube/blob/main/src/assets/imgs/signup.PNG?raw=true" alt="Sign up" />
 
 <br/>
 
-**Related Materials**
+<h3>Related Materials</h3>
 
 - Nomad Coder
   - [[풀스택]유튜브 클론코딩](https://nomadcoders.co/wetube)
@@ -29,12 +42,12 @@ This project focuses on learning the overall basic environment of web developmen
   - [WEB4 - Express Session & Auth](https://www.youtube.com/watch?v=jTct6U8VV5E&list=PLuHgQVnccGMCHjWIDStjaZA2ZR-jwq-WU)
   - [WEB5 - Express Passport.js](https://www.youtube.com/watch?v=INUpGK7dTkk&list=PLuHgQVnccGMCBY2wxKYNzFWe6I1gD5xsX)
   - [Webpack](https://www.youtube.com/watch?v=cp_MeXO2fLg&list=PLuHgQVnccGMChcT9IKopFDoAIoTA-03DA)
-- groomedu
+- Groomedu
   - [한 눈에 끝내는 Node.js](https://edu.goorm.io/learn/lecture/557/%ED%95%9C-%EB%88%88%EC%97%90-%EB%81%9D%EB%82%B4%EB%8A%94-node-js)
-- inflearn
+- Inflearn
   - [모든 개발자를 위한 HTTP 웹 기본 지식](https://inf.run/cax5)
   - [MongoDB 기초부터 실무까지(feat.Node.js)](https://inf.run/xovo)
-- technical documents
+- Technical documents
   - [Node.js learn](https://nodejs.dev/learn)
   - [Express.js Guide, API reference](https://expressjs.com/)
   - [Configure Babel](https://babeljs.io/docs/en/configuration) | [Prettier - Integrating with Linters](https://prettier.io/docs/en/integrating-with-linters.html) | [Configuring ESLint](https://eslint.org/docs/user-guide/configuring/)
@@ -43,16 +56,33 @@ This project focuses on learning the overall basic environment of web developmen
   - [Sass document](https://sass-lang.com/documentation)
   - [Mongoose docs](https://mongoosejs.com/docs/guide.html)
   - [passport.js](http://www.passportjs.org/docs/) | [express-session](https://github.com/expressjs/session/blob/master/README.md) | [Using HTTP cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies) | [passport-local-mongoose](https://github.com/saintedlama/passport-local-mongoose#readme) | [connect-mongo](https://github.com/jdesboeufs/connect-mongo/tree/v3.x)
-- etc
+- ETC
   - 김정환블로그 [프론트엔드 개발환경의 이해](https://jeonghwan-kim.github.io/series/2019/12/09/frontend-dev-env-npm.html)
   - [REST API Tutorial](https://restfulapi.net/)
 
-<br/>
-<br/>
+<br />
 
-# Learning and Development Notes
+<h3>Study Notes</h3>
 
-**Table of contents**
+- [npm_and_yarn.md](https://github.com/lexie-kaia/Nettube/blob/main/notes/npmAndYarn.md)
+- [babel_eslint_prettier.md](https://github.com/lexie-kaia/Nettube/blob/main/notes/babelEslintPrettier.md)
+- [webpack.md](https://github.com/lexie-kaia/Nettube/blob/main/notes/webpack.md)
+- [webpack_config_js.md - 웹팩 설정하기](https://github.com/lexie-kaia/Nettube/blob/main/notes/webpack_config_js.md)
+- ~~[http.md](https://github.com/lexie-kaia/Nettube/blob/main/notes/http.md)~~
+- ~~[REST_apis.md]()~~
+- ~~[mvc.md]()~~
+- [pug.md](https://github.com/lexie-kaia/Nettube/blob/main/notes/pug.md)
+- [sass.md](https://github.com/lexie-kaia/Nettube/blob/main/notes/sass.md)
+- [mongo.md](https://github.com/lexie-kaia/Nettube/blob/main/notes/mongo.md)
+- [user_auth.md](https://github.com/lexie-kaia/Nettube/blob/main/notes/mongo.md)
+- ~~[ajax.md]()~~
+
+<br />
+<br />
+
+## Development Notes
+
+<h3>Table of contents</h3>
 
 1. Setting up a Node.js development environment
 2. Creating a web server with Expressjs
@@ -61,8 +91,9 @@ This project focuses on learning the overall basic environment of web developmen
 5. Refactoring and error handling
 6. Manipulating MongoDB Atlas with Mongoose
 7. Implementing user authentication with passport.js
-8. ...
-9. ...
+8. Custom Video Player and Video Recorder
+9. Using AJAX with fetch APIs and Axios
+10. Refactoring and Deployment
 
 <br/>
 
@@ -124,7 +155,7 @@ This project focuses on learning the overall basic environment of web developmen
 ## 2. Creating a web server with Expressjs
 
 - [x] **starting the server listening for connection! 'hello world!'**
-  - notes: ~~[http.md]()~~
+  - notes: ~~[http.md](https://github.com/lexie-kaia/Nettube/blob/main/notes/http.md)~~
   - `app.listen()`
   - `app.get()`
 - [ ] **middlewares setup**
@@ -145,7 +176,6 @@ This project focuses on learning the overall basic environment of web developmen
 
 ## 3. Implemening MVC pattern
 
-- notes: [mvc.md]()
 - [X] **API design** 
   | Router | HTTP verb | URL | Payload | Description |
   |:---|:---|:---|:---|:---|
@@ -177,7 +207,6 @@ This project focuses on learning the overall basic environment of web developmen
   |apiRouter|(index)|/api||(index url)|
   ||GET|/api/:videoId/views|req.params \<videoId\>| register video views|
   ||GET|/api/:videoId/comments|req.params \<videoId\>| add comments|
-  - notes: [~~REST API~~]()
 
 - [X] **Contoller draft**
   - [X] `routes.js`
@@ -429,7 +458,6 @@ This project focuses on learning the overall basic environment of web developmen
       `$ yarn add passport-facebook`
     2. [X] register an application
       - https://developers.facebook.com/
-      -
     3. [X] configure strategy
       - clientID
       - clientSecret
@@ -466,13 +494,13 @@ This project focuses on learning the overall basic environment of web developmen
   - [X] css
   - [X] `videoRecorder.js`
 
-## 8. ajax
+## 9. Using AJAX with fetch APIs and Axios
 - [X] registering view
 - [X] adding a comment
   - [X] api route, contoller
   - [X] `videoPlayer.js` -> fetch
   - [X] `addComments.js` -> axios
 
-## 9. refactoring and modify readme.md
-
-## 10. deploy
+## 10. Refactoring and Deployment
+- [X] Refactoring
+- [X] Heroku
