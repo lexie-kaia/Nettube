@@ -6,7 +6,9 @@
 
 <br />
 
-**Youtube clone coding projects built with Node.js and MongoDB**
+**Youtube clone coding projects built with Node.js and MongoDB**  
+
+- [Nettube](https://dry-atoll-77453.herokuapp.com/)
 
 This project focuses on learning **the overall basic environment of web development from scratch using vanilla JavaScript**. The codes are mostly based on Youtube Clone Coding Course on Nomad Coder, but also refers to many other contents including official technical documents. Listed below are the related materials.
 
@@ -23,6 +25,7 @@ This project focuses on learning **the overall basic environment of web developm
 - Deploying with _Heroku_ and _S3_ service
 
 <br />
+<br />
 
 <img src="https://github.com/lexie-kaia/Nettube/blob/main/src/assets/imgs/videodetail.PNG?raw=true" alt="Video detail" />
 <img src="https://github.com/lexie-kaia/Nettube/blob/main/src/assets/imgs/channeldetail.PNG?raw=true" alt="Channel detail" />
@@ -31,23 +34,25 @@ This project focuses on learning **the overall basic environment of web developm
 
 <br/>
 
-<h3>Related Materials</h3>
+## Related Materials
 
-- Nomad Coder
+<h3>References</h3>
+
+#### Nomad Coder
   - [[풀스택]유튜브 클론코딩](https://nomadcoders.co/wetube)
-- Youtube 생활코딩
+#### Youtube 생활코딩
   - [WEB2 - Node.js](https://www.youtube.com/watch?v=3RS_A87IAPA&list=PLuHgQVnccGMA9QQX5wqj6ThK7t2tsGxjm)
   - [WEB3 - Express](https://www.youtube.com/watch?v=hwknmhLKgYg&list=PLuHgQVnccGMAGOQu8CBDO9hn-FXFmm4Wp)
   - [WEB3 - Node.js - Cookie & Auth](https://www.youtube.com/watch?v=i51xW3eh-T4&list=PLuHgQVnccGMDo8561VLWTZox8Zs3K7K_m)
   - [WEB4 - Express Session & Auth](https://www.youtube.com/watch?v=jTct6U8VV5E&list=PLuHgQVnccGMCHjWIDStjaZA2ZR-jwq-WU)
   - [WEB5 - Express Passport.js](https://www.youtube.com/watch?v=INUpGK7dTkk&list=PLuHgQVnccGMCBY2wxKYNzFWe6I1gD5xsX)
   - [Webpack](https://www.youtube.com/watch?v=cp_MeXO2fLg&list=PLuHgQVnccGMChcT9IKopFDoAIoTA-03DA)
-- Groomedu
+#### Groomedu
   - [한 눈에 끝내는 Node.js](https://edu.goorm.io/learn/lecture/557/%ED%95%9C-%EB%88%88%EC%97%90-%EB%81%9D%EB%82%B4%EB%8A%94-node-js)
-- Inflearn
+#### Inflearn
   - [모든 개발자를 위한 HTTP 웹 기본 지식](https://inf.run/cax5)
   - [MongoDB 기초부터 실무까지(feat.Node.js)](https://inf.run/xovo)
-- Technical documents
+#### Technical documents
   - [Node.js learn](https://nodejs.dev/learn)
   - [Express.js Guide, API reference](https://expressjs.com/)
   - [Configure Babel](https://babeljs.io/docs/en/configuration) | [Prettier - Integrating with Linters](https://prettier.io/docs/en/integrating-with-linters.html) | [Configuring ESLint](https://eslint.org/docs/user-guide/configuring/)
@@ -56,7 +61,7 @@ This project focuses on learning **the overall basic environment of web developm
   - [Sass document](https://sass-lang.com/documentation)
   - [Mongoose docs](https://mongoosejs.com/docs/guide.html)
   - [passport.js](http://www.passportjs.org/docs/) | [express-session](https://github.com/expressjs/session/blob/master/README.md) | [Using HTTP cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies) | [passport-local-mongoose](https://github.com/saintedlama/passport-local-mongoose#readme) | [connect-mongo](https://github.com/jdesboeufs/connect-mongo/tree/v3.x)
-- ETC
+#### ETC
   - 김정환블로그 [프론트엔드 개발환경의 이해](https://jeonghwan-kim.github.io/series/2019/12/09/frontend-dev-env-npm.html)
   - [REST API Tutorial](https://restfulapi.net/)
 
